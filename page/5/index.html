@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Anti">
-<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta property="og:url" content="http://antinomy.top/page/5/index.html">
 <meta property="og:site_name" content="Anti">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anti">
@@ -48,12 +48,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://antinomy.top"></form>
       </div>
     </div>
   </div>
@@ -61,9 +61,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="mobile-Art-2014-2014-07-27-IDDD-7" class="article article-type-mobile" itemscope itemprop="blogPost">
+    <article id="mobile-Art-2014-2014-09-18-WeridIssue-NotFoundedLine" class="article article-type-mobile" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/30/Art-2014-2014-07-27-IDDD-7/" class="article-date">
+    <a href="/2015/03/30/Art-2014-2014-09-18-WeridIssue-NotFoundedLine/" class="article-date">
   <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
 </a>
     
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Art-2014-2014-07-27-IDDD-7/">IDDD 7 DomainService</a>
+      <a class="article-title" href="/2015/03/30/Art-2014-2014-09-18-WeridIssue-NotFoundedLine/">Weird Issue - Line NotFound</a>
     </h1>
   
 
@@ -87,15 +87,566 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-七-领域服务"><a href="#lt-lt-实现领域驱动设计-gt-gt-七-领域服务" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 七: 领域服务"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 七: 领域服务</h1><pre><code>领域服务是用于处理业务逻辑，无状态的操作。
-确定是否需要使用，不要滥用，滥用导致贫血模型。
-</code></pre><p><a href="/source/img/2014/0727-IDDD_7.png" target="_blank"><br><img src="/source/img/2014/0727-IDDD_7.png" alt="img"><br></a></p>
-<h2 id="MindMapping-Source-Org-Format"><a href="#MindMapping-Source-Org-Format" class="headerlink" title="MindMapping Source (Org Format):"></a>MindMapping Source (Org Format):</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 领域服务</span><br><span class="line">** 什么是？</span><br><span class="line">*** 无状态的操作</span><br><span class="line">*** 处理业务逻辑</span><br><span class="line">** 什么不是？</span><br><span class="line">*** 不是应用服务</span><br><span class="line">    SOA，RPC，MoM</span><br><span class="line">** 确定是否需要？</span><br><span class="line">   不要滥用，滥用导致贫血模型</span><br><span class="line">** 建模</span><br><span class="line">*** 独立接口有必要？</span><br><span class="line">    没有，不会有另外的实现类的时候不必要</span><br><span class="line">*** 一个计算过程</span><br><span class="line">    业务逻辑绝不放在应用层</span><br><span class="line">*** 转换服务</span><br><span class="line">    用于集成限界上下文</span><br><span class="line">*** 创建迷你层</span><br><span class="line">    取决领域模型特征</span><br><span class="line">*** 测试</span><br><span class="line">    从客户端角度</span><br></pre></td></tr></table></figure>
+        <h1 id="疑难杂症-找不到的线"><a href="#疑难杂症-找不到的线" class="headerlink" title="疑难杂症 : 找不到的线"></a>疑难杂症 : 找不到的线</h1><blockquote>
+<p><img src="/img/2014/LineNotFound-1.png" alt="img"></p>
+</blockquote>
+<hr>
+<p>#找不到的线</p>
+<p>##起因<br> 在最近的工作中，遇到一个简单地不能再简单的需求，把图片里的一条横线改个颜色。</p>
+<p> 拥有多年PS（涂鸦）经验的老夫以为可以秒杀这个需求，万万没想到，竟花费了我几天的时间才搞定。</p>
+<p>##分析<br> 按照常识，那条横线一般都会是一张图片，找到源文件PS一下就搞定。</p>
+<p>但是，当我查看放图片的目录时就震惊了，木有！！</p>
+<blockquote>
+<p><img src="/img/2014/LineNotFound-3.png" alt="img"></p>
+</blockquote>
+<p>##困境<br> 这时我就下意识地觉得这条简单的横线可能是用js+css绘制的，瞬间觉得原作者高大上起来。</p>
+<p> 可是在查看了所有的js和css代码之后，我陷入了深深的绝望之中。木有，还是木有！！！</p>
+<p>##排除<br>  在我陷入困境几天之后，好心的同事S提醒我试试排除法。<br>  于是经过一轮HTML的注释之后，我找到的Root Cause！</p>
+<p>##解决</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">background</span>=<span class="string">"bg.png"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>放大图片一看,焕然大悟!!</p>
+<blockquote>
+<p><img src="/img/2014/LineNotFound-2.png" alt="img"></p>
+</blockquote>
+<p>原来还是图片,不过是用一条很长的竖线里一个很猥琐的点,去平铺而成的横线!! Orz</p>
+<hr>
+<p>#总结</p>
+<p>##答案总在不经意的时候逃过<br>    1.有些问题的确不容易一下找到答案,往往解决方案就在附近却视而不见。</p>
+<pre><code>2.人往往容易往复杂的地方去想，蓦然回首却发现答案很简单。
+
+3.实在不行的时候，试试排除法吧。囧
+</code></pre><p>##吐糟<br> 最后吐槽下这个设计，这样高明（猥琐）的设计往往带来维护的复杂性。</p>
+<p> 很多时候，还是Keep it simple 比较好。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-27-IDDD-7/" data-id="cjf9gd87l000bvzzn9drmktjr" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-09-18-WeridIssue-NotFoundedLine/" data-id="cjf9ol84x00197jznq01bluih" class="article-share-link">Compartir</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TroubleShoot/">TroubleShoot</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="mobile-Art-2014-2014-10-14-TheLittleMocker" class="article article-type-mobile" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/30/Art-2014-2014-10-14-TheLittleMocker/" class="article-date">
+  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Art/">Art</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/30/Art-2014-2014-10-14-TheLittleMocker/">The Little Mocker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="The-Little-Mocker"><a href="#The-Little-Mocker" class="headerlink" title="The Little Mocker"></a>The Little Mocker</h1><p><img src="http://files.colabug.com/forum/201405/09/122549a1wfhyfn11wsrfsr.jpg.thumb.jpg" alt="img"></p>
+<p>关于Mock和Stub之间的区别，我一直没搞明白。</p>
+<p>直到看了Uncle Bob的<a href="http://blog.8thlight.com/uncle-bob/2014/05/14/TheLittleMocker.html" target="_blank" rel="noopener">The Little Mocker</a> ，才知道里面的水还挺深的，我姑且尝试把它翻译一下：</p>
+<hr>
+<h1 id="小Mocker"><a href="#小Mocker" class="headerlink" title="小Mocker"></a>小Mocker</h1><p>作者:Uncle Bob<br>译者:A生  </p>
+<p>接下来的讨论是关于mocking：</p>
+<p>这是什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一个interface.</p>
+</blockquote>
+<p>那么这样呢?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DummyAuthorizer</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>那是Dummy</p>
+</blockquote>
+<p>那你拿Dummy做什么呢?</p>
+<blockquote>
+<p>你把它传入某地方,但你并不在意怎么用它的时候.</p>
+</blockquote>
+<p>就像?</p>
+<blockquote>
+<p>作为测试的一部分,当必须要传入一个参数,但你知道那个参数永远不会用到的时候.</p>
+</blockquote>
+<p>能举个例子么?</p>
+<blockquote>
+<p>当然.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">System</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">System</span><span class="params">(Authorizer authorizer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.authorizer = authorizer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">loginCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//returns number of logged in users.</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">newlyCreatedSystem_hasNoLoggedInUsers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System system = <span class="keyword">new</span> System(<span class="keyword">new</span> DummyAuthorizer());</span><br><span class="line">    assertThat(system.loginCount(), is(<span class="number">0</span>));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>我懂了.为了能构造系统,必须传入一个Authorizer到构造函数里;但authorize方法永不会被调用到,所以在这个测试里,没有人会登陆入.</p>
+<blockquote>
+<p>你懂的.</p>
+</blockquote>
+<p>所以DummyAuthorizer的authorize方法返回一个null并不是一个错误.</p>
+<blockquote>
+<p>其实不是.事实上,一个Dummy最好能有所返回.</p>
+</blockquote>
+<p>为什么呢?</p>
+<blockquote>
+<p>因为任何人尝试用这个Dummy,他们会得到一个NullPointerException.</p>
+</blockquote>
+<p>啊,你不想这个Dummy被使用.</p>
+<blockquote>
+<p>对!它只是一个dummy.</p>
+</blockquote>
+<p>但这不是一个mock?我以为那些测试对象叫做mocks.</p>
+<blockquote>
+<p>它们是;但那是行话.</p>
+</blockquote>
+<p>行话?</p>
+<blockquote>
+<p>是的,”mock”这个词汇,有时被用于一种非正式的场合,用来代表测试对象的整个家族.</p>
+</blockquote>
+<p>那么这些测试对象们有一个正式的名字么?</p>
+<blockquote>
+<p>有,它们叫做”Test Doubles” [1].</p>
+</blockquote>
+<p>你指像电影里的”替身”么?</p>
+<blockquote>
+<p>必须滴.</p>
+</blockquote>
+<p>那么”mock”这个词只是通俗的行话?</p>
+<blockquote>
+<p>不,它也有一个正式的含义;但当我们非正式说mock时,它是Test Double的同义词.</p>
+</blockquote>
+<p>为什么我们得有2个词?不能只用Test Double代替Mock么?</p>
+<blockquote>
+<p>历史原因.</p>
+</blockquote>
+<p>历史?</p>
+<blockquote>
+<p>是的,很久之前某个很聪明的人写了一篇<a href="http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF" target="_blank" rel="noopener">文章</a>来介绍和定义什么Mock对象.很多人读过并且开始使用这个词.没有读过的人听到这个词,也开始广义地使用.他们甚至把它变成动词,他们会说:”让我们mock那个对象吧”,或 “我们有很多的mocking要做”.</p>
+</blockquote>
+<p>很多词汇都发生过类似的事情,不是么?</p>
+<blockquote>
+<p>的确是的.特别是当一个词只有一个音节,那是容易说出的.</p>
+</blockquote>
+<p>耶，我猜那会容易说些：“让我们mock它吧” 而不是 “让我们为此做个测试替身吧”.</p>
+<blockquote>
+<p>对, 口语是生活的一种现实.</p>
+</blockquote>
+<p>OK,但我们需要精确的说呢…</p>
+<blockquote>
+<p>那你应该用正式的语言.</p>
+</blockquote>
+<p>那什么是Mock呢?</p>
+<blockquote>
+<p>在我们说那之前,我们应该看下其他种类的测试替身.</p>
+</blockquote>
+<p>比如?</p>
+<blockquote>
+<p>先看下Stubs</p>
+</blockquote>
+<p>什么是stub?</p>
+<blockquote>
+<p>这,就是一个stub:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerStub</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它返回ture.</p>
+<blockquote>
+<p>那就是.</p>
+</blockquote>
+<p>为什么?</p>
+<blockquote>
+<p>好的,假设你要测试你的系统的一部分其中需要你先登陆.</p>
+</blockquote>
+<p>那我就登陆咯.</p>
+<blockquote>
+<p>但你早已知道登陆是可行的,你在其他地方测试了它,为什么要测试多一次?</p>
+</blockquote>
+<p>因为那样容易?</p>
+<blockquote>
+<p>但是那样耗时,也需要做配置先. 如果登陆里有bug,那你的测试会失败.<br>毕竟, 那是不必要的耦合.</p>
+</blockquote>
+<p>Hmmm,好吧,为了有效的辩论,当我同意吧,下一步应该?</p>
+<blockquote>
+<p>你为了那测试,简单注入AcceptingAuthorizerStub到你的系统里.</p>
+</blockquote>
+<p>它会毫无疑问地去授权用户.</p>
+<blockquote>
+<p>对</p>
+</blockquote>
+<p>所以如果我想测试没有授权过的用户时,我应该用一个返回false的stub.</p>
+<blockquote>
+<p>又对了.</p>
+</blockquote>
+<p>Ok,那还有别的什么?</p>
+<blockquote>
+<p>还有这个:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerSpy</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">boolean</span> authorizeWasCalled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    authorizeWasCalled = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我觉得那叫作Spy.</p>
+<blockquote>
+<p>正确.</p>
+</blockquote>
+<p>所以我为什么要这样用呢?</p>
+<blockquote>
+<p>当你需要确定authorize方法一定会被系统调用的时候,你会这么做.</p>
+</blockquote>
+<p>啊,我懂了.在我的测试里注入像一个stub的东西,但在测试的最后会检测变量authorizerWasCalled去确保系统是否真的调用了authorize方法.</p>
+<blockquote>
+<p>完全正确.</p>
+</blockquote>
+<p>所以一个Spy,侦查了调用者,我觉得它能记录所有这种类型的事情.</p>
+<blockquote>
+<p>它的确能做到,例如,它能算出调用的总次数.</p>
+</blockquote>
+<p>yeah,或者它能保持一个列表来记录每次传入的参数.</p>
+<blockquote>
+<p>对的,你可以通过Spies去了解,在测试的对象里的算法是如何工作的.</p>
+</blockquote>
+<p>听起来像耦合.</p>
+<blockquote>
+<p>那是!你不得不小心点. Spy用得越多,你的测试就越耦合你系统的实现,最终导致易脆的测试.</p>
+</blockquote>
+<p>什么是易脆的测试?</p>
+<blockquote>
+<p>一个测试破坏了一些不应该去破坏一个测试的理由.</p>
+</blockquote>
+<p>如若你改变系统里的代码,某些测试也会受到破坏.</p>
+<blockquote>
+<p>对,但设计良好的测试能最小化那种破坏,Spies恰恰与之相反.</p>
+</blockquote>
+<p>OK,我懂了.那还有别的测试替身么?</p>
+<blockquote>
+<p>还有2种,第一种是:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerVerificationMock</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">boolean</span> authorizeWasCalled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    authorizeWasCalled = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">verify</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> authorizedWasCalled;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然,这是一个mock.</p>
+<blockquote>
+<p>对,一个真正的Mock.</p>
+</blockquote>
+<p>真正的?</p>
+<blockquote>
+<p>对,这是一个正式的mock对象,与字面上的含义一致.</p>
+</blockquote>
+<p>我明白了,它看起来像你把测试里的断言移至verify方法里,真正的mock.</p>
+<blockquote>
+<p>对,Mocks知道他们在测试什么.</p>
+</blockquote>
+<p>所以那是?你只是把断言放入mock里?</p>
+<blockquote>
+<p>不完全,是,断言放入了mock里.然而,mock在测试的是<em>行为</em>.</p>
+</blockquote>
+<p>行为?</p>
+<blockquote>
+<p>对, mock并不关心函数返回的值.它关心的什么函数被调用,调用了什么参数,什么时候和有多频繁被调用.</p>
+</blockquote>
+<p>所以一个mock经常是一个spy?</p>
+<blockquote>
+<p>对,一个mock调查了被测试模块的行为,它知道什么样的行为是被期待的.</p>
+</blockquote>
+<p>Hmmm,把期望搬入mock里感觉上是一种耦合.</p>
+<blockquote>
+<p>那是.</p>
+</blockquote>
+<p>那为什么呢?</p>
+<blockquote>
+<p>那样写一个mocking工具会容易的多.</p>
+</blockquote>
+<p>一个mocking工具?</p>
+<blockquote>
+<p>是的,像JMock,EasyMock,或Mockito等.那些工具能让你飞一般去创建mock对象.</p>
+</blockquote>
+<p>看起来很复杂.</p>
+<blockquote>
+<p>那倒不会,<a href="http://martinfowler.com/articles/mocksArentStubs.html" target="_blank" rel="noopener">这里</a>有Martin Fowler一篇介绍它的著名文章.</p>
+</blockquote>
+<p>那是不是还有一本关于它的书,有么?</p>
+<blockquote>
+<p>有,<a href="http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627" target="_blank" rel="noopener">Growing Object Oriented Software, Guided by Tests</a>就是一本关于驱动mock的主流设计哲学的书.</p>
+</blockquote>
+<p>Ok, 所以完了? 你说过还有另外一种的.</p>
+<blockquote>
+<p>对, 再多一种, Fakes.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerFake</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username.equals(<span class="string">"Bob"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>ok,那样很奇怪,所有叫做”Bob”的用户都会被授权.</p>
+<blockquote>
+<p>对, 一个Fake有业务上的行为. 你可以驱动一个fake根据不同的数据表现出不同的行为.</p>
+</blockquote>
+<p>看起来像虚拟器.</p>
+<blockquote>
+<p>对,虚拟器是fakes.</p>
+</blockquote>
+<p>Fakes不是stubs吧?</p>
+<blockquote>
+<p>不是,faker有真正业务上的行为;stubs没有. 事实上,我们之前谈论的测试替身没有一种包含真正业务行为.</p>
+</blockquote>
+<p>所有fakes在基础概念上完全不同的.</p>
+<blockquote>
+<p>的确是.我们可以这样说: 一个Mock是一种spy,一个spy是一种stub,而一个stub是一种dummy. 不是fake 不是它们中的任何一种. 它是完全不同类型的测试替身.</p>
+</blockquote>
+<p>我可以想象fakes会复杂起来.</p>
+<blockquote>
+<p>它们可以变得极端的复杂,所以它们会复杂到需要自己的单元测试.在极端情况下,fakes变成了真正的系统.</p>
+</blockquote>
+<p>Hmmm.</p>
+<blockquote>
+<p>对,Hmmm. 我不常写fakes,事实上,三十多年来我没有写过一个.</p>
+</blockquote>
+<p>Wow! 那你会写什么? 其他剩下的测试替身么?</p>
+<blockquote>
+<p>最多用的是stubs和spyies. 我自己写的,我不常用mocking工具.</p>
+</blockquote>
+<p>那你用Dummies么?</p>
+<blockquote>
+<p>对, 但极少.</p>
+</blockquote>
+<p>那mocks呢?</p>
+<blockquote>
+<p>只有我用mocking工具的时候用.</p>
+</blockquote>
+<p>但你说过你不用mocking工具.</p>
+<blockquote>
+<p>对,我通常不会用.</p>
+</blockquote>
+<p>为什么不?</p>
+<blockquote>
+<p>因为stubs 和 spies是很容易写的, 我的IDE让此变的简单.我只要指着接口告诉IDE去实现它,瞧!它就给我一个dummy了.所以我只需要一个小小改变就能变成stub 或spy.所以我真的很少用mocking工具.</p>
+</blockquote>
+<p>所以它只是为了方便?</p>
+<blockquote>
+<p>对, 事实上我不喜欢mocking工具的奇怪语法,还有配置它们的复杂性. 我发现写自己的测试替身在多数情况下会比较简单.</p>
+</blockquote>
+<p>OK, 好的, 谢谢你的对话.</p>
+<blockquote>
+<p>随时欢迎.</p>
+</blockquote>
+<hr>
+<p>[1] <a href="http://www.amazon.com/xUnit-Test-Patterns-Refactoring-Code/dp/0131495054" target="_blank" rel="noopener">xUnit Test Patterns</a></p>
+<hr>
+<p>PS: 最后,A生简单的介绍它们之间的关系:</p>
+<p><img src="/img/2014/Mocks.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-10-14-TheLittleMocker/" data-id="cjf9ol850001c7jznvmr283sc" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="mobile-Art-2014-2014-11-20-HexArchitecture" class="article article-type-mobile" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/30/Art-2014-2014-11-20-HexArchitecture/" class="article-date">
+  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Art/">Art</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/30/Art-2014-2014-11-20-HexArchitecture/">Hex Architecture</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="六边形架构"><a href="#六边形架构" class="headerlink" title="六边形架构"></a>六边形架构</h1><p><img src="/img/2014/0721-HexagonalArchitecture.jpg" alt="img"><br>第一次看到六边形架构,是从《IDDD》这本书里看到的,当时就觉得这是和DDD相当match的架构.<br>稍微研究了下,发现Alistair Cockburn这篇<a href="http://alistair.cockburn.us/Hexagonal+architecture" target="_blank" rel="noopener">《Hexagonal Architecture》</a><br>详细地介绍什么是六边形架构,按照惯例, A生假假地的翻译了一下.</p>
+<hr>
+<h1 id="六边形架构-1"><a href="#六边形架构-1" class="headerlink" title="六边形架构"></a>六边形架构</h1><p>作者 : Alistair Cockburn<br>译者 : A生  </p>
+<pre><code>创建一个既不需要UI也不需要DB就能工作的应用程序,那样你就能针对它去运行自动化的回归测试,即使DB挂了也能继续工作,不需要任何用户参与,就能和其他应用程序连接起来.
+</code></pre><p><img src="/img/2014/Hexagonal-1.jpg" alt="img"></p>
+<h1 id="模式-端口与设配器-“对象结构”"><a href="#模式-端口与设配器-“对象结构”" class="headerlink" title="模式: 端口与设配器 (“对象结构”)"></a>模式: 端口与设配器 (“对象结构”)</h1><hr>
+<p><em>别名 : 端口与设配器</em><br><em>别名 : 六边形架构</em>  </p>
+<h2 id="意图"><a href="#意图" class="headerlink" title="意图"></a>意图</h2><p>允许一个应用程序平等地被用户,程序,自动化测试和批处理脚本所驱动,可被单独开发和测试于最终运行时的设备和数据库.  </p>
+<p>从外面世界进来的事件到达某一个端口,一个技术意义上的设配器把它转换成一个过程调用或消息后传入应用程序.应用程序幸福地忽略输入设备的本来面目.当应用程序发送某些东西出去时,它通过某个端口发送至某个设配器,去创建被接收技术方(人工或自动)所需要的适当的信号.应用程序从语义上通过适配器和各处交互,而不需要去知道设配器另一端的本来面目.</p>
+<p><img src="/img/2014/Hexagonal-2.gif" alt="img"></p>
+<h1 id="特性-1"><a href="#特性-1" class="headerlink" title="特性 1"></a>特性 1</h1><h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>这些年来软件应用程序里最大的问题之一,就是把业务逻辑渗透在用户接口的代码里.<br>由此引起的问题有三部分:   </p>
+<ul>
+<li>第一,系统不能被自动化测试套件整洁地测试,因为部分需要被测试的逻辑依赖经常变化的可视化细节,如字段长度和按钮位置等;</li>
+<li>因为同样的原因,它变得不可能从一个人肉使用的系统变成一个批处理的系统;</li>
+<li>还是同样的原因,当系统开始受欢迎的时候,它变得困难或不可能去允许该程序被另外的程序所驱动.  </li>
+</ul>
+<p>在许多组织里重复的,一种尝试了的解决方案,就是创建一个分层的架构.<br>在那个时候去承诺,真心诚意地去承诺,没有业务逻辑会放到新的分层里.<br>但是,当发生了破坏承诺的时候,却没有一种机制能够检测出.<br>组织会发现若干年后,新的分层和业务逻辑混在一起,老问题又再次出现了.  </p>
+<p>现在想象应用程序提供的“每一片”功能，是以API（application programmed interface) 或函数调用的形式出现。<br>在这种情况下，当任何新的代码破坏现有可工作的功能的时候，测试或QA部门可通过运行自动化测试脚本来针对应用程序去发现问题。<br>业务专家可以在GUI细节最终确定之前，创建自动化测试用例，去告诉程序员，什么才是他们的工作正确完成的时候。（那些测试由测试部门来运行）。<br>应用程序可用“headless”模式去部署，所以只有API是有效的，其他的程序可利用它的功能——简化了整个复杂系统套件的设计，同时也许可了每一个Web上无需人介入的“business-to-business”的应用服务。<br>最后，自动化了功能上的回归测试，检测出了任何违背了把业务逻辑放在表现层之外的承诺。组织可以检测和修正逻辑泄露。  </p>
+<p>另外一个类似的有趣问题，什么是被认为是正常的应用程序的“另一边”，那里是应用程序逻辑被绑定在外部的数据库或设备？当数据库服务器停机或进行重大的修订或替换时，程序员就不能继续工作，因为他们的工作绑定在数据库上。这会导致延迟成本和人们会经常感觉到很糟糕。</p>
+<p>以上2个问题看起来不是很明显的相关，但它们在自然的解决方案中却显现出了对称性。</p>
+<h2 id="自然的解决方案"><a href="#自然的解决方案" class="headerlink" title="自然的解决方案"></a>自然的解决方案</h2><p>客户端和服务器端两边的问题都是因为设计和编程上的同一个错误——业务逻辑和与外部实体交互之间的纠缠不清。<br>不对称的探索，不是在应用程序的“左边”和“右边“之间，而是应该在应用程序的”内部“和”外部“之间。这样的规则履行了与”内部“相关的代码不应该泄露到”外部“去。  </p>
+<p>暂时移除任何左右或上下的不对称，我们看到了应用程序通过“端口”与外部代理们沟通。<br>“端口”一词应会引起联想到操作系统层面的端口，任何设备都可以插入使用某种协议的端口那里。同样道理，“端口”在电子产品那，任何设备只要符合规格，都可以插入电子产品里。  </p>
+<pre><code>端口的协议就是为了两个设备之间的会话。  
+</code></pre><p>这样的协议以API的形式出现。  </p>
+<p>每一个外部设备都有一个“设配器”，把API所定义的信号转换到设备所需要的，反之亦然。<br>一个图形化的用户接口或GUI就是一个设配器的例子，映射了一个人在API端口上的动作。<br>其他的设配器在同一个端口上则是自动化测试的安全带，例如FIT或Fitnesse，批处理驱动器，和任何为了应用程序和整体或网络之间沟通的代码。  </p>
+<p>在应用程序的另一边，应用程序通过与外部实体沟通来获得数据。<br>数据库协议就是一种经典的协议。<br>从应用程序的角度，如果数据库从一个SQL数据库迁移到一个扁平的文件或其他类型的数据库，通过API的转换应该没有改变。<br>在同一个端口上增加的设配器应该包括一个SQL设配器，一个文件设配器。<br>最重要的，一个去连接到“mock”数据库，一个停留在内存里和完全不依赖真正数据库的设配器。  </p>
+<p>许多应用程序只有2个端口：客户端的对话和数据库端的对话。<br>这让他们以不对称的形式出现，从而让看起来像是创建一个一维的，3/4/5层的架构的应用程序。  </p>
+<p>这样的图纸会有2个问题。<br>第一、并且是最坏的情况，人们通常不会认真地对待分层中的“边界线”。他们会让应用程序的逻辑泄露在层级边界之外，导致以上所说的问题。<br>第二、应用程序可能会有超过2个以上的端口，所以架构上并不对应一维的层设计。  </p>
+<p>六边形(或端口与设配器)架构通过在这种情况下注意到对称性来解决了这些问题：<br>一个应用程序在内部，通过某些端口与外界的东西交互。应用程序外面的东西能够尽早地去处理对称性。  </p>
+<p>六边形有意在视觉上突出  </p>
+<p>(a) 内外的对称性和相似自然的端口,摆脱了一维层视图和所有的调用,和<br>(b) 不同端口定义的存在数量——2,3 或4个 (4个是我最常遇到的)</p>
+<p>六边形不是六边的是因为数字6很重要,而是允许人们进行绘制是有空间去放入他们所需要的端口和设配器,不限制于一维层次的绘制。术语“六边形架构”是来自可视化的效果。  </p>
+<p>术语“端口与设配器”拾起了部分绘制的“目的”。端口定义了有目的的会话。通常会有多个设配器对应一个端口，为了多样的技术可插入端口内。 有代表性的，它们可以包括一个电话机器应答，一个人工应答，一个按键式电话，一个图形化人机界面，一个测试装置，一个批处理驱动器，一个http接口，一个程序到程序的接口，一个mock（内存内）数据库，一个真正的数据库（可能有不同的数据库用于开发。测试和实际使用）。  </p>
+<p>在应用程序里，左右不对称将再次带出来，无论如何，这个模式的主要目的是集中于内外不对称，从应用程序的角度，假装短暂地识别所有的外面组件。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="/img/2014/Hexagonal-3.gif" alt="img"></p>
+<h1 id="特性-2"><a href="#特性-2" class="headerlink" title="特性 2"></a>特性 2</h1><p>特性2显示了一个应用程序有着2个活动端口和用于同一个端口多个设配器。那2个端口分别是应用程序控制方面和数据检索方面。这样的绘制显示出应用程序可以被平等地驱动于：一个自动化、系统级别的回归测试套件，一个人类用户，一个远程的http应用程序，或者另一个应用程序。在数据方面，应用程序从外部数据库解耦，可以被配置运行在一个内存内的Oracle，或“mock”，数据库替换者；或者它可以运行在针对测试的或运行时的数据库。应用程序功能上的规格，或许在用例内，是针对与六边形内部的接口，而不是针对任何一个外部的技术可能用到的接口。   </p>
+<p><img src="/img/2014/Hexagonal-4.gif" alt="img"></p>
+<h1 id="特性-3"><a href="#特性-3" class="headerlink" title="特性 3"></a>特性 3</h1><p>特性3显示出同一个应用程序对应一个三层架构绘制。每一个端口简化到只有2个适配器。这样的绘制趋势于去显示，多个适配器怎样去适应于顶层和低层，和在开发系统中被用到的，多个适配器之间的序列。编号的箭头显示出一个团队和应用程序可能会用到的次序：</p>
+<ol>
+<li>用于被应用程序驱动的一个FIT测试设备和用着取代真正数据库的mock（内存内）数据库；  </li>
+<li>增加一个GUI到应用程序，仍然跑在mock数据库。  </li>
+<li>在集成测试里，针对于一个真正包含测试数据的数据库，运行自动化测试脚本（如从Cruise Control）去驱动应用程序。  </li>
+<li>真正地去使用，一个人通过应用程序去访问真正的数据库。  </li>
+</ol>
+<h2 id="样例代码"><a href="#样例代码" class="headerlink" title="样例代码"></a>样例代码</h2><p>幸运地可以通过FIT的文档，一个最简化应用程序去演示端口与适配器。它是一个简单的折扣计算的应用程序：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">discount(amount) = amount * rate(amount);</span><br></pre></td></tr></table></figure>
+<p>在我们的程序里，amount会来自用户和rate会来自一个数据库，所以那里会有2个端口。<br>我们实现它们在以下步骤：</p>
+<ul>
+<li>测试取代mock数据库的一个固定的rate</li>
+<li>然后是GUI</li>
+<li>然后是一个可被切换到真正数据库的mock数据库</li>
+</ul>
+<p><em>感谢在IHC的Gyan Sharma 提供这个例子的代码。</em></p>
+<h3 id="步骤1：-FIT-App-constant-as-mock-database"><a href="#步骤1：-FIT-App-constant-as-mock-database" class="headerlink" title="步骤1： FIT App constant-as-mock-database"></a>步骤1： FIT App constant-as-mock-database</h3><p>首先我们创建测试用例通过一个HTML table(看FIT文档如下):</p>
+<table><br><tbody><tr><br><td> TestDiscounter </td><td> </td><br></tr><br><tr><br><td> amount  </td><td> discount() </td><br></tr><br><tr><br><td> 100  </td><td> 5 </td><br></tr><br><tr><br><td> 200  </td><td>10 </td><br></tr><br></tbody></table>
+
+<p>注意列名会变成class和function名字在我们的应用程序里。<br>FIT包括了摆脱这种“programmerese”的道路，但是为了这篇文章会简单地把它们放进来。  </p>
+<p>知道了那些会是测试的数据，我们创建用户边的设配器，来自FIT里的ColumnFixture如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fit.ColumnFixture; </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDiscounter</span> <span class="keyword">extends</span> <span class="title">ColumnFixture</span> </span></span><br><span class="line"><span class="class"></span>&#123; </span><br><span class="line">   <span class="keyword">private</span> Discounter app = <span class="keyword">new</span> Discounter(); </span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">double</span> amount;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">discount</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">   </span>&#123; <span class="keyword">return</span> app.discount(amount); &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际上那里的所有都是到设配器的，目前为止，测试可从命令行里运行（看FIT的书会有你所需要的路径）。我们使用这个：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set FIT_HOME=<span class="regexp">/FIT/</span>FitLibraryForFit15Feb2005</span><br><span class="line">java -cp %FIT_HOME%<span class="regexp">/lib/</span>javaFit1<span class="number">.1</span>b.jar;%FIT_HOME%<span class="regexp">/dist/</span>fitLibraryForFit.jar;src;bin</span><br><span class="line">fit.FileRunner test/Discounter.html TestDiscount_</span><br></pre></td></tr></table></figure>
+<p>FIT 生产出一个导出的文件，通过颜色告诉我们那些测试通过了（或者失败，唯一我们在过程中从那里打错了）   </p>
+<p>在这个点上的代码已经准备好去check in，集成在Cruise Control或你自己的自动化构建机器里，包括在构建-测试套件里。</p>
+<h3 id="步骤2：-UI-App-constant-as-mock-database"><a href="#步骤2：-UI-App-constant-as-mock-database" class="headerlink" title="步骤2： UI App constant-as-mock-database"></a>步骤2： UI App constant-as-mock-database</h3><p>我会让你去创建属于你自己的UI和让它驱动Discounter应用程序，因为代码放在这里有点过长，某些关键的代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   ...</span><br><span class="line"> Discounter app = <span class="keyword">new</span> Discounter();</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent event)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">   String amountStr = text1.getText();</span><br><span class="line">   <span class="keyword">double</span> amount = Double.parseDouble(amountStr);</span><br><span class="line">   discount = app.discount(amount));</span><br><span class="line">   text3.setText( <span class="string">""</span> + discount );</span><br><span class="line">   ...</span><br></pre></td></tr></table></figure>
+<p>在这个点上的代码可以去被演示和回归测试。用户端的设配器都已运行中。</p>
+<h3 id="步骤3：-FIT-or-UI-App-mock-database"><a href="#步骤3：-FIT-or-UI-App-mock-database" class="headerlink" title="步骤3：  (FIT or UI) App mock database"></a>步骤3：  (FIT or UI) App mock database</h3><p>去创建一个可替换的数据库端的设配器，我们为一个仓储创建一个“接口”，一个“RepositoryFactory” 会生产出要么模拟数据库、要么真正的服务的对象，在内存里去模拟数据库。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RateRepository</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">double</span> <span class="title">getRate</span><span class="params">(<span class="keyword">double</span> amount)</span></span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RepositoryFactory</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">RepositoryFactory</span><span class="params">()</span> </span>&#123;  <span class="keyword">super</span>(); &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RateRepository <span class="title">getMockRateRepository</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> MockRateRepository();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MockRateRepository</span> <span class="keyword">implements</span> <span class="title">RateRepository</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getRate</span><span class="params">(<span class="keyword">double</span> amount)</span> </span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(amount &lt;= <span class="number">100</span>) <span class="keyword">return</span> <span class="number">0.01</span>;</span><br><span class="line">      <span class="keyword">if</span>(amount &lt;= <span class="number">1000</span>) <span class="keyword">return</span> <span class="number">0.02</span>;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0.05</span>;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>挂钩这个设配器到Discounter应用程序内，我们需要更改下应用程序自身，去接受使用一个repository设配器，和让（FIT / UI）用户端的设配器传入repository去使用（real or mock）到应用程序的构造函数里。<br>这里有已更改的应用程序和一个FIT设配器传入一个模拟的repository。<br>（FIT设配器的代码，选择是否传入到模拟或真实repository的设配器里，在没有增加太多新的信息情况下有点过长，所以我在这里省略的那个版本）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> repository.RepositoryFactory;</span><br><span class="line"><span class="keyword">import</span> repository.RateRepository;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Discounter</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">private</span> RateRepository rateRepository;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Discounter</span><span class="params">(RateRepository r)</span> </span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">super</span>();</span><br><span class="line">      rateRepository = r;</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">discount</span><span class="params">(<span class="keyword">double</span> amount)</span> </span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">double</span> rate = rateRepository.getRate( amount ); </span><br><span class="line">      <span class="keyword">return</span> amount * rate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">import</span> app.Discounter;</span><br><span class="line"><span class="keyword">import</span> fit.ColumnFixture;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDiscounter</span> <span class="keyword">extends</span> <span class="title">ColumnFixture</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">private</span> Discounter app = </span><br><span class="line">       <span class="keyword">new</span> Discounter(RepositoryFactory.getMockRateRepository());</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">double</span> amount;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">discount</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> app.discount( amount );</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那样就包括了实现六边形架构的最简单的版本。</p>
+<p>另外一个不同的实现，使用Ruby和Rack为了浏览器使用，详情：<br><a href="https://github.com/totheralistair/SmallerWebHexagon" target="_blank" rel="noopener">https://github.com/totheralistair/SmallerWebHexagon</a></p>
+<h2 id="应用程序指南"><a href="#应用程序指南" class="headerlink" title="应用程序指南"></a>应用程序指南</h2><h3 id="左右不对称"><a href="#左右不对称" class="headerlink" title="左右不对称"></a>左右不对称</h3><p>端口和设配器模式是故意把所有的端口都写上去像是从根本上是相似的。那样的假装在架构层面是有用的。<br>在实现阶段，端口和设配器显示出2种风味，我将其称之为“主要的”和“次要的”，理由很快会揭晓。它们可称之为“驱动”设配器和“被驱动”设配器。  </p>
+<p>警觉的读者会注意到所有已给的例子里，FIT fixtures是用了左边端口而mock在右边。<br>在三层的架构里，FIT 坐落在顶层而mock坐落在底层。  </p>
+<p>相关的主意是来自“主角”和“次角”的例子。“主角”是驱动了应用程序（改变静止的状态和执行某个已知的功能）。“次角”是被应用程序所驱动的，无论是从中获取应答还是仅仅是通知。“主角”和“次角”的差别是在于谁触发了或者是负责了会话。  </p>
+<p>FIT是代替主角的自然测试设配器，从框架设计成读取一个脚本和驱动应用程序开始。<br>mock是代替了“次角”的自然测试设配器，从被设计成从应用程序里去应答查询和记录事件开始。  </p>
+<p>这些观察带领我们服从系统的用例上下文图，和在六边形的左边（或顶层）去绘制“主要端口”和“主要适配器”，在六边形的右边（或底层）去绘制“次要端口”和“次要适配器”。  </p>
+<p>主次要端口和设配器之间的关系，和他们在FIT和mock的各自实现，记在脑子里是有用的，但应该是用来作为使用端口和设配器架构的结论，而不是简化之。<br>实现端口和设配器的最终好处从一个完全隔离模式敏捷地去运行应用程序。  </p>
+<h3 id="用例和应用程序边界"><a href="#用例和应用程序边界" class="headerlink" title="用例和应用程序边界"></a>用例和应用程序边界</h3><p>使用六边形架构模式是有用地去加强，编写用例的首选模式。  </p>
+<p>编写用例通常会犯的错误是，在每个端口外面包含了亲密的技术知识。<br>在行业里这种用例获得了众所周知的坏名声，变得冗长，难读，沉闷，易碎，维护昂贵。  </p>
+<p>理解端口和设配器模式，我们可以看到用例一般应该写在应用程序边界内（六边形内部），<br>去指定被应用程序所支持的功能和事件，不去管外部的技术。<br>这样用例是简短，易读，更少维护成本，和在时间上更加稳定。</p>
+<h3 id="多少端口？"><a href="#多少端口？" class="headerlink" title="多少端口？"></a>多少端口？</h3><p>到底什么是或不是端口，很大程度上只是口味的问题。<br>在极端的情况下，每一个用例只有自己的端口，为了许多的应用程序提供了上百个端口。<br>另外的一种选择，可以想象把所有的主要端口和次要端口融合在一起，到那时3只有2个端口，左边的和右边的。  </p>
+<p>没有最好只有更好。   </p>
+<p>已知应用的天气预报系统有着4个自然的端口：天气反馈，管理员，通知用户，用户数据库。<br>咖啡售卖机的有4个自然的端口：用户，包括食谱和价格的数据库，售卖机，和硬币箱子。<br>医院的药物系统可能有3个：一个给护士，一个给药方数据库，一个给控制药物分配器。  </p>
+<p>选择“错误”数量的端口数不见得会有任何特殊的坏处，所以保持一种直觉即可。<br>我倾向于选择少量的数目，2,3或4，如上所述和已知应用。</p>
+<h3 id="已知应用"><a href="#已知应用" class="headerlink" title="已知应用"></a>已知应用</h3><p><img src="/img/2014/Hexagonal-5.gif" alt="img"></p>
+<h1 id="特性-4"><a href="#特性-4" class="headerlink" title="特性 4"></a>特性 4</h1><p>特性展现一个有着4个端口并且每个端口都有多个设配器的应用程序。<br>这是从一个应用程序衍生出的监听来自国家天气服务的警报，关于地震，龙卷风，火灾<br>和水灾。和通知人们通过他们的电话或电话对讲机。<br>在我们讨论这个系统的时候，这个系统的接口已确认，从“技术，连接的目的”上讨论过。那里有一个接口为了接收电线上的触发数据，一个为了把通知数据发送到对答的机器上，一个GUI实现的管理接口，和一个获取用户数据的数据库接口。  </p>
+<p>人们正在努力，因为他们需要从天气服务增加一个http接口，一个email接口给他们的用户，和他们不得不寻找一种方式可以为了不同的客户采购偏好，绑定和解绑他们增长着的应用程序套件。他们害怕停留在一个维护和测试的噩梦里，因为他们不得不实现，测试和维护所有独立的组合和排列的版本。  </p>
+<p>他们修改了设计，在系统接口上根据“目的”而不是根据“技术”去架构，让技术通过设配器变得可以替换（所有方面的）。<br>他们立马提高了速度去包含http订阅和email通知（新的设配器通过虚线绘制出来）。<br>通过APIs让每个应用程序在headless模式下运行，他们可以增加一个 app-to-add 的设配器和解除绑定应用程序套件，按需连接子应用程序。<br>最后，让每一个应用程序可完全独立的执行，通过内置的测试和mock设配器，他们获得了敏捷的通过独立的自动化测试脚本去回归测试他们的应用程序。</p>
+<hr>
+<h1 id="Mac-Windows-Google-Flickr-Web-2-0"><a href="#Mac-Windows-Google-Flickr-Web-2-0" class="headerlink" title="Mac, Windows, Google, Flickr, Web 2.0"></a>Mac, Windows, Google, Flickr, Web 2.0</h1><p>早在1990时，MacIntosh应用程序如文档处理软件就需要有API驱动的接口，所以应用程序和用户编写的脚本就可以访问应用程序的所有的功能。Windows桌面软件有着同样的能力。（我没有对应的历史知识去说谁先出现，反正那也不是重点）  </p>
+<p>如今（2005）web软件的趋势是发布一个公共API去让别的软件直接的访问那些APIs。<br>虽然，那可能会通过google map去发布一些犯罪的数据，或者创建web应用程序包括Flickr在内的相片存档和注释的能力。</p>
+<p>所有的这些例子都是关于把“主要的”端口的API可视化， 我们看不到任何信息在次要端口。</p>
+<h1 id="Stored-Outputs"><a href="#Stored-Outputs" class="headerlink" title="Stored Outputs"></a>Stored Outputs</h1><p>Willem Bogaerts在C2 wiki上写下这个例子：<br>“我遇到过类似的事情，但是主要是因为我的应用程序层有很强的趋势去变成一个电话切换板去管理它不应该去做的事情。我的应用程序产生输出，显示给用户和有可能会去保存好它。我主要的问题是你不需要常常去储存它。所以我的应用程序产生输出，不得不缓存它和展现给用户。然后，当用户决定要保存导出的数据时，应用程序清空缓冲和真正的保存它。  </p>
+<p>我一点都不喜欢这个，于是我想出了一个解决方案：有一个带存储功能的展现控制器。现在应用程序不再需要管道输出到不同的方向，只是简单地输出到展现控制器。展现控制器缓冲了结论和给用户去保存它的可能性。  </p>
+<p>传统的架构分层强调“UI”和“存储”是不同的。<br>端口和设配器模式架构可以再简化输出到简单的“输出”。<br>”</p>
+<h1 id="来自C2-wiki的匿名例子"><a href="#来自C2-wiki的匿名例子" class="headerlink" title="来自C2-wiki的匿名例子"></a>来自C2-wiki的匿名例子</h1><p>“在我做过的一个项目里，我们使用“真音响设备”的系统隐喻。<br>每一个组件定义了接口，每一个接口都有不同的目的。<br>我们几乎可以通过连线和设配器，没有限制的把组件们连接在一起<br>”</p>
+<h1 id="分布式，大团队开发"><a href="#分布式，大团队开发" class="headerlink" title="分布式，大团队开发"></a>分布式，大团队开发</h1><p>这个还在实验阶段的使用和还不能恰当地评估这个模式的使用情况。<br>无论如何，那个很有意思去考虑的。  </p>
+<p>不同位置的团队们全去构建六边形架构，用着FIT和mocks，所以应用程序和组件可以独立模式下去测试。CruiseControl每半个小时去运行构建和使用FIT+mock的组合去运行所有的应用程序。因为应用程序子系统和数据库已完整地，替换成mock和测试数据库了。</p>
+<h1 id="独立的开发UI和应用程序逻辑"><a href="#独立的开发UI和应用程序逻辑" class="headerlink" title="独立的开发UI和应用程序逻辑"></a>独立的开发UI和应用程序逻辑</h1><p>这个还在早期的实验阶段的使用和还不能恰当地评估这个模式的使用情况。<br>无论如何，那个很有意思去考虑的。  </p>
+<p>UI设计是不稳定的，因为它们还未定好是那一种驱动的技术或隐喻。<br>后端服务架构没有定好，事实上它可能在半年内经历过几次改变。<br>尽管如此，项目却是正常地启动和时间是滴答作响的。  </p>
+<p>应用程序团队创建FIT测试和mocks去隔离他们的应用程序，创建可测试的，可演示的功能展示给他们的用户。<br>当UI和后端服务最终决定时，它“一个直接的”增加那些元素到应用程序里。<br>开始学习怎样实现它。（或你自己尝试下和写邮件给我）</p>
+<hr>
+<p>（A生注： 相关模式、感谢和其他引用就不再翻译拉～～ ：） ）</p>
+<hr>
+<h1 id="Related-Patterns"><a href="#Related-Patterns" class="headerlink" title="Related Patterns"></a>Related Patterns</h1><h2 id="Adapter"><a href="#Adapter" class="headerlink" title="Adapter"></a>Adapter</h2><p>The ‘’Design Patterns’’ book contains a description of the generic ‘’Adapter’’ pattern: “Convert the interface of a class into another interace clients expect.” The ports-and-adapters pattern is a particular use of the ‘’Adapter’’ pattern.</p>
+<h2 id="Model-View-Controller"><a href="#Model-View-Controller" class="headerlink" title="Model-View-Controller"></a>Model-View-Controller</h2><p>The MVC pattern was implemented as early as 1974 in the Smalltalk project. It has been given, over the years, many variations, such as Model-Interactor and Model-View-Presenter. Each of these implements the idea of ports-and-adapters on the primary ports, not the secondary ports.</p>
+<h2 id="Mock-Objects-and-Loopback"><a href="#Mock-Objects-and-Loopback" class="headerlink" title="Mock Objects and Loopback"></a>Mock Objects and Loopback</h2><p>“A mock object is a “double agent” used to test the behaviour of other objects. First, a mock object acts as a faux implementation of an interface or class that mimics the external behaviour of a true implementation. Second, a mock object observes how other objects interact with its methods and compares actual behaviour with preset expectations. When a discrepancy occurs, a mock object can interrupt the test and report the anomaly. If the discrepancy cannot be noted during the test, a verification method called by the tester ensures that all expectations have been met or failures reported.” — From <a href="http://MockObjects.com" target="_blank" rel="noopener">http://MockObjects.com</a></p>
+<p>Fully implemented according to the mock-object agenda, mock objects are used throughout an application, not just at the external interface The primary thrust of the mock object movement is conformance to specified protocol at the individual class and object level. I borrow their word “mock” as the best short description of an in-memory substitute for an external secondary actor.</p>
+<p>The Loopback pattern is an explicit pattern for creating an internal replacement for an external device.</p>
+<h2 id="Pedestals"><a href="#Pedestals" class="headerlink" title="Pedestals"></a>Pedestals</h2><p>In “Patterns for Generating a Layered Architecture”, Barry Rubel describes a pattern about creating an axis of symmetry in control software that is very similar to ports and adapters. The ‘’Pedestal’’ pattern calls for implementing an object representing each hardware device within the system, and linking those objects together in a control layer. The ‘’Pedestal’’ pattern can be used to describe either side of the hexagonal architecture, but does not yet stress the similarity across adapters. Also, being written for a mechanical control environment, it is not so easy to see how to apply the pattern to IT applications.</p>
+<h2 id="Checks"><a href="#Checks" class="headerlink" title="Checks"></a>Checks</h2><p>Ward Cunningham’s pattern language for detecting and handling user input errors, is good for error handling across the inner hexagon boundaries.</p>
+<h2 id="Dependency-Inversion-Dependency-Injection-and-SPRING"><a href="#Dependency-Inversion-Dependency-Injection-and-SPRING" class="headerlink" title="Dependency Inversion (Dependency Injection) and SPRING"></a>Dependency Inversion (Dependency Injection) and SPRING</h2><p>Bob Martin’s Dependency Inversion Principle (also called Dependency Injection by Martin Fowler) states that “High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.” The ‘’Dependency Injection ‘’pattern by Martin Fowler gives some implementations. These show how to create swappable secondary actor adapters. The code can be typed in directly, as done in the sample code in the article, or using configuration files and having the SPRING framework generate the equivalent code.</p>
+<hr>
+<hr>
+<h1 id="Acknowledgements"><a href="#Acknowledgements" class="headerlink" title="Acknowledgements"></a>Acknowledgements</h1><p>Thanks to Gyan Sharma at Intermountain Health Care for providing the sample code used here. Thanks to Rebecca Wirfs-Brock for her book ‘’Object Design’’, which when read together with the ‘’Adapter’’ pattern from the ‘’Design Patterns’’ book, helped me to understand what the hexagon was about. Thanks also to the people on Ward’s wiki, who provided comments about this pattern over the years (e.g., particularly Kevin Rutherford’s <a href="http://silkandspinach.net/blog/2004/07/hexagonal_soup.html)" target="_blank" rel="noopener">http://silkandspinach.net/blog/2004/07/hexagonal_soup.html)</a>.</p>
+<hr>
+<h1 id="References-and-Related-Reading"><a href="#References-and-Related-Reading" class="headerlink" title="References and Related Reading"></a>References and Related Reading</h1><p>FIT, A Framework for Integrating Testing: Cunningham, W., online at <a href="http://fit.c2.com" target="_blank" rel="noopener">http://fit.c2.com</a>, and Mugridge, R. and Cunningham, W., ‘’Fit for Developing Software’’, Prentice-Hall PTR, 2005.</p>
+<p>The ‘’Adapter’’ pattern: in Gamma, E., Helm, R., Johnson, R., Vlissides, J., ‘’Design Patterns’’, Addison-Wesley, 1995, pp. 139-150.</p>
+<p>The ‘’Pedestal’’ pattern: in Rubel, B., “Patterns for Generating a Layered Architecture”, in Coplien, J., Schmidt, D., ‘’PatternLanguages of Program Design’’, Addison-Wesley, 1995, pp. 119-150.</p>
+<p>The ‘’Checks’’ pattern: by Cunningham, W., online at <a href="http://c2.com/ppr/checks.html" target="_blank" rel="noopener">http://c2.com/ppr/checks.html</a></p>
+<p>The ‘’Dependency Inversion Principle’‘: Martin, R., in ‘’Agile Software Development Principles Patterns and Practices’’, Prentice Hall, 2003, Chapter 11: “The Dependency-Inversion Principle”, and online at <a href="http://www.objectmentor.com/resources/articles/dip.pdf" target="_blank" rel="noopener">http://www.objectmentor.com/resources/articles/dip.pdf</a></p>
+<p>The ‘’Dependency Injection’’ pattern: Fowler, M., online at <a href="http://www.martinfowler.com/articles/injection.html" target="_blank" rel="noopener">http://www.martinfowler.com/articles/injection.html</a></p>
+<p>The ‘’Mock Object’’ pattern: Freeman, S. online at <a href="http://MockObjects.com" target="_blank" rel="noopener">http://MockObjects.com</a></p>
+<p>The ‘’Loopback’’ pattern: Cockburn, A., online at <a href="http://c2.com/cgi/wiki?LoopBack" target="_blank" rel="noopener">http://c2.com/cgi/wiki?LoopBack</a></p>
+<p>‘’Use cases:’’ Cockburn, A., ‘’Writing Effective Use Cases’’, Addison-Wesley, 2001, and Cockburn, A., “Structuring Use Cases with Goals”, online at <a href="http://alistair.cockburn.us/crystal/articles/sucwg/structuringucswithgoals.htm" target="_blank" rel="noopener">http://alistair.cockburn.us/crystal/articles/sucwg/structuringucswithgoals.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-11-20-HexArchitecture/" data-id="cjf9ol852001g7jzn4k15bwtf" class="article-share-link">Compartir</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="mobile-Art-2014-2014-07-20-IDDD-3" class="article article-type-mobile" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/30/Art-2014-2014-07-20-IDDD-3/" class="article-date">
+  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Art/">Art</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/30/Art-2014-2014-07-20-IDDD-3/">IDDD 3 Context Map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="lt-lt-实现领域驱动设计-gt-gt-三-上下文映射图"><a href="#lt-lt-实现领域驱动设计-gt-gt-三-上下文映射图" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图</h1><pre><code>见过太多大泥球了，最后不得不另谋他路。 
+</code></pre><p><a href="/img/2014/0720-IDDD_3.png" target="_blank"><br><img src="/img/2014/0720-IDDD_3.png" alt="img"><br></a></p>
+<h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">* 上下文映射图</span><br><span class="line">** 为什么重要?</span><br><span class="line">*** 反映出与<span class="string">"大泥团"</span>之间的集成关系</span><br><span class="line">*** 从解决方案空间的角度看待问题</span><br><span class="line">** 绘制</span><br><span class="line">*** [Brandolini]风格</span><br><span class="line">*** U/D</span><br><span class="line">**** 上游</span><br><span class="line">(Upstream)</span><br><span class="line">**** 下游</span><br><span class="line">(Downstream)</span><br><span class="line">*** 不是企业架构</span><br><span class="line">** 产品和组织关系</span><br><span class="line">*** 合作关系</span><br><span class="line">Partnership</span><br><span class="line">*** 共享内核 </span><br><span class="line">Shared Kernel</span><br><span class="line">*** 客户方-供应方开发</span><br><span class="line">Customer-Supplier Development</span><br><span class="line">*** 尊奉者</span><br><span class="line">Conformist</span><br><span class="line">*** 另谋他路</span><br><span class="line">Separate Way</span><br><span class="line">*** 大泥球</span><br><span class="line">Big Ball Of Mud</span><br><span class="line">*** 防腐层(ACL)</span><br><span class="line">Anticorruption Layer</span><br><span class="line">**** 领域服务</span><br><span class="line">Domain Service</span><br><span class="line">*** 开放主机服务(OHS)</span><br><span class="line">Open Host Service</span><br><span class="line">**** REST</span><br><span class="line">*** 发布语言(PL)</span><br><span class="line">Published Language</span><br><span class="line">**** REST</span><br><span class="line">***** XML</span><br><span class="line">***** JSON</span><br><span class="line">**** EDA</span><br><span class="line">事件驱动架构(Event-Driven Architecture) </span><br><span class="line">***** 领域事件</span><br><span class="line">Domain Event</span><br><span class="line">***** 最终一致性</span><br><span class="line">Eventual Consistency</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-07-20-IDDD-3/" data-id="cjf9ol83l00087jznu7uk1gln" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
@@ -107,9 +658,9 @@
 
 
   
-    <article id="mobile-Art-2014-2014-07-26-IDDD-5" class="article article-type-mobile" itemscope itemprop="blogPost">
+    <article id="mobile-Art-2014-2014-07-27-IDDD-6" class="article article-type-mobile" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/30/Art-2014-2014-07-26-IDDD-5/" class="article-date">
+    <a href="/2015/03/30/Art-2014-2014-07-27-IDDD-6/" class="article-date">
   <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
 </a>
     
@@ -125,7 +676,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Art-2014-2014-07-26-IDDD-5/">IDDD 5 Entity</a>
+      <a class="article-title" href="/2015/03/30/Art-2014-2014-07-27-IDDD-6/">IDDD 6 ValueObject</a>
     </h1>
   
 
@@ -133,14 +684,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-五-实体"><a href="#lt-lt-实现领域驱动设计-gt-gt-五-实体" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 五: 实体"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 五: 实体</h1><p>实体是有着生命周期的领域对象，拥有唯一标识。</p>
-<p><a href="/source/img/2014/0726-IDDD_5.png" target="_blank"><br><img src="/source/img/2014/0726-IDDD_5.png" alt="img"><br></a></p>
-<h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">* 实体</span><br><span class="line">** 为什么使用？</span><br><span class="line">*** 唯一的身份标识</span><br><span class="line">*** 生命周期</span><br><span class="line">（可变性，状态变化）</span><br><span class="line">** 唯一标识</span><br><span class="line">*** 生成方式</span><br><span class="line">（从简单到复杂）</span><br><span class="line">**** 用户提供</span><br><span class="line">***** 用户手动输入</span><br><span class="line">复杂性：在于需要用户自己生成高质量的标识</span><br><span class="line">**** 应用程序生成</span><br><span class="line">***** UUID</span><br><span class="line">Universally Unique Identifier</span><br><span class="line">***** GUID</span><br><span class="line">Globally Unique Identifier</span><br><span class="line">**** 持久化机制生成</span><br><span class="line">***** DB 自增列机制</span><br><span class="line">**** 另一个限界上下文提供</span><br><span class="line">*** 标识生成时间</span><br><span class="line">**** 对象创建时</span><br><span class="line">**** 持久化对象时</span><br><span class="line">*** 委派标识</span><br><span class="line">**** 层超类型</span><br><span class="line">Layer Supertype</span><br><span class="line">*** 标识稳定性</span><br><span class="line">**** 确保标识不被修改</span><br><span class="line">** 发现实体</span><br><span class="line">*** 本质特征</span><br><span class="line">*** 关键行为</span><br><span class="line">*** 角色和职责</span><br><span class="line">**** 领域对象扮演多种角色</span><br><span class="line">***** 通常用接口来定义</span><br><span class="line">****** 隐藏细节</span><br><span class="line">**** 领域语言优于技术实现</span><br><span class="line">*** 创建实体</span><br><span class="line">**** 提供构造函数来初始化实体状态</span><br><span class="line">*** 验证</span><br><span class="line">**** 目的</span><br><span class="line">***** 检查模型正确性</span><br><span class="line">**** 验证属性</span><br><span class="line">***** 自封装</span><br><span class="line">（<span class="keyword">Self</span>-Encapsulation）</span><br><span class="line">**** 验证整体</span><br><span class="line">***** 规格</span><br><span class="line">Specification</span><br><span class="line">***** 策略模式</span><br><span class="line">（Strategy）</span><br><span class="line">***** 延迟验证</span><br><span class="line">      （Deferred Validation）</span><br><span class="line">**** 验证对象组合</span><br><span class="line">*** 跟踪变化</span><br><span class="line">**** 领域事件</span><br><span class="line">**** 事件存储</span><br></pre></td></tr></table></figure>
+        <h1 id="lt-lt-实现领域驱动设计-gt-gt-六-值对象"><a href="#lt-lt-实现领域驱动设计-gt-gt-六-值对象" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 六: 值对象"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 六: 值对象</h1><pre><code>值对象易于开发、测试和维护。
+尽量使用值对象来建模，而不是实体。
+</code></pre><p><a href="/img/2014/0727-IDDD_6.png" target="_blank"><br><img src="/img/2014/0727-IDDD_6.png" alt="img"><br></a></p>
+<h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 值对象</span><br><span class="line">** 特征</span><br><span class="line">*** 度量或描述</span><br><span class="line">    度量或描述领域中的一件东西</span><br><span class="line">*** 不变性</span><br><span class="line">**** 只读，创建后不改变</span><br><span class="line">**** 只通过构造函数赋值</span><br><span class="line">*** 概念整体</span><br><span class="line">**** 整体值对象</span><br><span class="line">     （Whole Value aka Value Object）</span><br><span class="line">*** 可替换性</span><br><span class="line">*** 相等性</span><br><span class="line">*** 无副作用行为</span><br><span class="line">**** 无副作用函数</span><br><span class="line">     （Side-Effect-Free <span class="function"><span class="keyword">Function</span>)</span></span><br><span class="line"><span class="function">** 最小化集成</span></span><br><span class="line"><span class="function">*** 更少的职责假设</span></span><br><span class="line"><span class="function">** 表示标准类型</span></span><br><span class="line"><span class="function">*** <span class="title">Java</span>里可用枚举来表示</span></span><br><span class="line"><span class="function">** 测试</span></span><br><span class="line"><span class="function">*** <span class="title">TDD</span></span></span><br><span class="line"><span class="function">** 实现</span></span><br><span class="line"><span class="function">*** 2个构造函数</span></span><br><span class="line"><span class="function">**** 1.接受所有参数的</span></span><br><span class="line"><span class="function">**** 2.浅复制其他值对象的</span></span><br><span class="line"><span class="function">     （<span class="title">Shallow</span> <span class="title">Copy</span>）</span></span><br><span class="line"><span class="function">** 持久化</span></span><br><span class="line"><span class="function">*** 拒绝数据建模泄露</span></span><br><span class="line"><span class="function">**** 数据建模式次要的</span></span><br><span class="line"><span class="function">     根据领域模型来设计数据模型，</span></span><br><span class="line"><span class="function">     而不是根据数据模型来设计领域模型</span></span><br><span class="line"><span class="function">*** 与<span class="title">ORM</span></span></span><br><span class="line"><span class="function">**** 单个值对象</span></span><br><span class="line"><span class="function">***** 直接映射</span></span><br><span class="line"><span class="function">**** 保存多个值对象</span></span><br><span class="line"><span class="function">***** 序列化到单个列</span></span><br><span class="line"><span class="function">****** 缺点</span></span><br><span class="line"><span class="function">******* 列宽限制</span></span><br><span class="line"><span class="function">	<span class="title">MySQL</span> <span class="title">Varchar</span> <span class="title">limit</span> ：65535</span></span><br><span class="line"><span class="function">******* 不能查询</span></span><br><span class="line"><span class="function">	其内在属性不能作为<span class="title">SQl</span>查询条件</span></span><br><span class="line"><span class="function">******* 需自定义类型</span></span><br><span class="line"><span class="function">***** 使用数据库实体</span></span><br><span class="line"><span class="function">****** 缺点</span></span><br><span class="line"><span class="function">******* 对象-关系抗阻</span></span><br><span class="line"><span class="function">***** 使用联合表</span></span><br><span class="line"><span class="function">****** 缺点</span></span><br><span class="line"><span class="function">******* 需满足数据库范式</span></span><br><span class="line"><span class="function">******* 每一个属性都不应该为<span class="title">NULL</span></span></span><br><span class="line"><span class="function">******* 不能包含嵌套的集合</span></span><br><span class="line"><span class="function">**** 枚举状态对象</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-26-IDDD-5/" data-id="cjf9gd87e0008vzznq37fmrv4" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-07-27-IDDD-6/" data-id="cjf9ol83i00067jzno6asegjf" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
@@ -180,105 +732,14 @@
       
         <h1 id="lt-lt-实现领域驱动设计-gt-gt-四-架构"><a href="#lt-lt-实现领域驱动设计-gt-gt-四-架构" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 四 : 架构"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 四 : 架构</h1><pre><code>第四章内容丰富，有些骨头有待反复嚼啃。
 六边形架构的确很赞，新项目开始架构首选。
-</code></pre><p><a href="/source/img/2014/0721-HexagonalArchitecture.jpg" target="_blank"><br><img src="/source/img/2014/0721-HexagonalArchitecture.jpg" alt="img"><br></a></p>
-<p><a href="/source/img/2014/0723-IDDD_4.png" target="_blank"><br><img src="/source/img/2014/0723-IDDD_4.png" alt="img"><br></a></p>
+</code></pre><p><a href="/img/2014/0721-HexagonalArchitecture.jpg" target="_blank"><br><img src="/img/2014/0721-HexagonalArchitecture.jpg" alt="img"><br></a></p>
+<p><a href="/img/2014/0723-IDDD_4.png" target="_blank"><br><img src="/img/2014/0723-IDDD_4.png" alt="img"><br></a></p>
 <h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 架构</span><br><span class="line">不需要特定的架构，选择架构是为了减少风险，而不增加风险。</span><br><span class="line">** 分层</span><br><span class="line">Layers Architecture</span><br><span class="line">*** 严格</span><br><span class="line">Strict Layers Architecture</span><br><span class="line">*** 松散</span><br><span class="line">Relaxed Layers Architecture</span><br><span class="line">**** 允许耦合</span><br><span class="line">***** 观察者</span><br><span class="line">Observer</span><br><span class="line">***** 调停者</span><br><span class="line">Mediator</span><br><span class="line">*** 依赖倒置原则（DIP）</span><br><span class="line">Dependency Inversion Principle </span><br><span class="line">**** 抽象不应该依赖细节</span><br><span class="line">**** 细节应该依赖抽象</span><br><span class="line">** 六边形架构</span><br><span class="line">Hexagonal Architecture, 端口与适配器</span><br><span class="line">*** 特点</span><br><span class="line">**** 对称平等,持久生命力</span><br><span class="line">**** 非前后端,而是内外区域</span><br><span class="line">**** 一个客户一个适配器</span><br><span class="line">*** 基础架构</span><br><span class="line">**** 支撑其他架构</span><br><span class="line">(SOA,REST,CQRS...)</span><br><span class="line">** SOA</span><br><span class="line">面向服务架构(Service-Oriented Architecture)</span><br><span class="line">*** 服务设计原则</span><br><span class="line">**** 契约</span><br><span class="line">通过契约文档,阐述自身的目的和功能.</span><br><span class="line">**** 松耦合</span><br><span class="line">依赖最小化</span><br><span class="line">**** 抽象</span><br><span class="line">只发布契约,隐藏内部逻辑</span><br><span class="line">**** 重用性</span><br><span class="line">可被其他服务重用</span><br><span class="line">**** 自治性</span><br><span class="line">自行控制环境与资源，以保持独立性</span><br><span class="line">**** 无状态性</span><br><span class="line">**** 可发现性</span><br><span class="line">可通过元数据来查找和理解</span><br><span class="line">**** 组合性</span><br><span class="line">** REST</span><br><span class="line">Representational State Transfer</span><br><span class="line">*** Web架构风格的一种</span><br><span class="line">**** 松耦合性</span><br><span class="line">**** 伸缩性</span><br><span class="line">*** RESTful HTTP</span><br><span class="line">**** 服务器</span><br><span class="line">***** 资源是关键概念</span><br><span class="line">每种资源拥有一个URI</span><br><span class="line">****** 与客户端交互格式</span><br><span class="line">******* XML</span><br><span class="line">******* JSON</span><br><span class="line">******* HMTL</span><br><span class="line">******* 二进制数据</span><br><span class="line">***** 无状态通信</span><br><span class="line">****** 不同请求互相独立</span><br><span class="line">****** 提高系统伸缩性</span><br><span class="line">***** 可看做对象</span><br><span class="line">****** 对象方法</span><br><span class="line">******* GET</span><br><span class="line">******* PUT</span><br><span class="line">******* POST</span><br><span class="line">******* DELETE</span><br><span class="line">**** 客户端</span><br><span class="line">***** 转移方式</span><br><span class="line">****** 超媒体</span><br><span class="line">HATEOAS : Hypermedia <span class="keyword">as</span> the Engine of Application State</span><br><span class="line">****** 服务器重定向</span><br><span class="line">*** 和DDD联合方法</span><br><span class="line">**** 为系统接口层单独创建限界上下文</span><br><span class="line">通过适当的策略来访问实际的核心模型</span><br><span class="line">***** 优先考虑</span><br><span class="line">***** 适合专属系统</span><br><span class="line">**** 使用标准媒体类型</span><br><span class="line">***** 使用通用格式</span><br><span class="line">e.g. ical</span><br><span class="line">***** 本质：共享内核/发布语言</span><br><span class="line">***** 适合通用系统</span><br><span class="line">** CQRS</span><br><span class="line">命令和查询职责分离 ： Comman-Query Responsiblity Segregation</span><br><span class="line">*** 读写分离</span><br><span class="line">**** 读模型 （查询模型）</span><br><span class="line">***** 数据库视图（可实现）</span><br><span class="line">**** 写模型 （命令模型）</span><br><span class="line">***** 每个方法完成时发布领域事件</span><br><span class="line">****** 不合法的命令将失败，不发布领域事件</span><br><span class="line">***** 事件发布器</span><br><span class="line">***** 事件订阅器</span><br><span class="line">****** 更新查询模型</span><br><span class="line">******* 同步</span><br><span class="line">******* 异步</span><br><span class="line">***** ETL</span><br><span class="line">ORM持久化机制可用数据仓库的ETL转换结果</span><br><span class="line">*** 客户端驱动命令处理</span><br><span class="line">**** 客户端向服务器发送命令</span><br><span class="line">**** 命令处理器（接收）</span><br><span class="line">只完成有限的功能</span><br><span class="line">***** 分类风格</span><br><span class="line">categorized style</span><br><span class="line">****** 根据命令类别来实现应用服务</span><br><span class="line">****** 简单：易理解、创建、维护</span><br><span class="line">***** 专属风格</span><br><span class="line">dedicated style</span><br><span class="line">****** 每种命令对应单独的类</span><br><span class="line">****** 职责单一、互相独立</span><br><span class="line">***** 消息风格</span><br><span class="line">messaging style ，专属风格进一步发展</span><br><span class="line">****** 每个命令通过异步消息发送</span><br><span class="line">异步提高伸缩性</span><br><span class="line">****** 最复杂</span><br><span class="line">*** 处理最终一致性的查询模型</span><br><span class="line">**** UI临时性显示先前提交给命令模型的参数</span><br><span class="line">**** 显式地在UI上显示当前查询模型的时间</span><br><span class="line">** EDA</span><br><span class="line">   事件驱动架构</span><br><span class="line">*** 管道与过滤器</span><br><span class="line">*** 长时间处理过程（也叫Saga）</span><br><span class="line">**** 需考虑时间敏感性</span><br><span class="line">***** 被动超时检查</span><br><span class="line">***** 主动超时检查</span><br><span class="line">**** 最终一致性</span><br><span class="line">*** 事件源</span><br><span class="line">**** 事件存储</span><br><span class="line">***** 快照</span><br><span class="line">** 数据网织和基于网格的分布式计算</span><br><span class="line">*** 数据复制</span><br><span class="line">**** 内存数据库</span><br><span class="line">*** 事件驱动网织</span><br><span class="line">**** 支持开放架构</span><br><span class="line">*** 持续查询</span><br><span class="line">*** 分布式处理</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-23-IDDD-4/" data-id="cjf9gd8760006vzzn2kvo70jh" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="mobile-Art-2014-2014-08-15-IDDD-12" class="article article-type-mobile" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/30/Art-2014-2014-08-15-IDDD-12/" class="article-date">
-  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Art/">Art</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Art-2014-2014-08-15-IDDD-12/">IDDD 12 Repository</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-十二-资源库"><a href="#lt-lt-实现领域驱动设计-gt-gt-十二-资源库" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 十二: 资源库"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 十二: 资源库</h1><pre><code>资源库表示一个安全的存储区域，对其存品起保护作用。
-负责对象生命周期的中后期。
-</code></pre><p><a href="/source/img/2014/0815-IDDD_12.png" target="_blank"><br><img src="/source/img/2014/0815-IDDD_12.png" alt="img"><br></a></p>
-<h2 id="MindMapping-Source-Org-Format"><a href="#MindMapping-Source-Org-Format" class="headerlink" title="MindMapping Source (Org Format):"></a>MindMapping Source (Org Format):</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 资源库</span><br><span class="line">  表示一个安全的存储区域，对其存品起保护作用。</span><br><span class="line">  负责对象生命周期的中后期。</span><br><span class="line">** 面向..资源库</span><br><span class="line">*** 集合</span><br><span class="line">    模拟一个Set集合，不容许多次添加同一个聚合实例。</span><br><span class="line">    隐式跟踪每个持久化对象的改变。</span><br><span class="line">**** Hibernate实现</span><br><span class="line">**** TopLink实现</span><br><span class="line">*** 持久化</span><br><span class="line">    不支持对象变化的跟踪。</span><br><span class="line">**** Coherence实现</span><br><span class="line">**** MongoDB实现</span><br><span class="line">** 额外的行为</span><br><span class="line">   特殊的查找方法，返回值对象的查询结果。</span><br><span class="line">** 管理事务</span><br><span class="line">*** 针对关系型数据库，把事务放在应用层。</span><br><span class="line">*** 不要过度使用，特别在并发的环境下。</span><br><span class="line">** 类型层级</span><br><span class="line">*** Liskov替换原则</span><br><span class="line">** vs. 数据访问对象（DAO）</span><br><span class="line">*** DAO是从数据库的角度来看待问题</span><br><span class="line">*** Repository是从对象的角度来看待问题</span><br><span class="line">** 测试</span><br><span class="line">*** 以内存实现进行测试</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-08-15-IDDD-12/" data-id="cjf9gd881000tvzzn7dg9fbzw" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDDD/">IDDD</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="mobile-Art-2014-2014-08-19-IDDD-14" class="article article-type-mobile" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/30/Art-2014-2014-08-19-IDDD-14/" class="article-date">
-  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Art/">Art</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Art-2014-2014-08-19-IDDD-14/">IDDD 14 Application</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-十四-应用程序"><a href="#lt-lt-实现领域驱动设计-gt-gt-十四-应用程序" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 十四: 应用程序"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 十四: 应用程序</h1><pre><code>应用程序通过用户界面向外展示领域模型的概念，并允许用户在模型上执行各种操作。
-</code></pre><p><a href="/source/img/2014/0819-IDDD_14.png" target="_blank"><br><img src="/source/img/2014/0819-IDDD_14.png" alt="img"><br></a></p>
-<h2 id="MindMapping-Source-Org-Format"><a href="#MindMapping-Source-Org-Format" class="headerlink" title="MindMapping Source (Org Format):"></a>MindMapping Source (Org Format):</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 应用程序</span><br><span class="line">  应用程序通过用户界面向外展示领域模型的概念，并允许用户在模型上执行各种操作。</span><br><span class="line">** 用户界面</span><br><span class="line">*** 类型</span><br><span class="line">**** Web界面</span><br><span class="line">***** Web <span class="number">1.0</span></span><br><span class="line">      纯粹请求-应答式，Struts，Spring MVC，ASP.net等。</span><br><span class="line">***** Web <span class="number">2.0</span></span><br><span class="line">      富互联网应用，使用Ajax和DHTML，</span><br><span class="line">      eg：Google GWT，Ext JS，Adobe Flex，MS Silverlight等。</span><br><span class="line">**** 本地客户端GUI</span><br><span class="line">     Java Swing，WinForm，WPF等。</span><br><span class="line">*** 渲染</span><br><span class="line">**** ..领域对象</span><br><span class="line">***** 使用调停者模式解耦</span><br><span class="line">**** ..数据传输对象</span><br><span class="line">     渲染多个聚合实例</span><br><span class="line">**** 领域负载对象..</span><br><span class="line">     整个聚合实例的引用</span><br><span class="line">**** 处理不同的客户端</span><br><span class="line">***** RIA</span><br><span class="line">***** 图像界面</span><br><span class="line">***** REST服务</span><br><span class="line">***** 消息系统</span><br><span class="line">**** 渲染适配器</span><br><span class="line">     处理用户编辑</span><br><span class="line">** 应用服务</span><br><span class="line">*** 解耦服务输出</span><br><span class="line">    六边形架构</span><br><span class="line">** 基础设施</span><br><span class="line">   为应用程序的其他部分提供技术支持。</span><br><span class="line">*** 使用依赖倒置原则解耦</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-08-19-IDDD-14/" data-id="cjf9gd8870010vzzn3zvkxxah" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-07-23-IDDD-4/" data-id="cjf9ol83c00057jznjy917i6s" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
@@ -318,7 +779,7 @@
       
         <h1 id="敏捷与精益"><a href="#敏捷与精益" class="headerlink" title="敏捷与精益"></a>敏捷与精益</h1><p><img src="http://img3.douban.com/spic/s26850464.jpg" alt="img"><br><img src="http://img3.douban.com/spic/s11231840.jpg" alt="img"></p>
 <p>近期读了2本关于敏捷开发的书, 《敏捷开发一千零一夜》和《精益开发实战》.<br>回想起以前读过的所有关于敏捷和精益的书,感触良多。<br>一千零一夜的第六章:”从敏捷到精益” 和第十一章：“敏捷无它，持续改进” 于我的共鸣是最多的。</p>
-<p><img src="/source/img/2015/DancingWithSoftware.png" alt="img"></p>
+<p><img src="/img/2015/DancingWithSoftware.png" alt="img"></p>
 <h1 id="Do-Right-Thing-vs-Do-Thing-Right"><a href="#Do-Right-Thing-vs-Do-Thing-Right" class="headerlink" title="Do Right Thing vs. Do Thing Right"></a>Do Right Thing vs. Do Thing Right</h1><p>如果没有在做：“正确的事情”，越是“正确地做事”，就越是错的多，因为他们浪费就更多。</p>
 <h1 id="只有敏捷是不够的"><a href="#只有敏捷是不够的" class="headerlink" title="只有敏捷是不够的"></a>只有敏捷是不够的</h1><p>敏捷不是银弹，其实这个世界很残酷，并不是掌握了什么就能一帆风顺的。<br>掌握知识是很重要，何时用，怎么用，对于每个人来说都不可能像看着菜谱煮菜那么简单。<br>只有Scrum是不行的，如果只有Scrum。<br>单单靠敏捷是不够的，结合精益能够增加多些成功的机会。  </p>
 <h1 id="TDD的精神"><a href="#TDD的精神" class="headerlink" title="TDD的精神"></a>TDD的精神</h1><p>TDD是XP的基础,也是敏捷的基础,同时TDD的精神也是精益创业的基础.<br>测试驱动,快速得到反馈,迅速做出调整就是TDD的精神.<br>基本步骤:  </p>
@@ -349,54 +810,9 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2015-2015-01-01-AgileAndLean/" data-id="cjf9gd891001nvzzni4nrbw5c" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2015-2015-01-01-AgileAndLean/" data-id="cjf9ol855001j7jzn0lrrgfcx" class="article-share-link">Compartir</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="mobile-Art-2014-2014-07-20-IDDD-3" class="article article-type-mobile" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/30/Art-2014-2014-07-20-IDDD-3/" class="article-date">
-  <time datetime="2015-03-30T14:34:38.000Z" itemprop="datePublished">2015-03-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Art/">Art</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/Art-2014-2014-07-20-IDDD-3/">IDDD 3 Context Map</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-三-上下文映射图"><a href="#lt-lt-实现领域驱动设计-gt-gt-三-上下文映射图" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图</h1><pre><code>见过太多大泥球了，最后不得不另谋他路。 
-</code></pre><p><a href="/source/img/2014/0720-IDDD_3.png" target="_blank"><br><img src="/source/img/2014/0720-IDDD_3.png" alt="img"><br></a></p>
-<h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">* 上下文映射图</span><br><span class="line">** 为什么重要?</span><br><span class="line">*** 反映出与<span class="string">"大泥团"</span>之间的集成关系</span><br><span class="line">*** 从解决方案空间的角度看待问题</span><br><span class="line">** 绘制</span><br><span class="line">*** [Brandolini]风格</span><br><span class="line">*** U/D</span><br><span class="line">**** 上游</span><br><span class="line">(Upstream)</span><br><span class="line">**** 下游</span><br><span class="line">(Downstream)</span><br><span class="line">*** 不是企业架构</span><br><span class="line">** 产品和组织关系</span><br><span class="line">*** 合作关系</span><br><span class="line">Partnership</span><br><span class="line">*** 共享内核 </span><br><span class="line">Shared Kernel</span><br><span class="line">*** 客户方-供应方开发</span><br><span class="line">Customer-Supplier Development</span><br><span class="line">*** 尊奉者</span><br><span class="line">Conformist</span><br><span class="line">*** 另谋他路</span><br><span class="line">Separate Way</span><br><span class="line">*** 大泥球</span><br><span class="line">Big Ball Of Mud</span><br><span class="line">*** 防腐层(ACL)</span><br><span class="line">Anticorruption Layer</span><br><span class="line">**** 领域服务</span><br><span class="line">Domain Service</span><br><span class="line">*** 开放主机服务(OHS)</span><br><span class="line">Open Host Service</span><br><span class="line">**** REST</span><br><span class="line">*** 发布语言(PL)</span><br><span class="line">Published Language</span><br><span class="line">**** REST</span><br><span class="line">***** XML</span><br><span class="line">***** JSON</span><br><span class="line">**** EDA</span><br><span class="line">事件驱动架构(Event-Driven Architecture) </span><br><span class="line">***** 领域事件</span><br><span class="line">Domain Event</span><br><span class="line">***** 最终一致性</span><br><span class="line">Eventual Consistency</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-20-IDDD-3/" data-id="cjf9gd8730005vzzn9tkjss56" class="article-share-link">Teilen</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
-
     </footer>
   </div>
   
@@ -430,13 +846,13 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="lt-lt-实现领域驱动设计-gt-gt-二-领域、子域和限界上下文"><a href="#lt-lt-实现领域驱动设计-gt-gt-二-领域、子域和限界上下文" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 "></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 </h1><p><a href="/source/img/2014/0720-IDDD_2.png" target="_blank"><br><img src="/source/img/2014/0720-IDDD_2.png" alt="img"><br></a></p>
+        <h1 id="lt-lt-实现领域驱动设计-gt-gt-二-领域、子域和限界上下文"><a href="#lt-lt-实现领域驱动设计-gt-gt-二-领域、子域和限界上下文" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 "></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 </h1><p><a href="/img/2014/0720-IDDD_2.png" target="_blank"><br><img src="/img/2014/0720-IDDD_2.png" alt="img"><br></a></p>
 <h2 id="MindMapping-Source"><a href="#MindMapping-Source" class="headerlink" title="MindMapping Source:"></a>MindMapping Source:</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 领域、子域和限界上下文</span><br><span class="line">** 领域</span><br><span class="line">（一个组织所做的事情以及其中所包含的一切）</span><br><span class="line">*** （即）核心域</span><br><span class="line">**** 关注点</span><br><span class="line">** 子域</span><br><span class="line">*** 模块</span><br><span class="line">** 限界上下文</span><br><span class="line">*** 上下文映射图</span><br><span class="line">*** 理解</span><br><span class="line">**** 显式边界</span><br><span class="line">***** “大而全”注定失败</span><br><span class="line">***** 上下文才是王道</span><br><span class="line">**** 充满语义</span><br><span class="line">**** 不仅仅只包括模型</span><br><span class="line">***** DB Schema</span><br><span class="line">***** UI</span><br><span class="line">****** 拒绝使用智能UI反模式</span><br><span class="line">（Smart UI Anti-Pattern）</span><br><span class="line">**** 大小标准</span><br><span class="line">***** 如音乐</span><br><span class="line">完整性、纯洁性、力量、优雅、美</span><br><span class="line">***** 陷阱</span><br><span class="line">****** 根据开发任务拆分限界上下文</span><br><span class="line">****** 为了架构或资源创建</span><br><span class="line">****** 急于小型化</span><br><span class="line">**** 与技术组件保持一致</span><br><span class="line">***** IDE</span><br><span class="line">****** Eclipse/IntelliJ IDEA</span><br><span class="line">******* Project</span><br><span class="line">****** VS.NET</span><br><span class="line">******* Solution</span><br><span class="line">***** Java</span><br><span class="line">****** Top Package Name</span><br><span class="line">****** JAR/WAR/EAR</span><br><span class="line">******* OSGi</span><br><span class="line">******* Jigsaw</span><br><span class="line">***** .Net</span><br><span class="line">****** DLL</span><br><span class="line">** 战略设计</span><br><span class="line">*** 为什么重要？</span><br><span class="line">**** 更广阔的视野</span><br><span class="line">**** 避免大泥球架构</span><br><span class="line">（Big Ball of Mud）</span><br><span class="line">** 现实中的领域和子域</span><br><span class="line">*** 问题空间</span><br><span class="line">（Problem Space）</span><br><span class="line">**** 核心域和其他子域的组合</span><br><span class="line">*** 解决方案空间</span><br><span class="line">（Solution Space）</span><br><span class="line">**** 一组特定的软件模型</span><br><span class="line">**** 包括一个或多限界上下文</span><br><span class="line">通常希望和子域一对一</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-20-IDDD-2/" data-id="cjf9gd86z0003vzznsppnm5w9" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-07-20-IDDD-2/" data-id="cjf9ol83900037jzndk6kkrnq" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/">DDD</a></li></ul>
@@ -475,7 +891,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="命名那些事"><a href="#命名那些事" class="headerlink" title="命名那些事"></a>命名那些事</h1><p>命名的方式基本有三种，<a href="http://en.wikipedia.org/wiki/CamelCase" target="_blank" rel="noopener">驼峰式</a>、<a href="http://en.wikipedia.org/wiki/Snake_case" target="_blank" rel="noopener">蛇式</a>、<a href="http://en.wikipedia.org/wiki/Hungarian_notation" target="_blank" rel="noopener">匈牙利命名法</a>。</p>
-<p><img src="/source/img/2014/0706-Naming.png" alt="Alt text"></p>
+<p><img src="/img/2014/0706-Naming.png" alt="Alt text"></p>
 <p>其中使用驼峰和蛇式居多，而匈牙利命名法这种方法实在是反人类。</p>
 <p>这里引用2位大师的吐槽</p>
 <p>Robert C. Martin:</p>
@@ -492,7 +908,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-07-06-Naming/" data-id="cjf9gd86j0000vzznd3i4h8zv" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-07-06-Naming/" data-id="cjf9ol82q00007jzns9f4ampr" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -506,7 +922,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; zurück</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Previo</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
   </nav>
 
 </section>
@@ -515,7 +931,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categorías</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Art/">Art</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tao/">Tao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
     </div>
@@ -535,7 +951,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/tags/Buddha/" style="font-size: 10px;">Buddha</a> <a href="/tags/DDD/" style="font-size: 20px;">DDD</a> <a href="/tags/IDDD/" style="font-size: 15px;">IDDD</a> <a href="/tags/Philosophy/" style="font-size: 10px;">Philosophy</a> <a href="/tags/TroubleShoot/" style="font-size: 10px;">TroubleShoot</a>
     </div>
@@ -544,7 +960,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
     </div>
@@ -554,7 +970,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
@@ -591,7 +1007,7 @@ Martin Folwer : 架构师有2种: 传统的架构师,非常厉害的做了很多
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Antinomy Yang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

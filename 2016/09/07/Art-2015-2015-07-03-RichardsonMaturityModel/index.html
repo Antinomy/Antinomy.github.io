@@ -10,19 +10,19 @@
   <meta name="description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Richardson Maturity Model">
-<meta property="og:url" content="http://yoursite.com/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/index.html">
+<meta property="og:url" content="http://antinomy.top/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/index.html">
 <meta property="og:site_name" content="Anti">
 <meta property="og:description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
-<meta property="og:image" content="http://yoursite.com/img/2015/rmm-overview.png">
-<meta property="og:image" content="http://yoursite.com/img/2015/rmm-level0.png">
-<meta property="og:image" content="http://yoursite.com/img/2015/rmm-level1.png">
-<meta property="og:image" content="http://yoursite.com/img/2015/rmm-level2.png">
-<meta property="og:image" content="http://yoursite.com/img/2015/rmm-level3.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-overview.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level0.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level1.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level2.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level3.png">
 <meta property="og:updated_time" content="2016-09-07T05:56:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Richardson Maturity Model">
 <meta name="twitter:description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
-<meta name="twitter:image" content="http://yoursite.com/img/2015/rmm-overview.png">
+<meta name="twitter:image" content="http://antinomy.top/img/2015/rmm-overview.png">
   
     <link rel="alternate" href="/atom.xml" title="Anti" type="application/atom+xml">
   
@@ -58,12 +58,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://antinomy.top"></form>
       </div>
     </div>
   </div>
@@ -102,11 +102,11 @@
 <p>[Level 0]<br>[Level 1 - 资源][]<br>[Level 2 - http 动词][]<br>[Level 3 - 超媒体控制][]  </p>
 <hr>
 <p>最近我正在读《 <a href="http://www.amazon.com/gp/product/0596805829?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596805829" target="_blank" rel="noopener">Rest In Practice</a> 》的草稿， 一本我的同事们写的书。<br>他们的目的是解释如何使用Restful web服务来处理许多企业面临着的集成问题。<br>这本书的核心是认为网络是一个存在的、经证实工作得很好的、大规模可伸缩的分布式系统。<br>我们根据这样的想法，可以更容易地构建集成系统。  </p>
-<p><img src="/source/img/2015/rmm-overview.png" alt="img"><br>Figure 1: Steps toward REST  </p>
+<p><img src="/img/2015/rmm-overview.png" alt="img"><br>Figure 1: Steps toward REST  </p>
 <p>为了更好的解释一个web风格系统的特殊属性，作者们用了一个由Leonard Richardson提出的restful成熟度模型，并在一个QCon talk的时候解释过它。<br>这个模型是很好的方式去思考那些技术，所以我把自己的解释也穿插在内。<br>（这里关于协议的例子只是为了说明问题，我不认为它值得去写代码和测试，所以在细节实现上可能会有些问题。）</p>
 <hr>
 <h1 id="Level-0"><a href="#Level-0" class="headerlink" title="[Level 0]"></a>[Level 0]</h1><p>这个模型的起点是，为了远程调用，使用HTTP来作为一个传输系统，但不使用任何web的机制。<br>基本上你所做的是使用HTTP作为隧道机制为自己的远程交互机制,通常基于<a href="http://www.eaipatterns.com/EncapsulatedSynchronousIntegration.html" target="_blank" rel="noopener">远程过程调用</a>。</p>
-<p><img src="/source/img/2015/rmm-level0.png" alt="img"><br>Figure 2: An example interaction at Level 0</p>
+<p><img src="/img/2015/rmm-level0.png" alt="img"><br>Figure 2: An example interaction at Level 0</p>
 <p>让我们假设我要预约我的医生。<br>我的预约软件首先需要知道我的医生什么时候有空，所以它向医院的预约系统请求这些信息。<br>在level 0的情景下，医院将在某个URL开放一个服务端点。<br>然后我向该端点post一个带有我的请求所有细节的文档。  </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /appointmentService HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotRequest</span> <span class="attr">date</span> = <span class="string">"2010-01-04"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>服务器会返回一个给我对应信息的文档。  </p>
@@ -120,7 +120,7 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequestFailure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">reason</span>&gt;</span>Slot not available<span class="tag">&lt;/<span class="name">reason</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequestFailure</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>目前为止，这就是一个直截了当的RPC风格的系统。<br>它很简单，它只是来回抛出普通XML（POX）。<br>同样原理，如果你使用SOAP 或 XML－RPC的话，唯一的不同就是你怎样去封装XML消息。  </p>
 <h1 id="Level-1-资源"><a href="#Level-1-资源" class="headerlink" title="[Level 1 - 资源]"></a>[Level 1 - 资源]</h1><p>向RMM迈向荣耀的第一步是引入资源。</p>
-<p><img src="/source/img/2015/rmm-level1.png" alt="img"><br>Figure 3: Level 1 adds resources</p>
+<p><img src="/img/2015/rmm-level1.png" alt="img"><br>Figure 3: Level 1 adds resources</p>
 <p>所以我们初始的查询里，我们会有给医生的一个资源。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /doctors/mjones HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotRequest</span> <span class="attr">date</span> = <span class="string">"2010-01-04"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 <p>答复里携带同样基本的消息，但是每一个时间段都是一个可以独立对应的资源。</p>
@@ -132,7 +132,7 @@
 <p>现在的区别是任何人需要做关于预约的任何事情，如测试一些预定，<br>他们会先持有预约的资源，那可能是一个URL（e.g. <a href="http://royalhope.nhs.uk/slots/1234/appointment）" target="_blank" rel="noopener">http://royalhope.nhs.uk/slots/1234/appointment）</a>,<br>然后post那个资源。  </p>
 <p>对于像我这样一个（面向）对象佬，这个就像是去定义对象的概念。<br>而不是在以太之间调用函数和传参，我们调用一个为其他信息提供参数的特别的对象。  </p>
 <h1 id="Level-2-http-动词"><a href="#Level-2-http-动词" class="headerlink" title="[Level 2 - http 动词]"></a>[Level 2 - http 动词]</h1><p>我在所有level 0 和 1之间的交互里使用HTTP POST 动词，但是一些人用GETs 来取代或添加。<br>在那些level里，那并没有多少不同，他们都是被用作于允许您通过HTTP交互的隧道传输机制。<br>level 2 比这个更进一步，在HTTP本身的机制里尽可能地使用HTTP动词。</p>
-<p><img src="/source/img/2015/rmm-level2.png" alt="img"><br>Figure 4: Level 2 addes HTTP verbs  </p>
+<p><img src="/img/2015/rmm-level2.png" alt="img"><br>Figure 4: Level 2 addes HTTP verbs  </p>
 <p>为了我们列表中的时间段，这个意味着我们要使用GET。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /doctors/mjones/slots?date=20100104&amp;status=open HTTP/1.1</span><br><span class="line">Host: royalhope.nhs.uk</span><br></pre></td></tr></table></figure>
 <p>答复和之前一样使用POST，</p>
@@ -150,7 +150,7 @@
 <p>在这里有一个矛盾。<br>REST提倡使用所有的HTTP动词。<br>他们也在证明他们的方法：REST是试图学习web的实际成功的一面。<br>但是万维网在实际应用很少使用PUT或DELETE。<br>合理使用PUT和DELETE的情况越来越多，但是web的存在证明并不是其中一个。  </p>
 <p>支持web存在的关键元素，是严格地分离来安全（例如GET）和非安全的操作，一起用状态码来帮助沟通遇到的各种错误。  </p>
 <h1 id="Level-3-超媒体控制"><a href="#Level-3-超媒体控制" class="headerlink" title="[Level 3 - 超媒体控制]"></a>[Level 3 - 超媒体控制]</h1><p>最后的level介绍了一个你经常听到的一个丑陋的缩写：HATEOAS (Hypertext As The Engine Of Application State)。<br>它解决的问题是：如何从一个开放的时间段里，去知道预约应该做些什么？  </p>
-<p><img src="/source/img/2015/rmm-level3.png" alt="img"><br>Figure 5: Level 3 adds hypermedia controls  </p>
+<p><img src="/img/2015/rmm-level3.png" alt="img"><br>Figure 5: Level 3 adds hypermedia controls  </p>
 <p>我们开始同样初始化的GET，跟我们在level 2 发送的一样。  </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">GET /doctors/mjones/slots?date=20100104&amp;status=open HTTP/1.1</span><br><span class="line">Host: royalhope.nhs.uk</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">但是应答里多了一个新元素  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">``` xml</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/slot/book"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">uri</span> = <span class="string">"/slots/1234"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"5678"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/slot/book"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">uri</span> = <span class="string">"/slots/5678"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>现在每一个时间段包含了一个URI，告诉我们如何去预约。  </p>
@@ -178,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/" data-id="cjf9gd895001qvzzn4c2fwxf5" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/" data-id="cjf9ol85k001v7jznhn513jev" class="article-share-link">Compartir</a>
       
       
     </footer>
@@ -188,7 +188,7 @@
 <nav id="article-nav">
   
     <a href="/2016/09/09/Tech-2016-2016-09-09-jvm-classloader/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
           JVM Class Loader
@@ -198,7 +198,7 @@
   
   
     <a href="/2016/09/02/Tech-2015-2015-09-28-FirstTryOfGatling/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">Viejo</strong>
       <div class="article-nav-title">First Try of Gatling</div>
     </a>
   
@@ -213,7 +213,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categorías</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Art/">Art</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tao/">Tao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
     </div>
@@ -233,7 +233,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/tags/Buddha/" style="font-size: 10px;">Buddha</a> <a href="/tags/DDD/" style="font-size: 20px;">DDD</a> <a href="/tags/IDDD/" style="font-size: 15px;">IDDD</a> <a href="/tags/Philosophy/" style="font-size: 10px;">Philosophy</a> <a href="/tags/TroubleShoot/" style="font-size: 10px;">TroubleShoot</a>
     </div>
@@ -242,7 +242,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
     </div>
@@ -252,7 +252,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
@@ -289,7 +289,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Antinomy Yang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

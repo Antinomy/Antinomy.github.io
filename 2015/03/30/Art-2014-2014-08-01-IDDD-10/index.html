@@ -11,15 +11,15 @@
 <meta name="keywords" content="IDDD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDDD 10 Aggregate">
-<meta property="og:url" content="http://yoursite.com/2015/03/30/Art-2014-2014-08-01-IDDD-10/index.html">
+<meta property="og:url" content="http://antinomy.top/2015/03/30/Art-2014-2014-08-01-IDDD-10/index.html">
 <meta property="og:site_name" content="Anti">
 <meta property="og:description" content="&amp;lt;&amp;lt; 实现领域驱动设计 &amp;gt;&amp;gt; 十: 聚合聚合由实体和值对象在一致性边界内组成，却是最不容易理解的。   MindMapping Source (Org Format):12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455* 聚">
-<meta property="og:image" content="http://yoursite.com/img/2014/0801-IDDD_10.png">
+<meta property="og:image" content="http://antinomy.top/img/2014/0801-IDDD_10.png">
 <meta property="og:updated_time" content="2015-03-30T14:34:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDDD 10 Aggregate">
 <meta name="twitter:description" content="&amp;lt;&amp;lt; 实现领域驱动设计 &amp;gt;&amp;gt; 十: 聚合聚合由实体和值对象在一致性边界内组成，却是最不容易理解的。   MindMapping Source (Org Format):12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455* 聚">
-<meta name="twitter:image" content="http://yoursite.com/img/2014/0801-IDDD_10.png">
+<meta name="twitter:image" content="http://antinomy.top/img/2014/0801-IDDD_10.png">
   
     <link rel="alternate" href="/atom.xml" title="Anti" type="application/atom+xml">
   
@@ -55,12 +55,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://antinomy.top"></form>
       </div>
     </div>
   </div>
@@ -93,13 +93,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="lt-lt-实现领域驱动设计-gt-gt-十-聚合"><a href="#lt-lt-实现领域驱动设计-gt-gt-十-聚合" class="headerlink" title="&lt;&lt; 实现领域驱动设计 &gt;&gt; 十: 聚合"></a>&lt;&lt; 实现领域驱动设计 &gt;&gt; 十: 聚合</h1><pre><code>聚合由实体和值对象在一致性边界内组成，却是最不容易理解的。 
-</code></pre><p><a href="/source/img/2014/0801-IDDD_10.png" target="_blank"><br><img src="/source/img/2014/0801-IDDD_10.png" alt="Alt text"><br></a></p>
+</code></pre><p><a href="/img/2014/0801-IDDD_10.png" target="_blank"><br><img src="/img/2014/0801-IDDD_10.png" alt="Alt text"><br></a></p>
 <h2 id="MindMapping-Source-Org-Format"><a href="#MindMapping-Source-Org-Format" class="headerlink" title="MindMapping Source (Org Format):"></a>MindMapping Source (Org Format):</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 聚合</span><br><span class="line">** 原则</span><br><span class="line">*** 在一致性边界内建模真正的不变条件</span><br><span class="line">**** 不变的业务规则</span><br><span class="line">**** 事务一致性</span><br><span class="line">**** 一致性边界</span><br><span class="line">*** 设计小聚合</span><br><span class="line">**** 更好性能和伸缩性</span><br><span class="line">**** 根实体</span><br><span class="line">     Root Entity</span><br><span class="line">*** 通过唯一标识引用其他聚合</span><br><span class="line">**** 通过标识引用使多个聚合协调工作</span><br><span class="line">**** 建模对象导航性</span><br><span class="line">***** 失联领域模型</span><br><span class="line">      （Disconnected Domain Model）</span><br><span class="line">****** 资源库</span><br><span class="line">****** 领域服务</span><br><span class="line">***** 通过应用服务来处理依赖关系</span><br><span class="line">**** 不在同个事务中修改多个聚合实例</span><br><span class="line">*** 在边界之外使用最终一致性</span><br><span class="line">**** 由边界内来控制一致性 — — 事务一致性</span><br><span class="line">**** 由边界外来控制一致性 — — 最终一致性</span><br><span class="line">** 打破原则的理由</span><br><span class="line">   有很多因素需要我们做出妥协，但不应该找各种借口来打破原则。</span><br><span class="line">*** 方便用户界面</span><br><span class="line">*** 缺乏技术支持</span><br><span class="line">*** 全局事务</span><br><span class="line">*** 查询性能</span><br><span class="line">** 通过发现，深入理解</span><br><span class="line">*** 重新思考设计</span><br><span class="line">*** 估算聚合成本</span><br><span class="line">*** 常用用例场景</span><br><span class="line">*** 内存消耗</span><br><span class="line">*** 探索另外的设计</span><br><span class="line">*** 实现最终一致性</span><br><span class="line">** 实现</span><br><span class="line">*** 创建具有唯一标识的根实体</span><br><span class="line">    将实体建模成聚合根（Aggregate Root）</span><br><span class="line">*** 优先使用值对象</span><br><span class="line">*** 迪米特法则和“告诉非询问”原则</span><br><span class="line">**** Law of Dememter</span><br><span class="line">***** “最小知识”原则</span><br><span class="line">***** 任何对象的任何方法只能调用</span><br><span class="line">****** 自身</span><br><span class="line">****** 传入的参数对象</span><br><span class="line">****** 它所创建的对象</span><br><span class="line">****** 自身包含的其他对象，并且拥有直接访问权</span><br><span class="line">**** Tell, Dont Ask</span><br><span class="line">***** 一个对象不应该被告知该怎么做</span><br><span class="line">*** 乐观并发</span><br><span class="line">**** 为根实体创建版本号</span><br><span class="line">**** 合理控制版本号</span><br><span class="line">*** 避免依赖注入</span><br><span class="line">**** 在聚合内注入 资源库/领域服务 有害，可在应用服务中使用</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/Art-2014-2014-08-01-IDDD-10/" data-id="cjf9gd87t000mvzzncxoepz2a" class="article-share-link">Teilen</a>
+      <a data-url="http://antinomy.top/2015/03/30/Art-2014-2014-08-01-IDDD-10/" data-id="cjf9ol83w000j7jzn4d1k44ab" class="article-share-link">Compartir</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDDD/">IDDD</a></li></ul>
@@ -110,19 +110,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/03/30/Tech-2014-2014-09-25-MindMapping-ChoiceOnTools/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+    <a href="/2015/03/30/Other-2014-2014-09-28-OpenSourceLicence/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          MindMapping - Choice on Tools
+          Open Source Licence
         
       </div>
     </a>
   
   
-    <a href="/2015/03/30/Art-2014-2014-07-31-IDDD-9/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">IDDD 9 Module</div>
+    <a href="/2015/03/30/Tao-2014-2014-09-21-WayOfPhilosophy-Metaphysics/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Way of Philosophy - Metaphysics</div>
     </a>
   
 </nav>
@@ -136,7 +136,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">Categorías</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Art/">Art</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Other/">Other</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tao/">Tao</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
     </div>
@@ -156,7 +156,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/tags/Buddha/" style="font-size: 10px;">Buddha</a> <a href="/tags/DDD/" style="font-size: 20px;">DDD</a> <a href="/tags/IDDD/" style="font-size: 15px;">IDDD</a> <a href="/tags/Philosophy/" style="font-size: 10px;">Philosophy</a> <a href="/tags/TroubleShoot/" style="font-size: 10px;">TroubleShoot</a>
     </div>
@@ -165,7 +165,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
     </div>
@@ -175,7 +175,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
@@ -212,7 +212,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 Antinomy Yang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
