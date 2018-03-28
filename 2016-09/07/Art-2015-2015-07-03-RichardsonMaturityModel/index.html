@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Richardson Maturity Model">
+<meta property="og:url" content="http://antinomy.top/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/index.html">
+<meta property="og:site_name" content="Anti">
+<meta property="og:description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-overview.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level0.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level1.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level2.png">
+<meta property="og:image" content="http://antinomy.top/img/2015/rmm-level3.png">
+<meta property="og:updated_time" content="2016-09-07T05:56:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Richardson Maturity Model">
+<meta name="twitter:description" content="Richardson Restful成熟度模型走向荣耀的RESTLeonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。它们包括：资源，http 动词，超媒体控制。 作者 : Martin Fowler译者 : A生原文地址  内容   [Level 0][Level 1 - 资源][][Level 2 - http 动词][][Level 3 - 超媒体控制][]">
+<meta name="twitter:image" content="http://antinomy.top/img/2015/rmm-overview.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://antinomy.top/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/"/>
+
+
+
+
+
+  <title>Richardson Maturity Model | Anti</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anti</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-匠">
+          <a href="/categories/Art/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            匠
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-道">
+          <a href="/categories/Tao/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            道
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-术">
+          <a href="/categories/Tech/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-杂">
+          <a href="/categories/Other/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            杂
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Me
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2016/09/07/Art-2015-2015-07-03-RichardsonMaturityModel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Antinomy Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/BG/AY.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Richardson Maturity Model</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-07T10:43:56+08:00">
+                2016-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Art/" itemprop="url" rel="index">
+                    <span itemprop="name">Art</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Richardson-Restful成熟度模型"><a href="#Richardson-Restful成熟度模型" class="headerlink" title="Richardson Restful成熟度模型"></a>Richardson Restful成熟度模型</h1><h1 id="走向荣耀的REST"><a href="#走向荣耀的REST" class="headerlink" title="走向荣耀的REST"></a>走向荣耀的REST</h1><p>Leonard Richardson提出的一个模型，把REST方法的主要元素分解成三步。<br>它们包括：资源，http 动词，超媒体控制。</p>
+<p>作者 : Martin Fowler<br>译者 : A生<br><a href="http://martinfowler.com/articles/richardsonMaturityModel.html#level0" target="_blank" rel="noopener">原文地址</a></p>
+<hr>
+<p>内容  </p>
+<p>[Level 0]<br>[Level 1 - 资源][]<br>[Level 2 - http 动词][]<br>[Level 3 - 超媒体控制][]  </p>
+<hr>
+<p>最近我正在读《 <a href="http://www.amazon.com/gp/product/0596805829?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0596805829" target="_blank" rel="noopener">Rest In Practice</a> 》的草稿， 一本我的同事们写的书。<br>他们的目的是解释如何使用Restful web服务来处理许多企业面临着的集成问题。<br>这本书的核心是认为网络是一个存在的、经证实工作得很好的、大规模可伸缩的分布式系统。<br>我们根据这样的想法，可以更容易地构建集成系统。  </p>
+<p><img src="/img/2015/rmm-overview.png" alt="img"><br>Figure 1: Steps toward REST  </p>
+<p>为了更好的解释一个web风格系统的特殊属性，作者们用了一个由Leonard Richardson提出的restful成熟度模型，并在一个QCon talk的时候解释过它。<br>这个模型是很好的方式去思考那些技术，所以我把自己的解释也穿插在内。<br>（这里关于协议的例子只是为了说明问题，我不认为它值得去写代码和测试，所以在细节实现上可能会有些问题。）</p>
+<hr>
+<h1 id="Level-0"><a href="#Level-0" class="headerlink" title="[Level 0]"></a>[Level 0]</h1><p>这个模型的起点是，为了远程调用，使用HTTP来作为一个传输系统，但不使用任何web的机制。<br>基本上你所做的是使用HTTP作为隧道机制为自己的远程交互机制,通常基于<a href="http://www.eaipatterns.com/EncapsulatedSynchronousIntegration.html" target="_blank" rel="noopener">远程过程调用</a>。</p>
+<p><img src="/img/2015/rmm-level0.png" alt="img"><br>Figure 2: An example interaction at Level 0</p>
+<p>让我们假设我要预约我的医生。<br>我的预约软件首先需要知道我的医生什么时候有空，所以它向医院的预约系统请求这些信息。<br>在level 0的情景下，医院将在某个URL开放一个服务端点。<br>然后我向该端点post一个带有我的请求所有细节的文档。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /appointmentService HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotRequest</span> <span class="attr">date</span> = <span class="string">"2010-01-04"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>服务器会返回一个给我对应信息的文档。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">doctor</span> <span class="attr">id</span> = <span class="string">"mjones"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">doctor</span> <span class="attr">id</span> = <span class="string">"mjones"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>我在这里用了XML作为例子，但其内容可以实际上可以是任何格式：JSON、YAML、key－value pairs，或者其他自定义格式。</p>
+<p>我的下一步是进行预约，所以我可以向服务端点再次post一个文档。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST /appointmentService HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequest</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>顺利的话，我会收到一个告诉我预约成功的回应。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointment</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointment</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果出现问题，某人在我之前就预定了，那我会在回答的结构内得到某种错误消息。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequestFailure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">reason</span>&gt;</span>Slot not available<span class="tag">&lt;/<span class="name">reason</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequestFailure</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>目前为止，这就是一个直截了当的RPC风格的系统。<br>它很简单，它只是来回抛出普通XML（POX）。<br>同样原理，如果你使用SOAP 或 XML－RPC的话，唯一的不同就是你怎样去封装XML消息。  </p>
+<h1 id="Level-1-资源"><a href="#Level-1-资源" class="headerlink" title="[Level 1 - 资源]"></a>[Level 1 - 资源]</h1><p>向RMM迈向荣耀的第一步是引入资源。</p>
+<p><img src="/img/2015/rmm-level1.png" alt="img"><br>Figure 3: Level 1 adds resources</p>
+<p>所以我们初始的查询里，我们会有给医生的一个资源。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /doctors/mjones HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotRequest</span> <span class="attr">date</span> = <span class="string">"2010-01-04"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>答复里携带同样基本的消息，但是每一个时间段都是一个可以独立对应的资源。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"5678"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>带着特殊资源的预约意味着post着一个特定的时间段。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST /slots/1234 HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequest</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一切顺利的话，我会得到一个跟之前相似的回应。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointment</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointment</span></span></span><br></pre></td></tr></table></figure>
+<p>现在的区别是任何人需要做关于预约的任何事情，如测试一些预定，<br>他们会先持有预约的资源，那可能是一个URL（e.g. <a href="http://royalhope.nhs.uk/slots/1234/appointment）" target="_blank" rel="noopener">http://royalhope.nhs.uk/slots/1234/appointment）</a>,<br>然后post那个资源。  </p>
+<p>对于像我这样一个（面向）对象佬，这个就像是去定义对象的概念。<br>而不是在以太之间调用函数和传参，我们调用一个为其他信息提供参数的特别的对象。  </p>
+<h1 id="Level-2-http-动词"><a href="#Level-2-http-动词" class="headerlink" title="[Level 2 - http 动词]"></a>[Level 2 - http 动词]</h1><p>我在所有level 0 和 1之间的交互里使用HTTP POST 动词，但是一些人用GETs 来取代或添加。<br>在那些level里，那并没有多少不同，他们都是被用作于允许您通过HTTP交互的隧道传输机制。<br>level 2 比这个更进一步，在HTTP本身的机制里尽可能地使用HTTP动词。</p>
+<p><img src="/img/2015/rmm-level2.png" alt="img"><br>Figure 4: Level 2 addes HTTP verbs  </p>
+<p>为了我们列表中的时间段，这个意味着我们要使用GET。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /doctors/mjones/slots?date=20100104&amp;status=open HTTP/1.1</span><br><span class="line">Host: royalhope.nhs.uk</span><br></pre></td></tr></table></figure>
+<p>答复和之前一样使用POST，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"5678"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在level 2里，像这样在请求中使用GET是至关重要的。<br>HTTP定义GET为一个安全的操作，它不会对任何事物的状态作出重大改变。<br>这样允许我们在任何次数、任何顺序去安全地调用GETs，每次都得到相同的结果。<br>一个重要的结论是：它允许任何参与者在请求的路由里使用缓存，这是一个让web正常发挥它本身特性的关键元素。<br>HTTP包括了很多措施去支持缓存，可以用于任何交互者的沟通里。<br>遵循HTTP的规则，让我们能够去利用这种能力的优点。  </p>
+<p>为了预约，我们需要一个HTTP动词去改变状态，一个Post或PUT。<br>我会使用和之前一样的POST。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST /slots/1234 HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequest</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这里权衡使用POST和PUT超过了我在这要说的范围，也许某天我会为了他们另起一篇文章。<br>但我想指出,一些人错误地把POST/PUT等同于create/update。它们之间的选择是相当不同的。  </p>
+<p>就算我在level 1用于同样的post，那里有另外一个重要的不同之处，在于远程的服务怎样去回应。<br>如果一切顺利，服务应答了一个响应代码201，来表明这个世界上多了一个新的资源。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 201 Created</span><br><span class="line">Location: slots/1234/appointment</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointment</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointment</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>201的响应包括一个位置属性的URI，所以客户端在未来可以去用GET那个资源的当前状态。<br>这里的响应还包括该资源的展示，去保存当前客户端一个额外的调用。  </p>
+<p>另外一个不同的区别，如果那里出现错误，如某人有预定的那个时间。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 409 Conflict</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"5678"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个应答中重要的部分，用一个HTTP的响应代码去识别那里出现了错误。<br>在这种情况下,409似乎是一个不错的选择,表明其他人已经在一个不兼容的方式下去更新资源。<br>而不是使用响应代码200但又包含了错误的响应，在level 2 我们显然使用某种像这样的错误响应。<br>那是由协议设计者来决定使用什么代码，但是一个错误出现时，应该使用一个非2xx的响应代码。<br>Level 2 介绍了使用HTTP动词和HTTP响应代码。  </p>
+<p>在这里有一个矛盾。<br>REST提倡使用所有的HTTP动词。<br>他们也在证明他们的方法：REST是试图学习web的实际成功的一面。<br>但是万维网在实际应用很少使用PUT或DELETE。<br>合理使用PUT和DELETE的情况越来越多，但是web的存在证明并不是其中一个。  </p>
+<p>支持web存在的关键元素，是严格地分离来安全（例如GET）和非安全的操作，一起用状态码来帮助沟通遇到的各种错误。  </p>
+<h1 id="Level-3-超媒体控制"><a href="#Level-3-超媒体控制" class="headerlink" title="[Level 3 - 超媒体控制]"></a>[Level 3 - 超媒体控制]</h1><p>最后的level介绍了一个你经常听到的一个丑陋的缩写：HATEOAS (Hypertext As The Engine Of Application State)。<br>它解决的问题是：如何从一个开放的时间段里，去知道预约应该做些什么？  </p>
+<p><img src="/img/2015/rmm-level3.png" alt="img"><br>Figure 5: Level 3 adds hypermedia controls  </p>
+<p>我们开始同样初始化的GET，跟我们在level 2 发送的一样。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">GET /doctors/mjones/slots?date=20100104&amp;status=open HTTP/1.1</span><br><span class="line">Host: royalhope.nhs.uk</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">但是应答里多了一个新元素  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">``` xml</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">openSlotList</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/slot/book"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">uri</span> = <span class="string">"/slots/1234"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"5678"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1600"</span> <span class="attr">end</span> = <span class="string">"1650"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/slot/book"</span> </span></span><br><span class="line"><span class="tag">           <span class="attr">uri</span> = <span class="string">"/slots/5678"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">openSlotList</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>现在每一个时间段包含了一个URI，告诉我们如何去预约。  </p>
+<p>超媒体控制的关键在于告诉我们，接下来我们能做什么，和我们需要操作的资源的URI。<br>而不是我们必须要知道那里可以post我们的预约请求，超媒体控制的应答里告诉了我们如何去做。  </p>
+<p>POST 会再次复制level 2的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">POST /slots/1234 HTTP/1.1</span><br><span class="line">[various other headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointmentRequest</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointmentRequest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后应答里包括了一系列为了不同事情的下一步的超媒体控制。  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 201 Created</span><br><span class="line">Location: http://royalhope.nhs.uk/slots/1234/appointment</span><br><span class="line">[various headers]</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">appointment</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">id</span> = <span class="string">"1234"</span> <span class="attr">doctor</span> = <span class="string">"mjones"</span> <span class="attr">start</span> = <span class="string">"1400"</span> <span class="attr">end</span> = <span class="string">"1450"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">patient</span> <span class="attr">id</span> = <span class="string">"jsmith"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/appointment/cancel"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/slots/1234/appointment"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/appointment/addTest"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/slots/1234/appointment/tests"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"self"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/slots/1234/appointment"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/appointment/changeTime"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/doctors/mjones/slots?date=20100104@status=open"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/appointment/updateContactInfo"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/patients/jsmith/contactInfo"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span> = <span class="string">"/linkrels/help"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">uri</span> = <span class="string">"/help/appointment"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">appointment</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>超媒体控制一个明显的好处在于：允许服务端在不破坏客户端的情况下，去修改它自己的URI scheme。<br>除了最初的入口点，只要客户端寻找“addTest” 链接URI，服务端团队可以处理所有的URI。   </p>
+<p>一个长远的好处就是它帮助客户端的开发者去探索协议。<br>那个链接给客户端开发者一个接下来可能是什么的提示。<br>它不会给予所有的信息：指向同一个URI，“最近的”和“取消”的控制－－他们需要找出一个是GET和另外一个是DELETE。<br>但至少它给了他们一个起点,去考虑的更多信息，和在协议文档里寻找一个类似的URI。  </p>
+<p>同样地它允许服务端团队通过响应里的新链接去宣传新的功能。<br>如果客户端开发者密切留意那些未知的链接，这些链接可以触发进一步的探索。  </p>
+<p>那里没有绝对的标准关于如何去表示超媒体控制。<br>我在这里所做的是，在一个实践的团队里去使用当前建议的REST，这是遵循ATOM （<a href="http://atompub.org/rfc4287.html" target="_blank" rel="noopener">RFC 4287</a> ）<br>我为了一个目标的URI和一个rel属性，用一个带一个uri属性的 <link> 元素去描述这种关系。<br>一个众所周知的关系(如引用自己本身的元素)是赤裸的,任何特定的服务器是一个完全限定的URI。<br>ATOM说明知名linkrels的定义是：<a href="http://www.iana.org/assignments/link-relations/link-relations.xhtml" target="_blank" rel="noopener">链接关系的注册表</a><br>我所写的这些界限于ATOM所做的，通常被看作是安静的level 3里一个领导者。  </p>
+<hr>
+<p>Levels的定义</p>
+<p>我应该强调RMM,是一个好的方式去思考什么是REST的元素,而不是一个REST本身级别的的定义。<br>Roy Fielding已经清晰地指出 <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven" target="_blank" rel="noopener">level 3 是REST的一个前置条件</a><br>就像软件里的很多缩写，REST拥有许多的定义，但从Roy Fielding 杜撰了这个缩写开始，他的定义应该比大多数人更有分量。  </p>
+<p>我觉得这个RMM有用的是,它提供了一个很好的方式，一步步去理解restfull思维背后的基本想法。<br>因此我认为这是来帮助我们了解概念的工具，而不是某种评价机制。<br>我不认为我们有足够多的例子，去真正确保restful方式是集成系统的正确方法。<br>在我建议的大多数情况下，我认为这是一个非常有吸引力的方法。  </p>
+<p>和Ian Robinson讨论这个时，他强调当Leonard Richardson首次提出它时，<br>这个模型具有吸引力的地方是，这是常见的设计技术的关系。  </p>
+<pre><code>+ Level 1 处理复杂性的问题通过使用分而治之,把一个大型的服务端点分解成多个资源。
+
++ Level 2 引入一组标准的动词,这样我们可以以同样的方式处理类似的问题,消除了不必要的不确定性。
+
++ Level 3 引入可查找性,提供一种方式让协议更具可读性。
+</code></pre><p>结果是，一个模型帮助我们去思考我们想要一个怎样的HTTP服务，去提供和设计人们希望与之交互的期望。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/02/Tech-2015-2015-09-28-FirstTryOfGatling/" rel="next" title="First Try of Gatling">
+                <i class="fa fa-chevron-left"></i> First Try of Gatling
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/09/Tech-2016-2016-09-09-jvm-classloader/" rel="prev" title="JVM Class Loader">
+                JVM Class Loader <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+
+
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/BG/AY.jpg"
+                alt="Antinomy Yang" />
+            
+              <p class="site-author-name" itemprop="name">Antinomy Yang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/antinomy" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://douban.com/people/antinomy" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Richardson-Restful成熟度模型"><span class="nav-number">1.</span> <span class="nav-text">Richardson Restful成熟度模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#走向荣耀的REST"><span class="nav-number">2.</span> <span class="nav-text">走向荣耀的REST</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Level-0"><span class="nav-number">3.</span> <span class="nav-text">[Level 0]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Level-1-资源"><span class="nav-number">4.</span> <span class="nav-text">[Level 1 - 资源]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Level-2-http-动词"><span class="nav-number">5.</span> <span class="nav-text">[Level 2 - http 动词]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Level-3-超媒体控制"><span class="nav-number">6.</span> <span class="nav-text">[Level 3 - 超媒体控制]</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Antinomy Yang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

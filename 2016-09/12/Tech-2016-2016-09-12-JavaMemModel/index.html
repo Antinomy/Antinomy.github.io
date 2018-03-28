@@ -79,13 +79,23 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Anti">
-<meta property="og:url" content="http://antinomy.top/archives/2018/02/index.html">
+<meta name="description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java Memory Model">
+<meta property="og:url" content="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/index.html">
 <meta property="og:site_name" content="Anti">
+<meta property="og:description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://antinomy.top/img/2016/JMM.png">
+<meta property="og:image" content="http://cdn1.infoqstatic.com/statics_s2_20160914-0333/resource/news/2016/09/APM-jClarity-jvm-heap-oldgen/zh/resources/2.png">
+<meta property="og:image" content="http://antinomy.top/img/2016/Java7MM.png">
+<meta property="og:image" content="http://antinomy.top/img/2016/Java8MM.png">
+<meta property="og:image" content="https://img3.doubanio.com/lpic/s27458236.jpg">
+<meta property="og:updated_time" content="2016-09-19T06:26:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Anti">
+<meta name="twitter:title" content="Java Memory Model">
+<meta name="twitter:description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
+<meta name="twitter:image" content="http://antinomy.top/img/2016/JMM.png">
 
 
 
@@ -115,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://antinomy.top/archives/2018/02/"/>
+  <link rel="canonical" href="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/"/>
 
 
 
 
 
-  <title>归档 | Anti</title>
+  <title>Java Memory Model | Anti</title>
   
 
 
@@ -140,7 +150,7 @@
     
   
 
-  <div class="container sidebar-position-right page-archive">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -298,73 +308,248 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 49 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Antinomy Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/BG/AY.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/28/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/" itemprop="url">
-              
-                <span itemprop="name">One Issue Cause By Id</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Java Memory Model</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-28T08:57:54+08:00"
-              content="2018-02-28" >
-          02-28
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-12T18:23:16+08:00">
+                2016-09-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h1 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h1><p>Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。</p>
+<p>以JDK1.7为例子，内存模型如下：</p>
+<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><p><img src="/img/2016/JMM.png" width="600"></p>
+<ul>
+<li>程序计数器 （Program Counter Register）</li>
+<li>Java虚拟机栈 （Java Virtual Machine Stacks）</li>
+<li>本地方法栈 （Native Method Stack）</li>
+<li>Java堆 （Java Heap）</li>
+<li>方法区 （Method Area）</li>
+<li>运行时常量池 （Runtime Constant Pool）</li>
+<li>直接内存 （Direct Memory）</li>
+</ul>
+<h2 id="程序计数器-（Program-Counter-Register）"><a href="#程序计数器-（Program-Counter-Register）" class="headerlink" title="程序计数器 （Program Counter Register）"></a>程序计数器 （Program Counter Register）</h2><p>程序计数器是一块较小的线程私有的内存空间，用了记录正在执行的虚拟机字节码指令的地址。<br>通过改变这个计数器的值来选取下一条字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依靠它来实现。</p>
+<p>执行Native方法的时候，其值为空（Undefined）。</p>
+<p>此内存区域是虚拟机规范唯一没有规定任何OutOfMemoryError的区域。</p>
+<h2 id="Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="Java虚拟机栈 （Java Virtual Machine Stacks）"></a>Java虚拟机栈 （Java Virtual Machine Stacks）</h2><p>Java虚拟机栈也是线程私有的内存空间，它的生命周期和线程一样。</p>
+<p>它是描述Java方法执行的内存模型：</p>
+<pre><code>每个方法在执行的同时都会创建一个栈桢（Stack Frame），用于存储局部变量表、操作数栈、动态链接、方法出口等信息。
+</code></pre><p>每个方法从调用到结束，就对应一个栈桢在虚拟机栈中入栈到出栈的过程。</p>
+<h2 id="本地方法栈-（Native-Method-Stack）"><a href="#本地方法栈-（Native-Method-Stack）" class="headerlink" title="本地方法栈 （Native Method Stack）"></a>本地方法栈 （Native Method Stack）</h2><p>本地方法栈 （Native Method Stack）与Java虚拟机栈的作用非常相似，其区别是：</p>
+<pre><code>虚拟机栈为Java方法服务，本地方法栈为虚拟机用到的Native方法服务。
+</code></pre><h2 id="Java堆-（Java-Heap）"><a href="#Java堆-（Java-Heap）" class="headerlink" title="Java堆 （Java Heap）"></a>Java堆 （Java Heap）</h2><p>Java堆是所有线程共享的内存区域，是最大的一块。</p>
+<p>其唯一目的就是存放对象实例，也是GC管理的主要区域。</p>
+<p>从内存回收的角度，还可以细分为： 新生代（Young Generation）和老年代（Old Generation）等。</p>
+<p><img src="http://cdn1.infoqstatic.com/statics_s2_20160914-0333/resource/news/2016/09/APM-jClarity-jvm-heap-oldgen/zh/resources/2.png" alt="img"></p>
+<p>年轻代为创建的短期对象，失效之后很快会被垃圾回收。该区又被划分为Eden和两个Survivor区域。</p>
+<p>老年代存放的多数为存活时间较长的对象。</p>
+<p>垃圾回收GC分为两种Minor GC、Full GC；</p>
+<p>Minor GC发生频繁，但是仅针对年轻代。</p>
+<h3 id="Full-GC-触发条件"><a href="#Full-GC-触发条件" class="headerlink" title="Full GC 触发条件"></a>Full GC 触发条件</h3><ul>
+<li>调用System.gc()</li>
+<li>老年代空间不足</li>
+<li>永久代空间不足</li>
+<li>空间分配担保失败</li>
+<li>Cocurrent mode failure</li>
+</ul>
+<h2 id="方法区-（Method-Area）"><a href="#方法区-（Method-Area）" class="headerlink" title="方法区 （Method Area）"></a>方法区 （Method Area）</h2><p>方法区用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<p>虽然和Java堆一样是各个线程共享的内存区域，却有一个别名 Non－Heap （非堆）</p>
+<p>在HotSpot虚拟机上“方法区”被更多人称为“永久代” （Permanent Generation），但对其它虚拟机并不存在这样的概念。</p>
+<p><img src="/img/2016/Java7MM.png" width="800"></p>
+<p>而且在JDK8里，永久代也被Metaspace所替代，位置也移到native memory里。</p>
+<p>这样做的好处在于：简化GC的算法，full gc的时候更高效率。</p>
+<p><img src="/img/2016/Java8MM.png" width="800"></p>
+<h2 id="运行时常量池-（Runtime-Constant-Pool）"><a href="#运行时常量池-（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池 （Runtime Constant Pool）"></a>运行时常量池 （Runtime Constant Pool）</h2><p>运行时常量池 是方法区的一部分，用于存储编译期生成的各种字面量和符号引用，在类加载后进入方法区的运行时常量池中。</p>
+<h2 id="直接内存-（Direct-Memory）"><a href="#直接内存-（Direct-Memory）" class="headerlink" title="直接内存 （Direct Memory）"></a>直接内存 （Direct Memory）</h2><p>直接内存不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域。<br>它属于堆外内存，受到本机内存大小、寻址空间的限制。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li>《深入浅出Java虚拟机》  </li>
+</ul>
+<p><img src="https://img3.doubanio.com/lpic/s27458236.jpg" alt="img"></p>
+<ul>
+<li><a href="http://www.infoq.com/cn/news/2016/09/APM-jClarity-jvm-heap-oldgen" target="_blank" rel="noopener">JVM堆内存监测的一种方式，性能调优依旧任重道远</a></li>
+</ul>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/09/Tech-2016-2016-09-09-jvm-classloader/" rel="next" title="JVM Class Loader">
+                <i class="fa fa-chevron-left"></i> JVM Class Loader
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/13/Tech-2016-2016-09-13-JavaConcurrency/" rel="prev" title="Java Concurrency">
+                Java Concurrency <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+
+
+  </div>
 
 
           </div>
@@ -372,6 +557,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -394,10 +583,23 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/BG/AY.jpg"
+                alt="Antinomy Yang" />
             
               <p class="site-author-name" itemprop="name">Antinomy Yang</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -443,6 +645,22 @@
           
 
           
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/antinomy" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://douban.com/people/antinomy" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
 
           
           
@@ -455,6 +673,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-内存模型"><span class="nav-number">1.</span> <span class="nav-text">Java 内存模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存模型"><span class="nav-number">2.</span> <span class="nav-text">内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器-（Program-Counter-Register）"><span class="nav-number">2.1.</span> <span class="nav-text">程序计数器 （Program Counter Register）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><span class="nav-number">2.2.</span> <span class="nav-text">Java虚拟机栈 （Java Virtual Machine Stacks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈-（Native-Method-Stack）"><span class="nav-number">2.3.</span> <span class="nav-text">本地方法栈 （Native Method Stack）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java堆-（Java-Heap）"><span class="nav-number">2.4.</span> <span class="nav-text">Java堆 （Java Heap）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-GC-触发条件"><span class="nav-number">2.4.1.</span> <span class="nav-text">Full GC 触发条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区-（Method-Area）"><span class="nav-number">2.5.</span> <span class="nav-text">方法区 （Method Area）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时常量池-（Runtime-Constant-Pool）"><span class="nav-number">2.6.</span> <span class="nav-text">运行时常量池 （Runtime Constant Pool）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接内存-（Direct-Memory）"><span class="nav-number">2.7.</span> <span class="nav-text">直接内存 （Direct Memory）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -597,6 +831,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
