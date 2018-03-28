@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
+<meta name="description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="One Issue Cause By Id">
-<meta property="og:url" content="http://antinomy.top/2018/03/28/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/index.html">
+<meta property="og:title" content="Benefit of Extract Method">
+<meta property="og:url" content="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/index.html">
 <meta property="og:site_name" content="Anti">
-<meta property="og:description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
+<meta property="og:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://antinomy.top/img/2018/Id-Issue-1.png">
-<meta property="og:image" content="http://antinomy.top/img/2018/Id-Issue-2.png">
-<meta property="og:updated_time" content="2018-03-27T16:49:24.000Z">
+<meta property="og:updated_time" content="2018-03-28T02:13:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="One Issue Cause By Id">
-<meta name="twitter:description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
-<meta name="twitter:image" content="http://antinomy.top/img/2018/Id-Issue-1.png">
+<meta name="twitter:title" content="Benefit of Extract Method">
+<meta name="twitter:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://antinomy.top/2018/03/28/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/"/>
+  <link rel="canonical" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/"/>
 
 
 
 
 
-  <title>One Issue Cause By Id | Anti</title>
+  <title>Benefit of Extract Method | Anti</title>
   
 
 
@@ -320,7 +317,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2018/03/28/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Antinomy Yang">
@@ -337,7 +334,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">One Issue Cause By Id</h1>
+          <h1 class="post-title" itemprop="name headline">Benefit of Extract Method</h1>
         
 
         <div class="post-meta">
@@ -349,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T00:49:24+08:00">
-                2018-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-02T00:00:00+08:00">
+                2014-09-02
               </time>
             
 
@@ -409,23 +406,47 @@
       
 
       
-        <h1 id="一个ID引起的血案"><a href="#一个ID引起的血案" class="headerlink" title="一个ID引起的血案"></a>一个ID引起的血案</h1><h2 id="一个少见的丢单问题"><a href="#一个少见的丢单问题" class="headerlink" title="一个少见的丢单问题"></a>一个少见的丢单问题</h2><p>最近遇到一个少见的丢单问题:</p>
-<pre><code>2个订单在同一秒下单,产生的订单ID居然是一样的!
-</code></pre><p> 经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongId</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Long&gt; recentRandoms = <span class="keyword">new</span> HashSet&lt;Long&gt;(<span class="number">5000</span>);</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Generates a Twitter Snowflake compatible id utilizing randomness for the right most 22 bits and</span></span><br><span class="line"><span class="comment">     * the Twitter standard EPOCH</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">long</span> <span class="title">generate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> currentTimestamp = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (lastTimestamp &gt; currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// Clock is running backwards so wait until it isn't</span></span><br><span class="line">            currentTimestamp = System.currentTimeMillis();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (currentTimestamp &lt; EPOCH || currentTimestamp &gt; MAX_SIGNED_LONG) &#123;</span><br><span class="line">            <span class="comment">// The current time cannot be less than the EPOCH</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Invalid System Clock was "</span> + <span class="keyword">new</span> Date(currentTimestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> customTimestamp = currentTimestamp - EPOCH;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> shiftedTimestamp = customTimestamp &lt;&lt; TIME_SHIFT;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> random = nextRandomPart();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp != currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// timestamp has advanced so reset it and clear the previous cache</span></span><br><span class="line">            lastTimestamp = currentTimestamp;</span><br><span class="line">            recentRandoms.clear();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Same timestamp as previous keep generating randoms till new is found</span></span><br><span class="line">            <span class="keyword">while</span> (recentRandoms.contains(random)) &#123;</span><br><span class="line">                random = nextRandomPart();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        recentRandoms.add(random);</span><br><span class="line">        <span class="keyword">return</span> shiftedTimestamp | random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">nextRandomPart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ThreadLocalRandom.current().nextLong() &gt;&gt;&gt; RANDOM_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个方法是参考Twitter Snowflake(一个来自Twitter的分布式ID算法)的java实现.</p>
-<p>确定问题的方法是重现问题,幸好这个工具类是孤独的,:) ,所以写个单元测试还是比较简单的.</p>
-<p>测试代码如下,简单来说就是模拟同一时间有多少生产ID的并发请求,当出现重复ID的时候测试失败.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongIdTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testId_100</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">100</span>), <span class="keyword">this</span>::getId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">paralletTestThread</span><span class="params">(List&lt;Integer&gt; list, Supplier&lt;Long&gt; method)</span> </span>&#123;</span><br><span class="line">        Map idMap = <span class="keyword">new</span> ConcurrentHashMap();</span><br><span class="line"></span><br><span class="line">        list.parallelStream().forEach(t -&gt; &#123;</span><br><span class="line">            Long id = method.get();</span><br><span class="line"></span><br><span class="line">            assertNull(id.toString(), idMap.get(id));</span><br><span class="line"></span><br><span class="line">            idMap.put(id, System.nanoTime());</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LongId.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">getMockTimes</span><span class="params">(<span class="keyword">int</span> maxTime)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxTime; i++)</span><br><span class="line">            list.add(i);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 测试结果,当并发次数为1000次的时候,很容易重现问题.</p>
-<p> <img src="/img/2018/Id-Issue-1.png" alt="img"></p>
-<p> 虽然源码通过 <em>shiftedTimestamp | random</em> 来保证每次产生的ID是不一样的,但是实验结果表面尽管shiftedTimestamp和random每次都是不一样的,</p>
-<p> 但是与运算的结果却可能是一样的,知道问题原因就好处理了.</p>
-<p> 重新写了一个新的ID生产算法工具类如下,在规定的时间内缓存生产的ID,如果出现重复就重新生成.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongIdThreadSafety</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Long&gt; recentRandoms = ConcurrentHashMap.&lt;Long&gt;newKeySet();</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">long</span> <span class="title">generate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> currentTimestamp = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (lastTimestamp.get() &gt; currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// Clock is running backwards so wait until it isn't</span></span><br><span class="line">            currentTimestamp = System.currentTimeMillis();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp.get() != currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// timestamp has advanced so reset it and clear the previous cache</span></span><br><span class="line">            lastTimestamp.lazySet(currentTimestamp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp.get() - currentTimestamp &gt; MAX_TIME_MILLIS_CHANGE) &#123;</span><br><span class="line">            recentRandoms.clear();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (currentTimestamp &lt; EPOCH || currentTimestamp &gt; MAX_SIGNED_LONG) &#123;</span><br><span class="line">            <span class="comment">// The current time cannot be less than the EPOCH</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Invalid System Clock was "</span> + <span class="keyword">new</span> Date(currentTimestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> customTimestamp = currentTimestamp - EPOCH;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> shiftedTimestamp = customTimestamp &lt;&lt; TIME_SHIFT;</span><br><span class="line"></span><br><span class="line">        AtomicReference&lt;Long&gt; result = <span class="keyword">new</span> AtomicReference&lt;&gt;(<span class="keyword">null</span>);</span><br><span class="line">        AtomicReference&lt;Long&gt; random = <span class="keyword">new</span> AtomicReference&lt;&gt;(nextRandomPart());</span><br><span class="line"></span><br><span class="line">        makeUniqueId(shiftedTimestamp, result, random);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//        System.out.println(result.get() + " is build by " + shiftedTimestamp + " and " + random.get()</span></span><br><span class="line">        <span class="comment">//                + " on time " + new Date(currentTimestamp));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeUniqueId</span><span class="params">(<span class="keyword">long</span> shiftedTimestamp, AtomicReference&lt;Long&gt; result, AtomicReference&lt;Long&gt; random)</span> </span>&#123;</span><br><span class="line">        result.set(shiftedTimestamp | random.get());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (recentRandoms.contains(result.get())) &#123;</span><br><span class="line">            random.set(nextRandomPart());</span><br><span class="line">            result.set(shiftedTimestamp | random.get());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!recentRandoms.contains(result.get())) &#123;</span><br><span class="line">            recentRandoms.add(result.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">nextRandomPart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ThreadLocalRandom.current().nextLong() &gt;&gt;&gt; RANDOM_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  同样用相同的测试代码来测试,测试1000,10000次都通过测试,Issue Fixed !</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIdThreadSafety_1000</span><span class="params">()</span><span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">1000</span>),<span class="keyword">this</span>::getIdThreadSafety);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIdThreadSafety_10000</span><span class="params">()</span><span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">10000</span>),<span class="keyword">this</span>::getIdThreadSafety);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">getIdThreadSafety</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LongIdThreadSafety.get();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-<p>   <img src="/img/2018/Id-Issue-2.png" alt="img"></p>
+        <h1 id="提炼方法的好处？"><a href="#提炼方法的好处？" class="headerlink" title="提炼方法的好处？"></a>提炼方法的好处？</h1><p>  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。</p>
+<p>  分歧的起因在于我把以下的这段代码：</p>
+<hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// some method</span></span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field2 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field2));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field3 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field3));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field4 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field4));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field5 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field5));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field6 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field6));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>  写成:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init_String</span><span class="params">(CHAR *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(str ,<span class="string">' '</span>,<span class="keyword">sizeof</span>(str))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// some method</span></span><br><span class="line">Init_String(pData-&gt;field1);</span><br><span class="line">Init_String(pData-&gt;field2);</span><br><span class="line">Init_String(pData-&gt;field3);</span><br><span class="line">Init_String(pData-&gt;field4);</span><br><span class="line">Init_String(pData-&gt;field5);</span><br><span class="line">Init_String(pData-&gt;field6);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="同事对此有以下几点疑问"><a href="#同事对此有以下几点疑问" class="headerlink" title="同事对此有以下几点疑问:"></a>同事对此有以下几点疑问:</h2><pre><code>1. 有什么好处?
+2. 多了个方法，性能会变低。
+3. 与过去的风格不同，增加学习曲线。
+</code></pre><hr>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>在回答所有的问题之前,我先说下我的动机,在原先的方法里</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br></pre></td></tr></table></figure>
+<p>看来好简单的一句程序里，出现了2次”pData-&gt;field1”。<br>这里已经出现了重复的臭味道，随着这样的写法数量增多，这段代码就越来越臭了。</p>
+<p>有代码洁癖的我是觉得难以忍受的。</p>
+<p>根据DRY原则（Dont Repeat Yourself）,我把代码里不变的部分用Extract Method的手法重构到一个方法里。</p>
+<p>方法名叫Init_String（），我简单的把一个内存的操作的工作封装到‘初始化字符串’的方法里。</p>
+<p>下次我再看到这里我就只需要知道它能帮我初始化‘字符串’就行，而不需要分神去理会它是如何的实现。</p>
+<p>然后，我再来一一解答所有问题：</p>
+<hr>
+<h2 id="有什么好处"><a href="#有什么好处" class="headerlink" title="有什么好处?"></a>有什么好处?</h2><pre><code>1. 符合DRY原则 (一次且仅一次)
+   去除重复的代码,消除坏味道.
+2. 符合OCP原则 (开闭原则）
+   拆分不变与变化的代码，对于扩展是开放的，但是对于修改是封闭的.
+3. 更整洁的代码 (Clean Code)
+</code></pre><hr>
+<h2 id="多了个方法，性能会变低"><a href="#多了个方法，性能会变低" class="headerlink" title="多了个方法，性能会变低?"></a>多了个方法，性能会变低?</h2><p>多了一个新方法,每次memset时就call 多次 Init_String（）.<br>看上去是会多耗点性能,但是新的method跟原来的代码是在同一个文件里的.<br>从内存的角度,其内存地址也应该相近,在数量有限的call里,我认为性能是人感受不出来的.<br>当然要更深入讨论,可以去了解C函数的调用机制.</p>
+<hr>
+<h2 id="与过去的风格不同，增加学习曲线。"><a href="#与过去的风格不同，增加学习曲线。" class="headerlink" title="与过去的风格不同，增加学习曲线。"></a>与过去的风格不同，增加学习曲线。</h2><p>的确,这里是个问题。<br>例如100个文件里就1个文件是这种写法，风格不统一会对新人造成一点点阅读困难。</p>
+<p>我们当然做不到一夜之间就改变所有文件，也没有这个必要。<br>这不应该成为阻止我们改进的绊脚石。<br>我一直认为改进应该是增量的，每一次随着需求变化可以适当在满足需求的同时，改善现有的代码。</p>
+<p>重构是有成本的，但也是有回报的。我觉得值得投资。</p>
+<hr>
+<h2 id="Extract-Method"><a href="#Extract-Method" class="headerlink" title="Extract Method"></a>Extract Method</h2><p>最后再啰嗦下什么是Extract Method （提炼函数）.</p>
+<p>Extract Method （提炼函数）是最常用的重构手法之一。当看见一个过长的函数或者一段需要注释才能让人理解用途的代码，就应该将这段代码放进一个独立函数中。</p>
+<p>简短而命名良好的函数的好处：首先，如果每个函数的粒度都很小，那么函数被复用的机会就更大；其次，这会使高层函数读起来就想一系列注释；再次，如果函数都是细粒度，那么函数的覆写也会更容易些。</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/0s21cwxk.aspx" target="_blank" rel="noopener">Further Read</a></p>
+<hr>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cplusplus.com/reference/cstring/memset/" target="_blank" rel="noopener">memset</a></p>
+<p><a href="http://zh.wikipedia.org/wiki/%E4%B8%80%E6%AC%A1%E4%B8%94%E4%BB%85%E4%B8%80%E6%AC%A1" target="_blank" rel="noopener">一次且仅一次</a></p>
+<p><a href="http://zh.wikipedia.org/wiki/%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">开闭原则</a></p>
+<p><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84" target="_blank" rel="noopener">代码重构</a></p>
 
       
     </div>
@@ -450,15 +471,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/27/Tech-2014-2014-09-02-BenefitOfExtractMethod/" rel="next" title="Benefit of Extract Method">
-                <i class="fa fa-chevron-left"></i> Benefit of Extract Method
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/30/Art-2014-2014-07-06-Naming/" rel="prev" title="About Naming">
+                About Naming <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -641,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个ID引起的血案"><span class="nav-number">1.</span> <span class="nav-text">一个ID引起的血案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个少见的丢单问题"><span class="nav-number">1.1.</span> <span class="nav-text">一个少见的丢单问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提炼方法的好处？"><span class="nav-number">1.</span> <span class="nav-text">提炼方法的好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同事对此有以下几点疑问"><span class="nav-number">1.1.</span> <span class="nav-text">同事对此有以下几点疑问:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">1.2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有什么好处"><span class="nav-number">1.3.</span> <span class="nav-text">有什么好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多了个方法，性能会变低"><span class="nav-number">1.4.</span> <span class="nav-text">多了个方法，性能会变低?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与过去的风格不同，增加学习曲线。"><span class="nav-number">1.5.</span> <span class="nav-text">与过去的风格不同，增加学习曲线。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extract-Method"><span class="nav-number">1.6.</span> <span class="nav-text">Extract Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>

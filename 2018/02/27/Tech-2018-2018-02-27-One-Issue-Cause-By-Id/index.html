@@ -79,23 +79,20 @@
 
 
 
-<meta name="description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
+<meta name="description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java Memory Model">
-<meta property="og:url" content="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/index.html">
+<meta property="og:title" content="One Issue Cause By Id">
+<meta property="og:url" content="http://antinomy.top/2018/02/27/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/index.html">
 <meta property="og:site_name" content="Anti">
-<meta property="og:description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
+<meta property="og:description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://antinomy.top/img/2016/JMM.png">
-<meta property="og:image" content="http://cdn1.infoqstatic.com/statics_s2_20160914-0333/resource/news/2016/09/APM-jClarity-jvm-heap-oldgen/zh/resources/2.png">
-<meta property="og:image" content="http://antinomy.top/img/2016/Java7MM.png">
-<meta property="og:image" content="http://antinomy.top/img/2016/Java8MM.png">
-<meta property="og:image" content="https://img3.doubanio.com/lpic/s27458236.jpg">
-<meta property="og:updated_time" content="2016-09-19T06:26:28.000Z">
+<meta property="og:image" content="http://antinomy.top/img/2018/Id-Issue-1.png">
+<meta property="og:image" content="http://antinomy.top/img/2018/Id-Issue-2.png">
+<meta property="og:updated_time" content="2018-03-28T02:12:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java Memory Model">
-<meta name="twitter:description" content="Java 内存模型Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。 以JDK1.7为例子，内存模型如下： 内存模型  程序计数器 （Program Counter Register） Java虚拟机栈 （Java Virtual Machine Stacks） 本地方法栈 （Native Method Stack） Java堆 （Java Heap） 方法区 （Method">
-<meta name="twitter:image" content="http://antinomy.top/img/2016/JMM.png">
+<meta name="twitter:title" content="One Issue Cause By Id">
+<meta name="twitter:description" content="一个ID引起的血案一个少见的丢单问题最近遇到一个少见的丢单问题: 2个订单在同一秒下单,产生的订单ID居然是一样的!  经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下: 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849public class">
+<meta name="twitter:image" content="http://antinomy.top/img/2018/Id-Issue-1.png">
 
 
 
@@ -125,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/"/>
+  <link rel="canonical" href="http://antinomy.top/2018/02/27/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/"/>
 
 
 
 
 
-  <title>Java Memory Model | Anti</title>
+  <title>One Issue Cause By Id | Anti</title>
   
 
 
@@ -323,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2016/09/12/Tech-2016-2016-09-12-JavaMemModel/">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2018/02/27/Tech-2018-2018-02-27-One-Issue-Cause-By-Id/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Antinomy Yang">
@@ -340,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java Memory Model</h1>
+          <h1 class="post-title" itemprop="name headline">One Issue Cause By Id</h1>
         
 
         <div class="post-meta">
@@ -352,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-12T18:23:16+08:00">
-                2016-09-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-27T00:00:00+08:00">
+                2018-02-27
               </time>
             
 
@@ -412,58 +409,23 @@
       
 
       
-        <h1 id="Java-内存模型"><a href="#Java-内存模型" class="headerlink" title="Java 内存模型"></a>Java 内存模型</h1><p>Java不像C＋＋由程序员直接管理内存，而是由虚拟机内存管理机制管理。</p>
-<p>以JDK1.7为例子，内存模型如下：</p>
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><p><img src="/img/2016/JMM.png" width="600"></p>
-<ul>
-<li>程序计数器 （Program Counter Register）</li>
-<li>Java虚拟机栈 （Java Virtual Machine Stacks）</li>
-<li>本地方法栈 （Native Method Stack）</li>
-<li>Java堆 （Java Heap）</li>
-<li>方法区 （Method Area）</li>
-<li>运行时常量池 （Runtime Constant Pool）</li>
-<li>直接内存 （Direct Memory）</li>
-</ul>
-<h2 id="程序计数器-（Program-Counter-Register）"><a href="#程序计数器-（Program-Counter-Register）" class="headerlink" title="程序计数器 （Program Counter Register）"></a>程序计数器 （Program Counter Register）</h2><p>程序计数器是一块较小的线程私有的内存空间，用了记录正在执行的虚拟机字节码指令的地址。<br>通过改变这个计数器的值来选取下一条字节码指令，分支、循环、跳转、异常处理、线程恢复等功能都需要依靠它来实现。</p>
-<p>执行Native方法的时候，其值为空（Undefined）。</p>
-<p>此内存区域是虚拟机规范唯一没有规定任何OutOfMemoryError的区域。</p>
-<h2 id="Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><a href="#Java虚拟机栈-（Java-Virtual-Machine-Stacks）" class="headerlink" title="Java虚拟机栈 （Java Virtual Machine Stacks）"></a>Java虚拟机栈 （Java Virtual Machine Stacks）</h2><p>Java虚拟机栈也是线程私有的内存空间，它的生命周期和线程一样。</p>
-<p>它是描述Java方法执行的内存模型：</p>
-<pre><code>每个方法在执行的同时都会创建一个栈桢（Stack Frame），用于存储局部变量表、操作数栈、动态链接、方法出口等信息。
-</code></pre><p>每个方法从调用到结束，就对应一个栈桢在虚拟机栈中入栈到出栈的过程。</p>
-<h2 id="本地方法栈-（Native-Method-Stack）"><a href="#本地方法栈-（Native-Method-Stack）" class="headerlink" title="本地方法栈 （Native Method Stack）"></a>本地方法栈 （Native Method Stack）</h2><p>本地方法栈 （Native Method Stack）与Java虚拟机栈的作用非常相似，其区别是：</p>
-<pre><code>虚拟机栈为Java方法服务，本地方法栈为虚拟机用到的Native方法服务。
-</code></pre><h2 id="Java堆-（Java-Heap）"><a href="#Java堆-（Java-Heap）" class="headerlink" title="Java堆 （Java Heap）"></a>Java堆 （Java Heap）</h2><p>Java堆是所有线程共享的内存区域，是最大的一块。</p>
-<p>其唯一目的就是存放对象实例，也是GC管理的主要区域。</p>
-<p>从内存回收的角度，还可以细分为： 新生代（Young Generation）和老年代（Old Generation）等。</p>
-<p><img src="http://cdn1.infoqstatic.com/statics_s2_20160914-0333/resource/news/2016/09/APM-jClarity-jvm-heap-oldgen/zh/resources/2.png" alt="img"></p>
-<p>年轻代为创建的短期对象，失效之后很快会被垃圾回收。该区又被划分为Eden和两个Survivor区域。</p>
-<p>老年代存放的多数为存活时间较长的对象。</p>
-<p>垃圾回收GC分为两种Minor GC、Full GC；</p>
-<p>Minor GC发生频繁，但是仅针对年轻代。</p>
-<h3 id="Full-GC-触发条件"><a href="#Full-GC-触发条件" class="headerlink" title="Full GC 触发条件"></a>Full GC 触发条件</h3><ul>
-<li>调用System.gc()</li>
-<li>老年代空间不足</li>
-<li>永久代空间不足</li>
-<li>空间分配担保失败</li>
-<li>Cocurrent mode failure</li>
-</ul>
-<h2 id="方法区-（Method-Area）"><a href="#方法区-（Method-Area）" class="headerlink" title="方法区 （Method Area）"></a>方法区 （Method Area）</h2><p>方法区用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
-<p>虽然和Java堆一样是各个线程共享的内存区域，却有一个别名 Non－Heap （非堆）</p>
-<p>在HotSpot虚拟机上“方法区”被更多人称为“永久代” （Permanent Generation），但对其它虚拟机并不存在这样的概念。</p>
-<p><img src="/img/2016/Java7MM.png" width="800"></p>
-<p>而且在JDK8里，永久代也被Metaspace所替代，位置也移到native memory里。</p>
-<p>这样做的好处在于：简化GC的算法，full gc的时候更高效率。</p>
-<p><img src="/img/2016/Java8MM.png" width="800"></p>
-<h2 id="运行时常量池-（Runtime-Constant-Pool）"><a href="#运行时常量池-（Runtime-Constant-Pool）" class="headerlink" title="运行时常量池 （Runtime Constant Pool）"></a>运行时常量池 （Runtime Constant Pool）</h2><p>运行时常量池 是方法区的一部分，用于存储编译期生成的各种字面量和符号引用，在类加载后进入方法区的运行时常量池中。</p>
-<h2 id="直接内存-（Direct-Memory）"><a href="#直接内存-（Direct-Memory）" class="headerlink" title="直接内存 （Direct Memory）"></a>直接内存 （Direct Memory）</h2><p>直接内存不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域。<br>它属于堆外内存，受到本机内存大小、寻址空间的限制。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
-<li>《深入浅出Java虚拟机》  </li>
-</ul>
-<p><img src="https://img3.doubanio.com/lpic/s27458236.jpg" alt="img"></p>
-<ul>
-<li><a href="http://www.infoq.com/cn/news/2016/09/APM-jClarity-jvm-heap-oldgen" target="_blank" rel="noopener">JVM堆内存监测的一种方式，性能调优依旧任重道远</a></li>
-</ul>
+        <h1 id="一个ID引起的血案"><a href="#一个ID引起的血案" class="headerlink" title="一个ID引起的血案"></a>一个ID引起的血案</h1><h2 id="一个少见的丢单问题"><a href="#一个少见的丢单问题" class="headerlink" title="一个少见的丢单问题"></a>一个少见的丢单问题</h2><p>最近遇到一个少见的丢单问题:</p>
+<pre><code>2个订单在同一秒下单,产生的订单ID居然是一样的!
+</code></pre><p> 经过一番查找,问题的原因在生产ID的工具类实现算法有漏洞,关键方法源码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongId</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Long&gt; recentRandoms = <span class="keyword">new</span> HashSet&lt;Long&gt;(<span class="number">5000</span>);</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Generates a Twitter Snowflake compatible id utilizing randomness for the right most 22 bits and</span></span><br><span class="line"><span class="comment">     * the Twitter standard EPOCH</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> long</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">long</span> <span class="title">generate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> currentTimestamp = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (lastTimestamp &gt; currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// Clock is running backwards so wait until it isn't</span></span><br><span class="line">            currentTimestamp = System.currentTimeMillis();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (currentTimestamp &lt; EPOCH || currentTimestamp &gt; MAX_SIGNED_LONG) &#123;</span><br><span class="line">            <span class="comment">// The current time cannot be less than the EPOCH</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Invalid System Clock was "</span> + <span class="keyword">new</span> Date(currentTimestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> customTimestamp = currentTimestamp - EPOCH;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> shiftedTimestamp = customTimestamp &lt;&lt; TIME_SHIFT;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> random = nextRandomPart();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp != currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// timestamp has advanced so reset it and clear the previous cache</span></span><br><span class="line">            lastTimestamp = currentTimestamp;</span><br><span class="line">            recentRandoms.clear();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Same timestamp as previous keep generating randoms till new is found</span></span><br><span class="line">            <span class="keyword">while</span> (recentRandoms.contains(random)) &#123;</span><br><span class="line">                random = nextRandomPart();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        recentRandoms.add(random);</span><br><span class="line">        <span class="keyword">return</span> shiftedTimestamp | random;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">nextRandomPart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ThreadLocalRandom.current().nextLong() &gt;&gt;&gt; RANDOM_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法是参考Twitter Snowflake(一个来自Twitter的分布式ID算法)的java实现.</p>
+<p>确定问题的方法是重现问题,幸好这个工具类是孤独的,:) ,所以写个单元测试还是比较简单的.</p>
+<p>测试代码如下,简单来说就是模拟同一时间有多少生产ID的并发请求,当出现重复ID的时候测试失败.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongIdTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testId_100</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">100</span>), <span class="keyword">this</span>::getId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">paralletTestThread</span><span class="params">(List&lt;Integer&gt; list, Supplier&lt;Long&gt; method)</span> </span>&#123;</span><br><span class="line">        Map idMap = <span class="keyword">new</span> ConcurrentHashMap();</span><br><span class="line"></span><br><span class="line">        list.parallelStream().forEach(t -&gt; &#123;</span><br><span class="line">            Long id = method.get();</span><br><span class="line"></span><br><span class="line">            assertNull(id.toString(), idMap.get(id));</span><br><span class="line"></span><br><span class="line">            idMap.put(id, System.nanoTime());</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LongId.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;Integer&gt; <span class="title">getMockTimes</span><span class="params">(<span class="keyword">int</span> maxTime)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; maxTime; i++)</span><br><span class="line">            list.add(i);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 测试结果,当并发次数为1000次的时候,很容易重现问题.</p>
+<p> <img src="/img/2018/Id-Issue-1.png" alt="img"></p>
+<p> 虽然源码通过 <em>shiftedTimestamp | random</em> 来保证每次产生的ID是不一样的,但是实验结果表面尽管shiftedTimestamp和random每次都是不一样的,</p>
+<p> 但是与运算的结果却可能是一样的,知道问题原因就好处理了.</p>
+<p> 重新写了一个新的ID生产算法工具类如下,在规定的时间内缓存生产的ID,如果出现重复就重新生成.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LongIdThreadSafety</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">private</span> Set&lt;Long&gt; recentRandoms = ConcurrentHashMap.&lt;Long&gt;newKeySet();</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">synchronized</span> <span class="keyword">public</span> <span class="keyword">long</span> <span class="title">generate</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> currentTimestamp = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (lastTimestamp.get() &gt; currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// Clock is running backwards so wait until it isn't</span></span><br><span class="line">            currentTimestamp = System.currentTimeMillis();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp.get() != currentTimestamp) &#123;</span><br><span class="line">            <span class="comment">// timestamp has advanced so reset it and clear the previous cache</span></span><br><span class="line">            lastTimestamp.lazySet(currentTimestamp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp.get() - currentTimestamp &gt; MAX_TIME_MILLIS_CHANGE) &#123;</span><br><span class="line">            recentRandoms.clear();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (currentTimestamp &lt; EPOCH || currentTimestamp &gt; MAX_SIGNED_LONG) &#123;</span><br><span class="line">            <span class="comment">// The current time cannot be less than the EPOCH</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"Invalid System Clock was "</span> + <span class="keyword">new</span> Date(currentTimestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> customTimestamp = currentTimestamp - EPOCH;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">long</span> shiftedTimestamp = customTimestamp &lt;&lt; TIME_SHIFT;</span><br><span class="line"></span><br><span class="line">        AtomicReference&lt;Long&gt; result = <span class="keyword">new</span> AtomicReference&lt;&gt;(<span class="keyword">null</span>);</span><br><span class="line">        AtomicReference&lt;Long&gt; random = <span class="keyword">new</span> AtomicReference&lt;&gt;(nextRandomPart());</span><br><span class="line"></span><br><span class="line">        makeUniqueId(shiftedTimestamp, result, random);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//        System.out.println(result.get() + " is build by " + shiftedTimestamp + " and " + random.get()</span></span><br><span class="line">        <span class="comment">//                + " on time " + new Date(currentTimestamp));</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> result.get();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">makeUniqueId</span><span class="params">(<span class="keyword">long</span> shiftedTimestamp, AtomicReference&lt;Long&gt; result, AtomicReference&lt;Long&gt; random)</span> </span>&#123;</span><br><span class="line">        result.set(shiftedTimestamp | random.get());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (recentRandoms.contains(result.get())) &#123;</span><br><span class="line">            random.set(nextRandomPart());</span><br><span class="line">            result.set(shiftedTimestamp | random.get());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!recentRandoms.contains(result.get())) &#123;</span><br><span class="line">            recentRandoms.add(result.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">nextRandomPart</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> ThreadLocalRandom.current().nextLong() &gt;&gt;&gt; RANDOM_SHIFT;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  同样用相同的测试代码来测试,测试1000,10000次都通过测试,Issue Fixed !</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIdThreadSafety_1000</span><span class="params">()</span><span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">1000</span>),<span class="keyword">this</span>::getIdThreadSafety);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testIdThreadSafety_10000</span><span class="params">()</span><span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">        paralletTestThread(getMockTimes(<span class="number">10000</span>),<span class="keyword">this</span>::getIdThreadSafety);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">long</span> <span class="title">getIdThreadSafety</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> LongIdThreadSafety.get();</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>   <img src="/img/2018/Id-Issue-2.png" alt="img"></p>
 
       
     </div>
@@ -488,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/09/Tech-2016-2016-09-09-jvm-classloader/" rel="next" title="JVM Class Loader">
-                <i class="fa fa-chevron-left"></i> JVM Class Loader
+              <a href="/2016/10/20/Tech-2016-2016-11-09-resinWithJavaEE8/" rel="next" title="Resin 3 With JavaEE8">
+                <i class="fa fa-chevron-left"></i> Resin 3 With JavaEE8
               </a>
             
           </div>
@@ -497,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/13/Tech-2016-2016-09-13-JavaConcurrency/" rel="prev" title="Java Concurrency">
-                Java Concurrency <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -683,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-内存模型"><span class="nav-number">1.</span> <span class="nav-text">Java 内存模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存模型"><span class="nav-number">2.</span> <span class="nav-text">内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#程序计数器-（Program-Counter-Register）"><span class="nav-number">2.1.</span> <span class="nav-text">程序计数器 （Program Counter Register）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java虚拟机栈-（Java-Virtual-Machine-Stacks）"><span class="nav-number">2.2.</span> <span class="nav-text">Java虚拟机栈 （Java Virtual Machine Stacks）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地方法栈-（Native-Method-Stack）"><span class="nav-number">2.3.</span> <span class="nav-text">本地方法栈 （Native Method Stack）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java堆-（Java-Heap）"><span class="nav-number">2.4.</span> <span class="nav-text">Java堆 （Java Heap）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Full-GC-触发条件"><span class="nav-number">2.4.1.</span> <span class="nav-text">Full GC 触发条件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法区-（Method-Area）"><span class="nav-number">2.5.</span> <span class="nav-text">方法区 （Method Area）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时常量池-（Runtime-Constant-Pool）"><span class="nav-number">2.6.</span> <span class="nav-text">运行时常量池 （Runtime Constant Pool）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接内存-（Direct-Memory）"><span class="nav-number">2.7.</span> <span class="nav-text">直接内存 （Direct Memory）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一个ID引起的血案"><span class="nav-number">1.</span> <span class="nav-text">一个ID引起的血案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个少见的丢单问题"><span class="nav-number">1.1.</span> <span class="nav-text">一个少见的丢单问题</span></a></li></ol></li></ol></div>
             
 
           </div>
