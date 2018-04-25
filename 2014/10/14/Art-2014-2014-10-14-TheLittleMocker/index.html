@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="The Little Mocker 关于Mock和Stub之间的区别，我一直没搞明白。 直到看了Uncle Bob的The Little Mocker ，才知道里面的水还挺深的，我姑且尝试把它翻译一下：  小Mocker作者:Uncle Bob译者:A生   接下来的讨论是关于mocking： 这是什么？ 123interface Authorizer &amp;#123;  public Boolean">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Little Mocker">
+<meta property="og:url" content="http://antinomy.top/2014/10/14/Art-2014-2014-10-14-TheLittleMocker/index.html">
+<meta property="og:site_name" content="Anti">
+<meta property="og:description" content="The Little Mocker 关于Mock和Stub之间的区别，我一直没搞明白。 直到看了Uncle Bob的The Little Mocker ，才知道里面的水还挺深的，我姑且尝试把它翻译一下：  小Mocker作者:Uncle Bob译者:A生   接下来的讨论是关于mocking： 这是什么？ 123interface Authorizer &amp;#123;  public Boolean">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://files.colabug.com/forum/201405/09/122549a1wfhyfn11wsrfsr.jpg.thumb.jpg">
+<meta property="og:image" content="http://antinomy.top/img/2014/Mocks.png">
+<meta property="og:updated_time" content="2018-04-25T07:37:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Little Mocker">
+<meta name="twitter:description" content="The Little Mocker 关于Mock和Stub之间的区别，我一直没搞明白。 直到看了Uncle Bob的The Little Mocker ，才知道里面的水还挺深的，我姑且尝试把它翻译一下：  小Mocker作者:Uncle Bob译者:A生   接下来的讨论是关于mocking： 这是什么？ 123interface Authorizer &amp;#123;  public Boolean">
+<meta name="twitter:image" content="http://files.colabug.com/forum/201405/09/122549a1wfhyfn11wsrfsr.jpg.thumb.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://antinomy.top/2014/10/14/Art-2014-2014-10-14-TheLittleMocker/"/>
+
+
+
+
+
+  <title>The Little Mocker | Anti</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Anti</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-匠">
+          <a href="/categories/Art/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            匠
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-道">
+          <a href="/categories/Tao/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            道
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-术">
+          <a href="/categories/Tech/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            术
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-杂">
+          <a href="/categories/Other/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            杂
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-me">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Me
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2014/10/14/Art-2014-2014-10-14-TheLittleMocker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Antinomy Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/BG/AY.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Anti">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">The Little Mocker</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-10-14T00:00:00+08:00">
+                2014-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Art/" itemprop="url" rel="index">
+                    <span itemprop="name">Art</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="The-Little-Mocker"><a href="#The-Little-Mocker" class="headerlink" title="The Little Mocker"></a>The Little Mocker</h1><p><img src="http://files.colabug.com/forum/201405/09/122549a1wfhyfn11wsrfsr.jpg.thumb.jpg" alt="img"></p>
+<p>关于Mock和Stub之间的区别，我一直没搞明白。</p>
+<p>直到看了Uncle Bob的<a href="http://blog.8thlight.com/uncle-bob/2014/05/14/TheLittleMocker.html" target="_blank" rel="noopener">The Little Mocker</a> ，才知道里面的水还挺深的，我姑且尝试把它翻译一下：</p>
+<hr>
+<h1 id="小Mocker"><a href="#小Mocker" class="headerlink" title="小Mocker"></a>小Mocker</h1><p>作者:Uncle Bob<br>译者:A生  </p>
+<p>接下来的讨论是关于mocking：</p>
+<p>这是什么？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一个interface.</p>
+</blockquote>
+<p>那么这样呢?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DummyAuthorizer</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>那是Dummy</p>
+</blockquote>
+<p>那你拿Dummy做什么呢?</p>
+<blockquote>
+<p>你把它传入某地方,但你并不在意怎么用它的时候.</p>
+</blockquote>
+<p>就像?</p>
+<blockquote>
+<p>作为测试的一部分,当必须要传入一个参数,但你知道那个参数永远不会用到的时候.</p>
+</blockquote>
+<p>能举个例子么?</p>
+<blockquote>
+<p>当然.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">System</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">System</span><span class="params">(Authorizer authorizer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.authorizer = authorizer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">loginCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//returns number of logged in users.</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">newlyCreatedSystem_hasNoLoggedInUsers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System system = <span class="keyword">new</span> System(<span class="keyword">new</span> DummyAuthorizer());</span><br><span class="line">    assertThat(system.loginCount(), is(<span class="number">0</span>));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>我懂了.为了能构造系统,必须传入一个Authorizer到构造函数里;但authorize方法永不会被调用到,所以在这个测试里,没有人会登陆入.</p>
+<blockquote>
+<p>你懂的.</p>
+</blockquote>
+<p>所以DummyAuthorizer的authorize方法返回一个null并不是一个错误.</p>
+<blockquote>
+<p>其实不是.事实上,一个Dummy最好能有所返回.</p>
+</blockquote>
+<p>为什么呢?</p>
+<blockquote>
+<p>因为任何人尝试用这个Dummy,他们会得到一个NullPointerException.</p>
+</blockquote>
+<p>啊,你不想这个Dummy被使用.</p>
+<blockquote>
+<p>对!它只是一个dummy.</p>
+</blockquote>
+<p>但这不是一个mock?我以为那些测试对象叫做mocks.</p>
+<blockquote>
+<p>它们是;但那是行话.</p>
+</blockquote>
+<p>行话?</p>
+<blockquote>
+<p>是的,”mock”这个词汇,有时被用于一种非正式的场合,用来代表测试对象的整个家族.</p>
+</blockquote>
+<p>那么这些测试对象们有一个正式的名字么?</p>
+<blockquote>
+<p>有,它们叫做”Test Doubles” [1].</p>
+</blockquote>
+<p>你指像电影里的”替身”么?</p>
+<blockquote>
+<p>必须滴.</p>
+</blockquote>
+<p>那么”mock”这个词只是通俗的行话?</p>
+<blockquote>
+<p>不,它也有一个正式的含义;但当我们非正式说mock时,它是Test Double的同义词.</p>
+</blockquote>
+<p>为什么我们得有2个词?不能只用Test Double代替Mock么?</p>
+<blockquote>
+<p>历史原因.</p>
+</blockquote>
+<p>历史?</p>
+<blockquote>
+<p>是的,很久之前某个很聪明的人写了一篇<a href="http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF" target="_blank" rel="noopener">文章</a>来介绍和定义什么Mock对象.很多人读过并且开始使用这个词.没有读过的人听到这个词,也开始广义地使用.他们甚至把它变成动词,他们会说:”让我们mock那个对象吧”,或 “我们有很多的mocking要做”.</p>
+</blockquote>
+<p>很多词汇都发生过类似的事情,不是么?</p>
+<blockquote>
+<p>的确是的.特别是当一个词只有一个音节,那是容易说出的.</p>
+</blockquote>
+<p>耶，我猜那会容易说些：“让我们mock它吧” 而不是 “让我们为此做个测试替身吧”.</p>
+<blockquote>
+<p>对, 口语是生活的一种现实.</p>
+</blockquote>
+<p>OK,但我们需要精确的说呢…</p>
+<blockquote>
+<p>那你应该用正式的语言.</p>
+</blockquote>
+<p>那什么是Mock呢?</p>
+<blockquote>
+<p>在我们说那之前,我们应该看下其他种类的测试替身.</p>
+</blockquote>
+<p>比如?</p>
+<blockquote>
+<p>先看下Stubs</p>
+</blockquote>
+<p>什么是stub?</p>
+<blockquote>
+<p>这,就是一个stub:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerStub</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它返回ture.</p>
+<blockquote>
+<p>那就是.</p>
+</blockquote>
+<p>为什么?</p>
+<blockquote>
+<p>好的,假设你要测试你的系统的一部分其中需要你先登陆.</p>
+</blockquote>
+<p>那我就登陆咯.</p>
+<blockquote>
+<p>但你早已知道登陆是可行的,你在其他地方测试了它,为什么要测试多一次?</p>
+</blockquote>
+<p>因为那样容易?</p>
+<blockquote>
+<p>但是那样耗时,也需要做配置先. 如果登陆里有bug,那你的测试会失败.<br>毕竟, 那是不必要的耦合.</p>
+</blockquote>
+<p>Hmmm,好吧,为了有效的辩论,当我同意吧,下一步应该?</p>
+<blockquote>
+<p>你为了那测试,简单注入AcceptingAuthorizerStub到你的系统里.</p>
+</blockquote>
+<p>它会毫无疑问地去授权用户.</p>
+<blockquote>
+<p>对</p>
+</blockquote>
+<p>所以如果我想测试没有授权过的用户时,我应该用一个返回false的stub.</p>
+<blockquote>
+<p>又对了.</p>
+</blockquote>
+<p>Ok,那还有别的什么?</p>
+<blockquote>
+<p>还有这个:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerSpy</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">boolean</span> authorizeWasCalled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    authorizeWasCalled = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我觉得那叫作Spy.</p>
+<blockquote>
+<p>正确.</p>
+</blockquote>
+<p>所以我为什么要这样用呢?</p>
+<blockquote>
+<p>当你需要确定authorize方法一定会被系统调用的时候,你会这么做.</p>
+</blockquote>
+<p>啊,我懂了.在我的测试里注入像一个stub的东西,但在测试的最后会检测变量authorizerWasCalled去确保系统是否真的调用了authorize方法.</p>
+<blockquote>
+<p>完全正确.</p>
+</blockquote>
+<p>所以一个Spy,侦查了调用者,我觉得它能记录所有这种类型的事情.</p>
+<blockquote>
+<p>它的确能做到,例如,它能算出调用的总次数.</p>
+</blockquote>
+<p>yeah,或者它能保持一个列表来记录每次传入的参数.</p>
+<blockquote>
+<p>对的,你可以通过Spies去了解,在测试的对象里的算法是如何工作的.</p>
+</blockquote>
+<p>听起来像耦合.</p>
+<blockquote>
+<p>那是!你不得不小心点. Spy用得越多,你的测试就越耦合你系统的实现,最终导致易脆的测试.</p>
+</blockquote>
+<p>什么是易脆的测试?</p>
+<blockquote>
+<p>一个测试破坏了一些不应该去破坏一个测试的理由.</p>
+</blockquote>
+<p>如若你改变系统里的代码,某些测试也会受到破坏.</p>
+<blockquote>
+<p>对,但设计良好的测试能最小化那种破坏,Spies恰恰与之相反.</p>
+</blockquote>
+<p>OK,我懂了.那还有别的测试替身么?</p>
+<blockquote>
+<p>还有2种,第一种是:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerVerificationMock</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">boolean</span> authorizeWasCalled = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">    authorizeWasCalled = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">verify</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> authorizedWasCalled;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然,这是一个mock.</p>
+<blockquote>
+<p>对,一个真正的Mock.</p>
+</blockquote>
+<p>真正的?</p>
+<blockquote>
+<p>对,这是一个正式的mock对象,与字面上的含义一致.</p>
+</blockquote>
+<p>我明白了,它看起来像你把测试里的断言移至verify方法里,真正的mock.</p>
+<blockquote>
+<p>对,Mocks知道他们在测试什么.</p>
+</blockquote>
+<p>所以那是?你只是把断言放入mock里?</p>
+<blockquote>
+<p>不完全,是,断言放入了mock里.然而,mock在测试的是<em>行为</em>.</p>
+</blockquote>
+<p>行为?</p>
+<blockquote>
+<p>对, mock并不关心函数返回的值.它关心的什么函数被调用,调用了什么参数,什么时候和有多频繁被调用.</p>
+</blockquote>
+<p>所以一个mock经常是一个spy?</p>
+<blockquote>
+<p>对,一个mock调查了被测试模块的行为,它知道什么样的行为是被期待的.</p>
+</blockquote>
+<p>Hmmm,把期望搬入mock里感觉上是一种耦合.</p>
+<blockquote>
+<p>那是.</p>
+</blockquote>
+<p>那为什么呢?</p>
+<blockquote>
+<p>那样写一个mocking工具会容易的多.</p>
+</blockquote>
+<p>一个mocking工具?</p>
+<blockquote>
+<p>是的,像JMock,EasyMock,或Mockito等.那些工具能让你飞一般去创建mock对象.</p>
+</blockquote>
+<p>看起来很复杂.</p>
+<blockquote>
+<p>那倒不会,<a href="http://martinfowler.com/articles/mocksArentStubs.html" target="_blank" rel="noopener">这里</a>有Martin Fowler一篇介绍它的著名文章.</p>
+</blockquote>
+<p>那是不是还有一本关于它的书,有么?</p>
+<blockquote>
+<p>有,<a href="http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627" target="_blank" rel="noopener">Growing Object Oriented Software, Guided by Tests</a>就是一本关于驱动mock的主流设计哲学的书.</p>
+</blockquote>
+<p>Ok, 所以完了? 你说过还有另外一种的.</p>
+<blockquote>
+<p>对, 再多一种, Fakes.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AcceptingAuthorizerFake</span> <span class="keyword">implements</span> <span class="title">Authorizer</span> </span>&#123;</span><br><span class="line">      <span class="function"><span class="keyword">public</span> Boolean <span class="title">authorize</span><span class="params">(String username, String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username.equals(<span class="string">"Bob"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>ok,那样很奇怪,所有叫做”Bob”的用户都会被授权.</p>
+<blockquote>
+<p>对, 一个Fake有业务上的行为. 你可以驱动一个fake根据不同的数据表现出不同的行为.</p>
+</blockquote>
+<p>看起来像虚拟器.</p>
+<blockquote>
+<p>对,虚拟器是fakes.</p>
+</blockquote>
+<p>Fakes不是stubs吧?</p>
+<blockquote>
+<p>不是,faker有真正业务上的行为;stubs没有. 事实上,我们之前谈论的测试替身没有一种包含真正业务行为.</p>
+</blockquote>
+<p>所有fakes在基础概念上完全不同的.</p>
+<blockquote>
+<p>的确是.我们可以这样说: 一个Mock是一种spy,一个spy是一种stub,而一个stub是一种dummy. 不是fake 不是它们中的任何一种. 它是完全不同类型的测试替身.</p>
+</blockquote>
+<p>我可以想象fakes会复杂起来.</p>
+<blockquote>
+<p>它们可以变得极端的复杂,所以它们会复杂到需要自己的单元测试.在极端情况下,fakes变成了真正的系统.</p>
+</blockquote>
+<p>Hmmm.</p>
+<blockquote>
+<p>对,Hmmm. 我不常写fakes,事实上,三十多年来我没有写过一个.</p>
+</blockquote>
+<p>Wow! 那你会写什么? 其他剩下的测试替身么?</p>
+<blockquote>
+<p>最多用的是stubs和spyies. 我自己写的,我不常用mocking工具.</p>
+</blockquote>
+<p>那你用Dummies么?</p>
+<blockquote>
+<p>对, 但极少.</p>
+</blockquote>
+<p>那mocks呢?</p>
+<blockquote>
+<p>只有我用mocking工具的时候用.</p>
+</blockquote>
+<p>但你说过你不用mocking工具.</p>
+<blockquote>
+<p>对,我通常不会用.</p>
+</blockquote>
+<p>为什么不?</p>
+<blockquote>
+<p>因为stubs 和 spies是很容易写的, 我的IDE让此变的简单.我只要指着接口告诉IDE去实现它,瞧!它就给我一个dummy了.所以我只需要一个小小改变就能变成stub 或spy.所以我真的很少用mocking工具.</p>
+</blockquote>
+<p>所以它只是为了方便?</p>
+<blockquote>
+<p>对, 事实上我不喜欢mocking工具的奇怪语法,还有配置它们的复杂性. 我发现写自己的测试替身在多数情况下会比较简单.</p>
+</blockquote>
+<p>OK, 好的, 谢谢你的对话.</p>
+<blockquote>
+<p>随时欢迎.</p>
+</blockquote>
+<hr>
+<p>[1] <a href="http://www.amazon.com/xUnit-Test-Patterns-Refactoring-Code/dp/0131495054" target="_blank" rel="noopener">xUnit Test Patterns</a></p>
+<hr>
+<p>PS: 最后,A生简单的介绍它们之间的关系:</p>
+<p><img src="/img/2014/Mocks.png" alt="img"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/01/Tao-2014-2014-10-01-TimeOfBigData/" rel="next" title="Time Of BigData">
+                <i class="fa fa-chevron-left"></i> Time Of BigData
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/11/20/Art-2014-2014-11-20-HexArchitecture/" rel="prev" title="Hex Architecture">
+                Hex Architecture <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "1",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      },
+      "slide": {
+        "bdImg": "5",
+        "bdPos": "left",
+        "bdTop": "100"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+
+
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/img/BG/AY.jpg"
+                alt="Antinomy Yang" />
+            
+              <p class="site-author-name" itemprop="name">Antinomy Yang</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/antinomy" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://douban.com/people/antinomy" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-Little-Mocker"><span class="nav-number">1.</span> <span class="nav-text">The Little Mocker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小Mocker"><span class="nav-number">2.</span> <span class="nav-text">小Mocker</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Antinomy Yang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
