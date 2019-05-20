@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://antinomy.top/img/2019/istio4.png">
 <meta property="og:image" content="http://antinomy.top/img/2019/istio5.jpg">
 <meta property="og:image" content="http://antinomy.top/img/2019/istio3.png">
-<meta property="og:updated_time" content="2019-05-17T01:32:28.945Z">
+<meta property="og:updated_time" content="2019-05-20T09:33:17.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="下一代的微服务">
 <meta name="twitter:description" content="侵入式开发框架人们对分布式架构的追求从未停止,从十几年前以SSH为首的单体架构,到现在以SpringCloud为主流的微服务架构. SpringCloud为我们带来不少好处:  服务发现（Eureka） 智能路由（Zuul） 客户端负载均衡（Ribbon） ……   在为我们带来不少微服务架构的福利的同时,也带来了不少的挑战. SpringCloud和Dubbo一样,都属于传统基于SDK的侵入式开">
@@ -434,7 +434,15 @@
 <p>Service Mesh架构通过SideCar模式来实现非侵入式,就好比给一个传统的摩托车加入一个边车,不影响摩托车原有的内部构造前提下,增加新的功能.</p>
 <p><img src="/img/2019/istio4.png" alt="img"></p>
 <p>原来的业务继续跑在单独的进程里,与微服务相关的功能(服务治理,流量控制,熔断等)放到SideCar里并注入到同一个的系统/容器里.</p>
-<p>Service Mesh中分为控制平面和数据平面.以istio架构为例,</p>
+<p>Service Mesh中分为控制平面和数据平面,以Istio架构为例:</p>
+<pre><code>Istio 是由 Google、IBM、Lyft 等共同开源的 Service Mesh（服务网格）框架，于2017年初开始进入大众视野。
+</code></pre><p>Istio 服务网格逻辑上分为数据平面和控制平面。</p>
+<ul>
+<li><p>数据平面由一组以 sidecar 方式部署的智能代理（Envoy）组成。这些代理可以调节和控制微服务及 Mixer 之间所有的网络通信。</p>
+</li>
+<li><p>控制平面负责管理和配置代理来路由流量。此外控制平面配置 Mixer 以实施策略和收集遥测数据。</p>
+</li>
+</ul>
 <p><img src="/img/2019/istio5.jpg" alt="img"></p>
 <h1 id="跨语言技术栈"><a href="#跨语言技术栈" class="headerlink" title="跨语言技术栈"></a>跨语言技术栈</h1><p>业务服务与SideCar的通讯可以通过HTTP、gRPC、WebSocket 和 TCP等通用方式,因此也带来不同语言技术栈,可以联合起来组成一个服务网格的可能性.</p>
 <p>如下图的官方实例,3个语言技术栈可以组合起来,实现了在线书店的功能.</p>
