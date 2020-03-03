@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta name="description" content="Jenkins插件小贴士 Jenkins是CI/CD最常见的一个工具,通过丰富的插件,可以实现很多实用的功能.本文以Java Web的应用一键部署为例, 简单介绍常用的插件. CI的流程持续集成的常见的流程如下:  代码拉取 代码自动化构建 发布构建后的包到目标服务器 在目标服务器执行发布流程  代码拉取首先的插件是Jenkins默认自动的Git插件,所以你的代码仓库建议是Git,而不是CVS之类">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Benefit of Extract Method">
-<meta property="og:url" content="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/index.html">
+<meta property="og:title" content="jenkins tips">
+<meta property="og:url" content="http://antinomy.top/2020/03/03/Tech-2020-2020-03-02-JenkinsTips/index.html">
 <meta property="og:site_name" content="Anti">
-<meta property="og:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta property="og:description" content="Jenkins插件小贴士 Jenkins是CI/CD最常见的一个工具,通过丰富的插件,可以实现很多实用的功能.本文以Java Web的应用一键部署为例, 简单介绍常用的插件. CI的流程持续集成的常见的流程如下:  代码拉取 代码自动化构建 发布构建后的包到目标服务器 在目标服务器执行发布流程  代码拉取首先的插件是Jenkins默认自动的Git插件,所以你的代码仓库建议是Git,而不是CVS之类">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-28T02:13:18.000Z">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-1.png">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-2.png">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-3.png">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-4.png">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-5.png">
+<meta property="og:updated_time" content="2020-03-03T06:26:45.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Benefit of Extract Method">
-<meta name="twitter:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta name="twitter:title" content="jenkins tips">
+<meta name="twitter:description" content="Jenkins插件小贴士 Jenkins是CI/CD最常见的一个工具,通过丰富的插件,可以实现很多实用的功能.本文以Java Web的应用一键部署为例, 简单介绍常用的插件. CI的流程持续集成的常见的流程如下:  代码拉取 代码自动化构建 发布构建后的包到目标服务器 在目标服务器执行发布流程  代码拉取首先的插件是Jenkins默认自动的Git插件,所以你的代码仓库建议是Git,而不是CVS之类">
+<meta name="twitter:image" content="http://antinomy.top/img/2020/Jenkins-1.png">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/"/>
+  <link rel="canonical" href="http://antinomy.top/2020/03/03/Tech-2020-2020-03-02-JenkinsTips/"/>
 
 
 
 
 
-  <title>Benefit of Extract Method | Anti</title>
+  <title>jenkins tips | Anti</title>
   
 
 
@@ -317,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2020/03/03/Tech-2020-2020-03-02-JenkinsTips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Antinomy Yang">
@@ -334,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Benefit of Extract Method</h1>
+          <h1 class="post-title" itemprop="name headline">jenkins tips</h1>
         
 
         <div class="post-meta">
@@ -346,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-02T00:00:00+08:00">
-                2014-09-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-03T14:26:45+08:00">
+                2020-03-03
               </time>
             
 
@@ -406,47 +412,41 @@
       
 
       
-        <h1 id="提炼方法的好处？"><a href="#提炼方法的好处？" class="headerlink" title="提炼方法的好处？"></a>提炼方法的好处？</h1><p>  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。</p>
-<p>  分歧的起因在于我把以下的这段代码：</p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// some method</span></span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field2 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field2));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field3 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field3));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field4 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field4));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field5 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field5));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field6 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field6));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>  写成:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init_String</span><span class="params">(CHAR *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(str ,<span class="string">' '</span>,<span class="keyword">sizeof</span>(str))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// some method</span></span><br><span class="line">Init_String(pData-&gt;field1);</span><br><span class="line">Init_String(pData-&gt;field2);</span><br><span class="line">Init_String(pData-&gt;field3);</span><br><span class="line">Init_String(pData-&gt;field4);</span><br><span class="line">Init_String(pData-&gt;field5);</span><br><span class="line">Init_String(pData-&gt;field6);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="同事对此有以下几点疑问"><a href="#同事对此有以下几点疑问" class="headerlink" title="同事对此有以下几点疑问:"></a>同事对此有以下几点疑问:</h2><pre><code>1. 有什么好处?
-2. 多了个方法，性能会变低。
-3. 与过去的风格不同，增加学习曲线。
-</code></pre><hr>
-<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>在回答所有的问题之前,我先说下我的动机,在原先的方法里</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br></pre></td></tr></table></figure>
-<p>看来好简单的一句程序里，出现了2次”pData-&gt;field1”。<br>这里已经出现了重复的臭味道，随着这样的写法数量增多，这段代码就越来越臭了。</p>
-<p>有代码洁癖的我是觉得难以忍受的。</p>
-<p>根据DRY原则（Dont Repeat Yourself）,我把代码里不变的部分用Extract Method的手法重构到一个方法里。</p>
-<p>方法名叫Init_String（），我简单的把一个内存的操作的工作封装到‘初始化字符串’的方法里。</p>
-<p>下次我再看到这里我就只需要知道它能帮我初始化‘字符串’就行，而不需要分神去理会它是如何的实现。</p>
-<p>然后，我再来一一解答所有问题：</p>
-<hr>
-<h2 id="有什么好处"><a href="#有什么好处" class="headerlink" title="有什么好处?"></a>有什么好处?</h2><pre><code>1. 符合DRY原则 (一次且仅一次)
-   去除重复的代码,消除坏味道.
-2. 符合OCP原则 (开闭原则）
-   拆分不变与变化的代码，对于扩展是开放的，但是对于修改是封闭的.
-3. 更整洁的代码 (Clean Code)
-</code></pre><hr>
-<h2 id="多了个方法，性能会变低"><a href="#多了个方法，性能会变低" class="headerlink" title="多了个方法，性能会变低?"></a>多了个方法，性能会变低?</h2><p>多了一个新方法,每次memset时就call 多次 Init_String（）.<br>看上去是会多耗点性能,但是新的method跟原来的代码是在同一个文件里的.<br>从内存的角度,其内存地址也应该相近,在数量有限的call里,我认为性能是人感受不出来的.<br>当然要更深入讨论,可以去了解C函数的调用机制.</p>
-<hr>
-<h2 id="与过去的风格不同，增加学习曲线。"><a href="#与过去的风格不同，增加学习曲线。" class="headerlink" title="与过去的风格不同，增加学习曲线。"></a>与过去的风格不同，增加学习曲线。</h2><p>的确,这里是个问题。<br>例如100个文件里就1个文件是这种写法，风格不统一会对新人造成一点点阅读困难。</p>
-<p>我们当然做不到一夜之间就改变所有文件，也没有这个必要。<br>这不应该成为阻止我们改进的绊脚石。<br>我一直认为改进应该是增量的，每一次随着需求变化可以适当在满足需求的同时，改善现有的代码。</p>
-<p>重构是有成本的，但也是有回报的。我觉得值得投资。</p>
-<hr>
-<h2 id="Extract-Method"><a href="#Extract-Method" class="headerlink" title="Extract Method"></a>Extract Method</h2><p>最后再啰嗦下什么是Extract Method （提炼函数）.</p>
-<p>Extract Method （提炼函数）是最常用的重构手法之一。当看见一个过长的函数或者一段需要注释才能让人理解用途的代码，就应该将这段代码放进一个独立函数中。</p>
-<p>简短而命名良好的函数的好处：首先，如果每个函数的粒度都很小，那么函数被复用的机会就更大；其次，这会使高层函数读起来就想一系列注释；再次，如果函数都是细粒度，那么函数的覆写也会更容易些。</p>
-<p><a href="http://msdn.microsoft.com/en-us/library/0s21cwxk.aspx" target="_blank" rel="noopener">Further Read</a></p>
-<hr>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cplusplus.com/reference/cstring/memset/" target="_blank" rel="noopener">memset</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E4%B8%80%E6%AC%A1%E4%B8%94%E4%BB%85%E4%B8%80%E6%AC%A1" target="_blank" rel="noopener">一次且仅一次</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">开闭原则</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84" target="_blank" rel="noopener">代码重构</a></p>
+        <h1 id="Jenkins插件小贴士"><a href="#Jenkins插件小贴士" class="headerlink" title="Jenkins插件小贴士"></a>Jenkins插件小贴士</h1><p><img src="/img/2020/Jenkins-1.png" alt="img"></p>
+<p>Jenkins是CI/CD最常见的一个工具,通过丰富的插件,可以实现很多实用的功能.<br>本文以Java Web的应用一键部署为例, 简单介绍常用的插件.</p>
+<h1 id="CI的流程"><a href="#CI的流程" class="headerlink" title="CI的流程"></a>CI的流程</h1><p>持续集成的常见的流程如下:</p>
+<ol>
+<li>代码拉取</li>
+<li>代码自动化构建</li>
+<li>发布构建后的包到目标服务器</li>
+<li>在目标服务器执行发布流程</li>
+</ol>
+<h1 id="代码拉取"><a href="#代码拉取" class="headerlink" title="代码拉取"></a>代码拉取</h1><p>首先的插件是Jenkins默认自动的Git插件,所以你的代码仓库建议是Git,而不是CVS之类的老旧代码管理工具.<br>Git在分支管理要比CVS先进很多,具体差别请自行google.</p>
+<h1 id="Git-plug-in-tips"><a href="#Git-plug-in-tips" class="headerlink" title="Git plug-in tips"></a>Git plug-in tips</h1><p><img src="/img/2020/Jenkins-2.png" alt="img"></p>
+<ol>
+<li>Repository URL 配置代码的Git地址</li>
+<li>Credentials 配置Git账号,推荐创建团队账号,避免因为个人账号问题导致拉取失败.</li>
+<li>Branch Specifier 配置对应的分支或标签.</li>
+</ol>
+<blockquote>
+<p>通过适当的分支管理,可以区分生产,测试,开发环境.<br>项目结构需做到支持多环境配置,能做到一个包可以发布到任何环境是实现CI的主要条件.<br>通过合理的使用标签,可以很方便做到应用的发布与回滚,<br>每次生产发布完成就在分支上打上tag,下次生产发布如果遇到问题就可以很方便利用tag回滚.</p>
+</blockquote>
+<h1 id="代码自动化构建"><a href="#代码自动化构建" class="headerlink" title="代码自动化构建"></a>代码自动化构建</h1><p><img src="/img/2020/Jenkins-3.png" alt="img"></p>
+<p>Java应用最普遍的构建工具就是maven了,Jenkins也是首先maven插件来完成自动化构建<br>maven插件配置也很简单, Goals里写的都是maven本身的命令.<br>例如: clean清除旧包,package重新打包,-DskipTests可以跳过集成的测试(不推荐 :))</p>
+<h1 id="发布构建后的包到目标服务器-amp-在目标服务器执行发布流程"><a href="#发布构建后的包到目标服务器-amp-在目标服务器执行发布流程" class="headerlink" title="发布构建后的包到目标服务器 &amp; 在目标服务器执行发布流程"></a>发布构建后的包到目标服务器 &amp; 在目标服务器执行发布流程</h1><p>通过Maven构建的war包,jar包一般是通过ssh发布对应的liunx服务器上去.<br>每一个应用都有其特殊的发布脚本,这些脚本需要有一定的运维能力去编写.</p>
+<p>常用的插件有    “Publish Over SSH” 可以很方便地实现.<br><img src="/img/2020/Jenkins-4.png" alt="img"></p>
+<p>以常见的tomcat为例,一般会在对应的服务器上创建几个文件夹和编写几个shell脚本.</p>
+<p>SSH Server Name: 对应的Linux服务器名,具体ip和账号都在Jenkins的管理后台配置<br>Source files : 为Jenkins本地workspace的的文件,按照maven的结构,构建好的二进制包位于target目录之下.<br>Remove prefix : 去掉本地路径前缀<br>Remote directory : 对应目标服务器的相对路径,其实目录是配置好的账号默认登陆目录.<br>Exec command :当二进制包发送完毕之后需要之下的命令,部署的具体步骤在这里执行.</p>
+<p>部署的步骤包括:</p>
+<ol>
+<li>停掉tomcat</li>
+<li>备份当前的二进制包</li>
+<li>更新最新的二进制包</li>
+<li>启动tomcat</li>
+</ol>
+<p>至此一个部署流程就完毕了,部署的脚本因具体应用而异,如有中间件,需要在脚本做对应控制.</p>
+<h1 id="通过定时任务完成CI"><a href="#通过定时任务完成CI" class="headerlink" title="通过定时任务完成CI"></a>通过定时任务完成CI</h1><p><img src="/img/2020/Jenkins-5.png" alt="img"></p>
+<p>通过定时任务和团队约定,可以在每一天的约定时间定时进行构建,便可完成日常的CI.<br>定时的规则参考Linux的cronjob.</p>
 
       
     </div>
@@ -471,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/08/26/Tao-2014-2014-08-26-WhatBuddhaSay/" rel="next" title="WhatBuddhaSay?">
-                <i class="fa fa-chevron-left"></i> WhatBuddhaSay?
+              <a href="/2019/05/17/Tech-2019-2019-05-17-NextMicroService/" rel="next" title="Service Mesh,下一代的微服务架构">
+                <i class="fa fa-chevron-left"></i> Service Mesh,下一代的微服务架构
               </a>
             
           </div>
@@ -480,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/09/03/Tech-2014-2014-09-03-IssuesOnUpgradeJekyll-2-2-0/" rel="prev" title="Issues On Upgrade Jekyll-2.2.0">
-                Issues On Upgrade Jekyll-2.2.0 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +662,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提炼方法的好处？"><span class="nav-number">1.</span> <span class="nav-text">提炼方法的好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同事对此有以下几点疑问"><span class="nav-number">1.1.</span> <span class="nav-text">同事对此有以下几点疑问:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">1.2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有什么好处"><span class="nav-number">1.3.</span> <span class="nav-text">有什么好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多了个方法，性能会变低"><span class="nav-number">1.4.</span> <span class="nav-text">多了个方法，性能会变低?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与过去的风格不同，增加学习曲线。"><span class="nav-number">1.5.</span> <span class="nav-text">与过去的风格不同，增加学习曲线。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extract-Method"><span class="nav-number">1.6.</span> <span class="nav-text">Extract Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins插件小贴士"><span class="nav-number">1.</span> <span class="nav-text">Jenkins插件小贴士</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CI的流程"><span class="nav-number">2.</span> <span class="nav-text">CI的流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码拉取"><span class="nav-number">3.</span> <span class="nav-text">代码拉取</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-plug-in-tips"><span class="nav-number">4.</span> <span class="nav-text">Git plug-in tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码自动化构建"><span class="nav-number">5.</span> <span class="nav-text">代码自动化构建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布构建后的包到目标服务器-amp-在目标服务器执行发布流程"><span class="nav-number">6.</span> <span class="nav-text">发布构建后的包到目标服务器 &amp; 在目标服务器执行发布流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通过定时任务完成CI"><span class="nav-number">7.</span> <span class="nav-text">通过定时任务完成CI</span></a></li></ol></div>
             
 
           </div>

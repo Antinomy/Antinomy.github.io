@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[jenkins tips]]></title>
+    <url>%2F2020%2F03%2F03%2FTech-2020-2020-03-02-JenkinsTips%2F</url>
+    <content type="text"><![CDATA[Jenkins插件小贴士 Jenkins是CI/CD最常见的一个工具,通过丰富的插件,可以实现很多实用的功能.本文以Java Web的应用一键部署为例, 简单介绍常用的插件. CI的流程持续集成的常见的流程如下: 代码拉取 代码自动化构建 发布构建后的包到目标服务器 在目标服务器执行发布流程 代码拉取首先的插件是Jenkins默认自动的Git插件,所以你的代码仓库建议是Git,而不是CVS之类的老旧代码管理工具.Git在分支管理要比CVS先进很多,具体差别请自行google. Git plug-in tips Repository URL 配置代码的Git地址 Credentials 配置Git账号,推荐创建团队账号,避免因为个人账号问题导致拉取失败. Branch Specifier 配置对应的分支或标签. 通过适当的分支管理,可以区分生产,测试,开发环境.项目结构需做到支持多环境配置,能做到一个包可以发布到任何环境是实现CI的主要条件.通过合理的使用标签,可以很方便做到应用的发布与回滚,每次生产发布完成就在分支上打上tag,下次生产发布如果遇到问题就可以很方便利用tag回滚. 代码自动化构建 Java应用最普遍的构建工具就是maven了,Jenkins也是首先maven插件来完成自动化构建maven插件配置也很简单, Goals里写的都是maven本身的命令.例如: clean清除旧包,package重新打包,-DskipTests可以跳过集成的测试(不推荐 :)) 发布构建后的包到目标服务器 &amp; 在目标服务器执行发布流程通过Maven构建的war包,jar包一般是通过ssh发布对应的liunx服务器上去.每一个应用都有其特殊的发布脚本,这些脚本需要有一定的运维能力去编写. 常用的插件有 “Publish Over SSH” 可以很方便地实现. 以常见的tomcat为例,一般会在对应的服务器上创建几个文件夹和编写几个shell脚本. SSH Server Name: 对应的Linux服务器名,具体ip和账号都在Jenkins的管理后台配置Source files : 为Jenkins本地workspace的的文件,按照maven的结构,构建好的二进制包位于target目录之下.Remove prefix : 去掉本地路径前缀Remote directory : 对应目标服务器的相对路径,其实目录是配置好的账号默认登陆目录.Exec command :当二进制包发送完毕之后需要之下的命令,部署的具体步骤在这里执行. 部署的步骤包括: 停掉tomcat 备份当前的二进制包 更新最新的二进制包 启动tomcat 至此一个部署流程就完毕了,部署的脚本因具体应用而异,如有中间件,需要在脚本做对应控制. 通过定时任务完成CI 通过定时任务和团队约定,可以在每一天的约定时间定时进行构建,便可完成日常的CI.定时的规则参考Linux的cronjob.]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Service Mesh,下一代的微服务架构]]></title>
     <url>%2F2019%2F05%2F17%2FTech-2019-2019-05-17-NextMicroService%2F</url>
     <content type="text"><![CDATA[侵入式开发框架人们对分布式架构的追求从未停止,从十几年前以SSH为首的单体架构,到现在以SpringCloud为主流的微服务架构. SpringCloud为我们带来不少好处: 服务发现（Eureka） 智能路由（Zuul） 客户端负载均衡（Ribbon） …… 在为我们带来不少微服务架构的福利的同时,也带来了不少的挑战. SpringCloud和Dubbo一样,都属于传统基于SDK的侵入式开发框架. 如果从零开始的项目,使用SpringCloud会很舒服.但是如果你的业务正跑着一个历史悠久的SSH架构上,侵入式开发框架带来了改造的复杂性. 笔者经历过这样的项目,一个跑在Struts2的金融项目,每天都有几千万左右的交易量,同时还在不断迭代新功能.把它慢慢拆分,迁移到SpringCloud架构,花了差不多2年的时间. 人生又有多少个2年呢? 运气不好遇到非Java技术栈的项目,改造的成本就更让人难以接受了! 直到我听说了Service Mesh,事情才有了新的转机… 非侵入式开发框架直到 2017 年年底，当非侵入式的 Service Mesh 技术终于从萌芽到走向了成熟，当 Istio/Linkerd 横空出世， 人们才惊觉：微服务并非只有侵入式一种玩法，更不是 Spring Cloud 的独角戏！ Service Mesh架构通过SideCar模式来实现非侵入式,就好比给一个传统的摩托车加入一个边车,不影响摩托车原有的内部构造前提下,增加新的功能. 原来的业务继续跑在单独的进程里,与微服务相关的功能(服务治理,流量控制,熔断等)放到SideCar里并注入到同一个的系统/容器里. Service Mesh中分为控制平面和数据平面,以Istio架构为例: Istio 是由 Google、IBM、Lyft 等共同开源的 Service Mesh（服务网格）框架，于2017年初开始进入大众视野。 Istio 服务网格逻辑上分为数据平面和控制平面。 数据平面由一组以 sidecar 方式部署的智能代理（Envoy）组成。这些代理可以调节和控制微服务及 Mixer 之间所有的网络通信。 控制平面负责管理和配置代理来路由流量。此外控制平面配置 Mixer 以实施策略和收集遥测数据。 跨语言技术栈业务服务与SideCar的通讯可以通过HTTP、gRPC、WebSocket 和 TCP等通用方式,因此也带来不同语言技术栈,可以联合起来组成一个服务网格的可能性. 如下图的官方实例,3个语言技术栈可以组合起来,实现了在线书店的功能. 难点与挑战新的技术带来机遇的同时,总会带来新的挑战 Istio与K8s更搭,所以容器化是一个很重要的前提,改造成本也是有的. Istio目前性能不是特别理想,而且处于高速发展阶段,坑还是有的. 新的技术适合小范围使用,等待成熟再大规模推广. 参考文献:================ 解读 2017 之 Service Mesh：群雄逐鹿烽烟起 istio.io示例 Sidecar 模式]]></content>
@@ -356,17 +364,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 8 DomainEvent]]></title>
-    <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-8%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 八: 领域事件用于捕获发生在领域内，领域专家所关心的一些事情 MindMapping Source (Org Format):123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051* 领域事件 用于捕获发生在领域内，领域专家所关心的一些事情** 何时/为什么使用？*** 当。。。的时候。。*** 通用语言的正式成员** 建模*** 创建具有聚合特征的**** 发生在过去的事情**** 应设计成不变的，但拥有唯一标识*** 身份标识**** 方便比较**** 需要发布在外部限界上下文时，唯一标识是必要的** 发布*** 从领域模型中发布**** 观察者模式***** 发送方 由聚合创建，并发布出去***** 订阅方 由应用/领域服务，向领域事件注册订阅 与聚合位于相同线程内*** 向远程限界上下文发布**** 消息设施的一致性 最终一致性***** 领域模型和消息设施，共享持久化存储***** 领域模型的持久化存储和消息持久化存储，由全局XA事务（两段提交）所控制***** 领域模型的持久化存储中，创建特殊的存储区域，即事件存储**** 自治服务和系统***** 通过领域事件，将任何系统设计成自治服务和系统***** 避免远程过程调用（RPC）**** 容许时延 长时间的事件延迟有可能发生** 事件存储*** 作为消息队列使用，将所有领域事件发布出去*** 基于REST的事件通知*** 跟踪bug*** 业务分析和预测*** 重建聚合*** 撤销操作** (向外部)转发存储事件的架构风格*** 发布事件通知**** 以REST资源的方式***** “拉”的方式，非“推”的方式***** 不能很好支持有顺序的接收**** 通过消息中间件** 实现*** 发布NotifiactionLog*** 发布基于消息的事件通知**** 事件消重***** 幂等操作 进行多次重复操作和只进行一次操作所产生的结果相同.]]></content>
-      <categories>
-        <category>Art</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[IDDD 9 Module]]></title>
     <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-9%2F</url>
     <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 九: 模块模块是命名的容器，通用语言的重要组成部分。 MindMapping Source (Org Format):12345678910111213141516171819202122232425262728293031* 模块** Module*** Java**** package*** C#**** namespace*** Ruby**** module** 通过模块完成设计*** 命名的容器*** 通用语言的重要组成部分*** 设计规则**** 和领域概念协调一致**** 根据通用语言来命名模块**** 不要机械式根据组件类型来创建 eg 所有领域服务放在一起**** 松耦合**** 杜绝循环依赖**** 父子模块放松原则**** 不是静态概念，与模型的对象一道进行建模** 模块的基本命名规范*** 层级形式命名*** 避免顶级模块名与第三方模块命名冲突** 领域模型的命名规范*** 加入限界上下文名*** *.domain.model** 其他层的模块*** 分层架构命名*** 需要时才划分子模块** 先考虑模块，再考虑上下文]]></content>
@@ -375,6 +372,17 @@
       </categories>
       <tags>
         <tag>IDDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IDDD 8 DomainEvent]]></title>
+    <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-8%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 八: 领域事件用于捕获发生在领域内，领域专家所关心的一些事情 MindMapping Source (Org Format):123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051* 领域事件 用于捕获发生在领域内，领域专家所关心的一些事情** 何时/为什么使用？*** 当。。。的时候。。*** 通用语言的正式成员** 建模*** 创建具有聚合特征的**** 发生在过去的事情**** 应设计成不变的，但拥有唯一标识*** 身份标识**** 方便比较**** 需要发布在外部限界上下文时，唯一标识是必要的** 发布*** 从领域模型中发布**** 观察者模式***** 发送方 由聚合创建，并发布出去***** 订阅方 由应用/领域服务，向领域事件注册订阅 与聚合位于相同线程内*** 向远程限界上下文发布**** 消息设施的一致性 最终一致性***** 领域模型和消息设施，共享持久化存储***** 领域模型的持久化存储和消息持久化存储，由全局XA事务（两段提交）所控制***** 领域模型的持久化存储中，创建特殊的存储区域，即事件存储**** 自治服务和系统***** 通过领域事件，将任何系统设计成自治服务和系统***** 避免远程过程调用（RPC）**** 容许时延 长时间的事件延迟有可能发生** 事件存储*** 作为消息队列使用，将所有领域事件发布出去*** 基于REST的事件通知*** 跟踪bug*** 业务分析和预测*** 重建聚合*** 撤销操作** (向外部)转发存储事件的架构风格*** 发布事件通知**** 以REST资源的方式***** “拉”的方式，非“推”的方式***** 不能很好支持有顺序的接收**** 通过消息中间件** 实现*** 发布NotifiactionLog*** 发布基于消息的事件通知**** 事件消重***** 幂等操作 进行多次重复操作和只进行一次操作所产生的结果相同.]]></content>
+      <categories>
+        <category>Art</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
       </tags>
   </entry>
   <entry>
@@ -422,9 +430,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
+    <title><![CDATA[IDDD 3 Context Map]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
       <categories>
         <category>Art</category>
       </categories>
@@ -433,9 +441,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 3 Context Map]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
+    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
       <categories>
         <category>Art</category>
       </categories>
