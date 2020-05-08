@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta name="description" content="Jenkins插件小贴士 (五)  About Artifact 2历史问题上一篇&amp;lt;&amp;lt;Jenkins插件小贴士 (四)  About Artifact&amp;gt;&amp;gt;介绍了如何将构建完的二进制物(JAR/WAR)上传到Maven私库,但还是有可以改进的地方. 12345678910environment &amp;#123;     NEXUS_URL=&quot;nexus.xxx.com&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Benefit of Extract Method">
-<meta property="og:url" content="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/index.html">
+<meta property="og:title" content="Jenkins Tips , About Artifact 2">
+<meta property="og:url" content="http://antinomy.top/2020/05/08/Tech-2020-2020-05-08-JenkinsTips5/index.html">
 <meta property="og:site_name" content="Anti">
-<meta property="og:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta property="og:description" content="Jenkins插件小贴士 (五)  About Artifact 2历史问题上一篇&amp;lt;&amp;lt;Jenkins插件小贴士 (四)  About Artifact&amp;gt;&amp;gt;介绍了如何将构建完的二进制物(JAR/WAR)上传到Maven私库,但还是有可以改进的地方. 12345678910environment &amp;#123;     NEXUS_URL=&quot;nexus.xxx.com&quot;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-28T02:13:18.000Z">
+<meta property="og:image" content="http://antinomy.top/img/2020/Jenkins-5-1.png">
+<meta property="og:updated_time" content="2020-05-08T07:32:38.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Benefit of Extract Method">
-<meta name="twitter:description" content="提炼方法的好处？  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。   分歧的起因在于我把以下的这段代码：  12345678// some methodmemset( pData-&amp;gt;field1 , &apos; &apos; ,sizeof(pData-&amp;gt;field1));memset( pData-&amp;gt;field2 , &apos;">
+<meta name="twitter:title" content="Jenkins Tips , About Artifact 2">
+<meta name="twitter:description" content="Jenkins插件小贴士 (五)  About Artifact 2历史问题上一篇&amp;lt;&amp;lt;Jenkins插件小贴士 (四)  About Artifact&amp;gt;&amp;gt;介绍了如何将构建完的二进制物(JAR/WAR)上传到Maven私库,但还是有可以改进的地方. 12345678910environment &amp;#123;     NEXUS_URL=&quot;nexus.xxx.com&quot;">
+<meta name="twitter:image" content="http://antinomy.top/img/2020/Jenkins-5-1.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/"/>
+  <link rel="canonical" href="http://antinomy.top/2020/05/08/Tech-2020-2020-05-08-JenkinsTips5/"/>
 
 
 
 
 
-  <title>Benefit of Extract Method | Anti</title>
+  <title>Jenkins Tips , About Artifact 2 | Anti</title>
   
 
 
@@ -317,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2014/09/02/Tech-2014-2014-09-02-BenefitOfExtractMethod/">
+    <link itemprop="mainEntityOfPage" href="http://antinomy.top/2020/05/08/Tech-2020-2020-05-08-JenkinsTips5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Antinomy Yang">
@@ -334,7 +336,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Benefit of Extract Method</h1>
+          <h1 class="post-title" itemprop="name headline">Jenkins Tips , About Artifact 2</h1>
         
 
         <div class="post-meta">
@@ -346,8 +348,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-02T00:00:00+08:00">
-                2014-09-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T15:32:38+08:00">
+                2020-05-08
               </time>
             
 
@@ -406,47 +408,47 @@
       
 
       
-        <h1 id="提炼方法的好处？"><a href="#提炼方法的好处？" class="headerlink" title="提炼方法的好处？"></a>提炼方法的好处？</h1><p>  在最近的一次Code Review里，我和同事在一个基本的问题上产生了分歧。三言两语很难说的清楚，我决定尝试把它写清楚。</p>
-<p>  分歧的起因在于我把以下的这段代码：</p>
-<hr>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// some method</span></span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field2 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field2));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field3 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field3));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field4 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field4));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field5 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field5));</span><br><span class="line"><span class="built_in">memset</span>( pData-&gt;field6 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field6));</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>  写成:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Init_String</span><span class="params">(CHAR *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(str ,<span class="string">' '</span>,<span class="keyword">sizeof</span>(str))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// some method</span></span><br><span class="line">Init_String(pData-&gt;field1);</span><br><span class="line">Init_String(pData-&gt;field2);</span><br><span class="line">Init_String(pData-&gt;field3);</span><br><span class="line">Init_String(pData-&gt;field4);</span><br><span class="line">Init_String(pData-&gt;field5);</span><br><span class="line">Init_String(pData-&gt;field6);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="同事对此有以下几点疑问"><a href="#同事对此有以下几点疑问" class="headerlink" title="同事对此有以下几点疑问:"></a>同事对此有以下几点疑问:</h2><pre><code>1. 有什么好处?
-2. 多了个方法，性能会变低。
-3. 与过去的风格不同，增加学习曲线。
-</code></pre><hr>
-<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>在回答所有的问题之前,我先说下我的动机,在原先的方法里</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">memset</span>( pData-&gt;field1 , <span class="string">' '</span> ,<span class="keyword">sizeof</span>(pData-&gt;field1));</span><br></pre></td></tr></table></figure>
-<p>看来好简单的一句程序里，出现了2次”pData-&gt;field1”。<br>这里已经出现了重复的臭味道，随着这样的写法数量增多，这段代码就越来越臭了。</p>
-<p>有代码洁癖的我是觉得难以忍受的。</p>
-<p>根据DRY原则（Dont Repeat Yourself）,我把代码里不变的部分用Extract Method的手法重构到一个方法里。</p>
-<p>方法名叫Init_String（），我简单的把一个内存的操作的工作封装到‘初始化字符串’的方法里。</p>
-<p>下次我再看到这里我就只需要知道它能帮我初始化‘字符串’就行，而不需要分神去理会它是如何的实现。</p>
-<p>然后，我再来一一解答所有问题：</p>
-<hr>
-<h2 id="有什么好处"><a href="#有什么好处" class="headerlink" title="有什么好处?"></a>有什么好处?</h2><pre><code>1. 符合DRY原则 (一次且仅一次)
-   去除重复的代码,消除坏味道.
-2. 符合OCP原则 (开闭原则）
-   拆分不变与变化的代码，对于扩展是开放的，但是对于修改是封闭的.
-3. 更整洁的代码 (Clean Code)
-</code></pre><hr>
-<h2 id="多了个方法，性能会变低"><a href="#多了个方法，性能会变低" class="headerlink" title="多了个方法，性能会变低?"></a>多了个方法，性能会变低?</h2><p>多了一个新方法,每次memset时就call 多次 Init_String（）.<br>看上去是会多耗点性能,但是新的method跟原来的代码是在同一个文件里的.<br>从内存的角度,其内存地址也应该相近,在数量有限的call里,我认为性能是人感受不出来的.<br>当然要更深入讨论,可以去了解C函数的调用机制.</p>
-<hr>
-<h2 id="与过去的风格不同，增加学习曲线。"><a href="#与过去的风格不同，增加学习曲线。" class="headerlink" title="与过去的风格不同，增加学习曲线。"></a>与过去的风格不同，增加学习曲线。</h2><p>的确,这里是个问题。<br>例如100个文件里就1个文件是这种写法，风格不统一会对新人造成一点点阅读困难。</p>
-<p>我们当然做不到一夜之间就改变所有文件，也没有这个必要。<br>这不应该成为阻止我们改进的绊脚石。<br>我一直认为改进应该是增量的，每一次随着需求变化可以适当在满足需求的同时，改善现有的代码。</p>
-<p>重构是有成本的，但也是有回报的。我觉得值得投资。</p>
-<hr>
-<h2 id="Extract-Method"><a href="#Extract-Method" class="headerlink" title="Extract Method"></a>Extract Method</h2><p>最后再啰嗦下什么是Extract Method （提炼函数）.</p>
-<p>Extract Method （提炼函数）是最常用的重构手法之一。当看见一个过长的函数或者一段需要注释才能让人理解用途的代码，就应该将这段代码放进一个独立函数中。</p>
-<p>简短而命名良好的函数的好处：首先，如果每个函数的粒度都很小，那么函数被复用的机会就更大；其次，这会使高层函数读起来就想一系列注释；再次，如果函数都是细粒度，那么函数的覆写也会更容易些。</p>
-<p><a href="http://msdn.microsoft.com/en-us/library/0s21cwxk.aspx" target="_blank" rel="noopener">Further Read</a></p>
-<hr>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="http://www.cplusplus.com/reference/cstring/memset/" target="_blank" rel="noopener">memset</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E4%B8%80%E6%AC%A1%E4%B8%94%E4%BB%85%E4%B8%80%E6%AC%A1" target="_blank" rel="noopener">一次且仅一次</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99" target="_blank" rel="noopener">开闭原则</a></p>
-<p><a href="http://zh.wikipedia.org/wiki/%E4%BB%A3%E7%A0%81%E9%87%8D%E6%9E%84" target="_blank" rel="noopener">代码重构</a></p>
+        <h1 id="Jenkins插件小贴士-五-About-Artifact-2"><a href="#Jenkins插件小贴士-五-About-Artifact-2" class="headerlink" title="Jenkins插件小贴士 (五)  About Artifact 2"></a>Jenkins插件小贴士 (五)  About Artifact 2</h1><h1 id="历史问题"><a href="#历史问题" class="headerlink" title="历史问题"></a>历史问题</h1><p>上一篇&lt;&lt;<a href="http://antinomy.top/2020/03/25/Tech-2020-2020-03-25-JenkinsTips4/">Jenkins插件小贴士 (四)  About Artifact</a>&gt;&gt;<br>介绍了如何将构建完的二进制物(JAR/WAR)上传到Maven私库,但还是有可以改进的地方.</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">     NEXUS_URL=<span class="string">"nexus.xxx.com"</span></span><br><span class="line">     NEXUS_REPOSITOR=<span class="string">"maven-xxx"</span></span><br><span class="line">     GROUP_ID=<span class="string">"org.life-easier"</span></span><br><span class="line">     VERSION=<span class="string">"1.0.0"</span></span><br><span class="line"></span><br><span class="line">     FILE_PATH = <span class="string">"target"</span></span><br><span class="line">     FILE_NAME = <span class="string">"iptools-$&#123;VERSION&#125;.jar"</span></span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>比如:</p>
+<ul>
+<li><p>GROUP ID和ARTIFACT ID这些都是硬编码的</p>
+<p>  每次发布新版本都需要修改Jenkinsfile</p>
+</li>
+<li><p>上传到Maven私服的JAR需要多一个POM文件来描述才能顺利被客户端的Maven识别和下载.</p>
+<p>  如果不是通过mvn deploy的方式是不会自动产生pom文件的,但采用mvn deploy的方式又需要在maven setting暴露私库账号和密码.</p>
+</li>
+</ul>
+<h1 id="新思路"><a href="#新思路" class="headerlink" title="新思路"></a>新思路</h1><p>  参考了 github上的<a href="https://github.com/zeyangli/springboot-helloworld.git" target="_blank" rel="noopener">Jenkins集成Nexus demo项目</a>, 有了新的想法:</p>
+<ul>
+<li>利用Jenkins ci 读取项目里的POM.xml文件</li>
+<li>代码生成对应的xx.pom文件</li>
+<li>上传到私库</li>
+</ul>
+<h1 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h1><ul>
+<li><p>安装插件 ：Pipeline Utility Steps<br>通过插件<a href="https://www.jenkins.io/doc/pipeline/steps/pipeline-utility-steps/" target="_blank" rel="noopener">Pipeline Utility Steps</a><br>可以很方便地使用readMavenPom命令读取pom文件</p>
+</li>
+<li><p>设置Jenkins权限 scriptApproval : 允许Approval<br>Jenkins执行groovy脚本的时候会出错,是因为权限问题,需要设置对应的权限才能让脚本顺利写文件到硬盘里.</p>
+<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><ul>
+<li>定义POM文件所需变量</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">environment &#123;</span><br><span class="line">       NEXUS_URL=<span class="string">"nexus.xxx.com"</span></span><br><span class="line">       NEXUS_REPOSITOR=<span class="string">"maven-xxx"</span></span><br><span class="line"></span><br><span class="line">       GROUP_ID = <span class="string">""</span></span><br><span class="line">       VERSION = <span class="string">""</span></span><br><span class="line">       ARTIFACT_ID = <span class="string">""</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用readMavenPom命令读取POM.xml文件</li>
+</ul>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">script &#123;</span><br><span class="line">     <span class="keyword">def</span> pom = readMavenPom <span class="string">file:</span> <span class="string">'pom.xml'</span></span><br><span class="line">     echo pom.toString()</span><br><span class="line"></span><br><span class="line">     GROUP_ID = pom.groupId</span><br><span class="line">     VERSION = pom.version</span><br><span class="line">     ARTIFACT_ID = pom.artifactId</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义xx.pom文件模板和替换变量,生成xx.pom文件</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">script &#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">def</span> pomContent = <span class="string">"""</span></span><br><span class="line"><span class="string"> &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="string"> &lt;project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"</span></span><br><span class="line"><span class="string">   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;</span></span><br><span class="line"><span class="string">     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span></span><br><span class="line"><span class="string">     &lt;groupId&gt;$&#123;GROUP_ID&#125;&lt;/groupId&gt;</span></span><br><span class="line"><span class="string">     &lt;artifactId&gt;$&#123;ARTIFACT_ID&#125;&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">     &lt;version&gt;$&#123;VERSION&#125;&lt;/version&gt;</span></span><br><span class="line"><span class="string">     &lt;description&gt;POM was created from jenkins-ci&lt;/description&gt;</span></span><br><span class="line"><span class="string"> &lt;/project&gt;</span></span><br><span class="line"><span class="string">   """</span></span><br><span class="line"></span><br><span class="line">   writeFile <span class="string">file:</span> <span class="string">"target/$&#123;ARTIFACT_ID&#125;-$&#123;VERSION&#125;.pom"</span>, <span class="string">text:</span> pomContent</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="完整DSL"><a href="#完整DSL" class="headerlink" title="完整DSL"></a>完整DSL</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pipeline &#123;</span><br><span class="line">    agent any</span><br><span class="line"></span><br><span class="line">    environment &#123;</span><br><span class="line">        NEXUS_URL=<span class="string">"nexus.xxx.com"</span></span><br><span class="line">        NEXUS_REPOSITOR=<span class="string">"maven-xxx"</span></span><br><span class="line"></span><br><span class="line">        GROUP_ID = <span class="string">""</span></span><br><span class="line">        VERSION = <span class="string">""</span></span><br><span class="line">        ARTIFACT_ID = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    stages &#123;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Get Code'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                git <span class="string">branch:</span> <span class="string">"master"</span>, <span class="string">credentialsId:</span> <span class="string">'xxx'</span>, <span class="string">url:</span> <span class="string">"https://gitlab.xxx.com/life-easier/iptools.git"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Build JAR'</span>) &#123;</span><br><span class="line">            steps &#123;</span><br><span class="line">                sh <span class="string">'mvn clean package'</span></span><br><span class="line">                sh <span class="string">'ls -l target/'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        stage(<span class="string">'Publish JAR'</span>) &#123;</span><br><span class="line"></span><br><span class="line">                    steps &#123;</span><br><span class="line">                        script &#123;</span><br><span class="line">                            <span class="keyword">def</span> pom = readMavenPom <span class="string">file:</span> <span class="string">'pom.xml'</span></span><br><span class="line">                            echo pom.toString()</span><br><span class="line"></span><br><span class="line">                            GROUP_ID = pom.groupId</span><br><span class="line">                            VERSION = pom.version</span><br><span class="line">                            ARTIFACT_ID = pom.artifactId</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        script &#123;</span><br><span class="line"></span><br><span class="line">                            <span class="keyword">def</span> pomContent = <span class="string">"""</span></span><br><span class="line"><span class="string">        &lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="string">        &lt;project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"</span></span><br><span class="line"><span class="string">          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;</span></span><br><span class="line"><span class="string">            &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span></span><br><span class="line"><span class="string">            &lt;groupId&gt;$&#123;GROUP_ID&#125;&lt;/groupId&gt;</span></span><br><span class="line"><span class="string">            &lt;artifactId&gt;$&#123;ARTIFACT_ID&#125;&lt;/artifactId&gt;</span></span><br><span class="line"><span class="string">            &lt;version&gt;$&#123;VERSION&#125;&lt;/version&gt;</span></span><br><span class="line"><span class="string">            &lt;description&gt;POM was created from jenkins-ci&lt;/description&gt;</span></span><br><span class="line"><span class="string">        &lt;/project&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">                            """</span></span><br><span class="line"></span><br><span class="line">                            writeFile <span class="string">file:</span> <span class="string">"target/$&#123;ARTIFACT_ID&#125;-$&#123;VERSION&#125;.pom"</span>, <span class="string">text:</span> pomContent</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                        nexusArtifactUploader(</span><br><span class="line"><span class="symbol">                                nexusVersion:</span> <span class="string">'nexus3'</span>,</span><br><span class="line"><span class="symbol">                                protocol:</span> <span class="string">'https'</span>,</span><br><span class="line"><span class="symbol">                                nexusUrl:</span> NEXUS_URL,</span><br><span class="line"><span class="symbol">                                groupId:</span> <span class="string">"$&#123;GROUP_ID&#125;"</span>,</span><br><span class="line"><span class="symbol">                                version:</span> <span class="string">"$&#123;VERSION&#125;"</span>,</span><br><span class="line"><span class="symbol">                                repository:</span> NEXUS_REPOSITOR,</span><br><span class="line"><span class="symbol">                                credentialsId:</span> <span class="string">'nexus-cre-id'</span>,</span><br><span class="line"><span class="symbol">                                artifacts:</span> [</span><br><span class="line">                                        [<span class="string">artifactId:</span> <span class="string">"$&#123;ARTIFACT_ID&#125;"</span>,</span><br><span class="line"><span class="symbol">                                         classifier:</span> <span class="string">''</span>,</span><br><span class="line">                                         <span class="string">file      :</span> <span class="string">"target/$&#123;ARTIFACT_ID&#125;-$&#123;VERSION&#125;.jar"</span>,</span><br><span class="line">                                         <span class="string">type      :</span> <span class="string">'jar'</span>],</span><br><span class="line">                                        [<span class="string">artifactId:</span> <span class="string">"$&#123;ARTIFACT_ID&#125;"</span>,</span><br><span class="line"><span class="symbol">                                         classifier:</span> <span class="string">''</span>,</span><br><span class="line">                                         <span class="string">file      :</span> <span class="string">"target/$&#123;ARTIFACT_ID&#125;-$&#123;VERSION&#125;.pom"</span>,</span><br><span class="line">                                         <span class="string">type      :</span> <span class="string">'pom'</span>]</span><br><span class="line">                                ]</span><br><span class="line">                        )</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="权限问题"><a href="#权限问题" class="headerlink" title="权限问题"></a>权限问题</h1><p>执行job的时候会遇到错误: Scripts not permitted to use method xxx<br><img src="/img/2020/Jenkins-5-1.png" alt="img"></p>
+<p>这个时候需要管理员去  Jenkins &gt;&gt; ScriptApproval 去approval对应的脚本.</p>
+<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><ul>
+<li>此过程需要不断调试直至Job顺利完成</li>
+<li>自此就可以把项目把maven构建和上传私库2个动作分开,降低开发人员的入手难度.</li>
+</ul>
 
       
     </div>
@@ -471,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/08/26/Tao-2014-2014-08-26-WhatBuddhaSay/" rel="next" title="WhatBuddhaSay?">
-                <i class="fa fa-chevron-left"></i> WhatBuddhaSay?
+              <a href="/2020/03/25/Tech-2020-2020-03-25-JenkinsTips4/" rel="next" title="Jenkins Tips , About Artifact">
+                <i class="fa fa-chevron-left"></i> Jenkins Tips , About Artifact
               </a>
             
           </div>
@@ -480,10 +482,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/09/03/Tech-2014-2014-09-03-IssuesOnUpgradeJekyll-2-2-0/" rel="prev" title="Issues On Upgrade Jekyll-2.2.0">
-                Issues On Upgrade Jekyll-2.2.0 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -666,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提炼方法的好处？"><span class="nav-number">1.</span> <span class="nav-text">提炼方法的好处？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#同事对此有以下几点疑问"><span class="nav-number">1.1.</span> <span class="nav-text">同事对此有以下几点疑问:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动机"><span class="nav-number">1.2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有什么好处"><span class="nav-number">1.3.</span> <span class="nav-text">有什么好处?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多了个方法，性能会变低"><span class="nav-number">1.4.</span> <span class="nav-text">多了个方法，性能会变低?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与过去的风格不同，增加学习曲线。"><span class="nav-number">1.5.</span> <span class="nav-text">与过去的风格不同，增加学习曲线。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extract-Method"><span class="nav-number">1.6.</span> <span class="nav-text">Extract Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jenkins插件小贴士-五-About-Artifact-2"><span class="nav-number">1.</span> <span class="nav-text">Jenkins插件小贴士 (五)  About Artifact 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#历史问题"><span class="nav-number">2.</span> <span class="nav-text">历史问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新思路"><span class="nav-number">3.</span> <span class="nav-text">新思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前置条件"><span class="nav-number">4.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体实现"><span class="nav-number">5.</span> <span class="nav-text">具体实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整DSL"><span class="nav-number">6.</span> <span class="nav-text">完整DSL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限问题"><span class="nav-number">7.</span> <span class="nav-text">权限问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#End"><span class="nav-number">8.</span> <span class="nav-text">End</span></a></li></ol></div>
             
 
           </div>
