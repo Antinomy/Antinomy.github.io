@@ -396,17 +396,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 8 DomainEvent]]></title>
-    <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-8%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 八: 领域事件用于捕获发生在领域内，领域专家所关心的一些事情 MindMapping Source (Org Format):123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051* 领域事件 用于捕获发生在领域内，领域专家所关心的一些事情** 何时/为什么使用？*** 当。。。的时候。。*** 通用语言的正式成员** 建模*** 创建具有聚合特征的**** 发生在过去的事情**** 应设计成不变的，但拥有唯一标识*** 身份标识**** 方便比较**** 需要发布在外部限界上下文时，唯一标识是必要的** 发布*** 从领域模型中发布**** 观察者模式***** 发送方 由聚合创建，并发布出去***** 订阅方 由应用/领域服务，向领域事件注册订阅 与聚合位于相同线程内*** 向远程限界上下文发布**** 消息设施的一致性 最终一致性***** 领域模型和消息设施，共享持久化存储***** 领域模型的持久化存储和消息持久化存储，由全局XA事务（两段提交）所控制***** 领域模型的持久化存储中，创建特殊的存储区域，即事件存储**** 自治服务和系统***** 通过领域事件，将任何系统设计成自治服务和系统***** 避免远程过程调用（RPC）**** 容许时延 长时间的事件延迟有可能发生** 事件存储*** 作为消息队列使用，将所有领域事件发布出去*** 基于REST的事件通知*** 跟踪bug*** 业务分析和预测*** 重建聚合*** 撤销操作** (向外部)转发存储事件的架构风格*** 发布事件通知**** 以REST资源的方式***** “拉”的方式，非“推”的方式***** 不能很好支持有顺序的接收**** 通过消息中间件** 实现*** 发布NotifiactionLog*** 发布基于消息的事件通知**** 事件消重***** 幂等操作 进行多次重复操作和只进行一次操作所产生的结果相同.]]></content>
-      <categories>
-        <category>Art</category>
-      </categories>
-      <tags>
-        <tag>DDD</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[IDDD 9 Module]]></title>
     <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-9%2F</url>
     <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 九: 模块模块是命名的容器，通用语言的重要组成部分。 MindMapping Source (Org Format):12345678910111213141516171819202122232425262728293031* 模块** Module*** Java**** package*** C#**** namespace*** Ruby**** module** 通过模块完成设计*** 命名的容器*** 通用语言的重要组成部分*** 设计规则**** 和领域概念协调一致**** 根据通用语言来命名模块**** 不要机械式根据组件类型来创建 eg 所有领域服务放在一起**** 松耦合**** 杜绝循环依赖**** 父子模块放松原则**** 不是静态概念，与模型的对象一道进行建模** 模块的基本命名规范*** 层级形式命名*** 避免顶级模块名与第三方模块命名冲突** 领域模型的命名规范*** 加入限界上下文名*** *.domain.model** 其他层的模块*** 分层架构命名*** 需要时才划分子模块** 先考虑模块，再考虑上下文]]></content>
@@ -415,6 +404,17 @@
       </categories>
       <tags>
         <tag>IDDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[IDDD 8 DomainEvent]]></title>
+    <url>%2F2014%2F07%2F31%2FArt-2014-2014-07-31-IDDD-8%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 八: 领域事件用于捕获发生在领域内，领域专家所关心的一些事情 MindMapping Source (Org Format):123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051* 领域事件 用于捕获发生在领域内，领域专家所关心的一些事情** 何时/为什么使用？*** 当。。。的时候。。*** 通用语言的正式成员** 建模*** 创建具有聚合特征的**** 发生在过去的事情**** 应设计成不变的，但拥有唯一标识*** 身份标识**** 方便比较**** 需要发布在外部限界上下文时，唯一标识是必要的** 发布*** 从领域模型中发布**** 观察者模式***** 发送方 由聚合创建，并发布出去***** 订阅方 由应用/领域服务，向领域事件注册订阅 与聚合位于相同线程内*** 向远程限界上下文发布**** 消息设施的一致性 最终一致性***** 领域模型和消息设施，共享持久化存储***** 领域模型的持久化存储和消息持久化存储，由全局XA事务（两段提交）所控制***** 领域模型的持久化存储中，创建特殊的存储区域，即事件存储**** 自治服务和系统***** 通过领域事件，将任何系统设计成自治服务和系统***** 避免远程过程调用（RPC）**** 容许时延 长时间的事件延迟有可能发生** 事件存储*** 作为消息队列使用，将所有领域事件发布出去*** 基于REST的事件通知*** 跟踪bug*** 业务分析和预测*** 重建聚合*** 撤销操作** (向外部)转发存储事件的架构风格*** 发布事件通知**** 以REST资源的方式***** “拉”的方式，非“推”的方式***** 不能很好支持有顺序的接收**** 通过消息中间件** 实现*** 发布NotifiactionLog*** 发布基于消息的事件通知**** 事件消重***** 幂等操作 进行多次重复操作和只进行一次操作所产生的结果相同.]]></content>
+      <categories>
+        <category>Art</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
       </tags>
   </entry>
   <entry>
@@ -462,9 +462,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 3 Context Map]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
+    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
       <categories>
         <category>Art</category>
       </categories>
@@ -473,9 +473,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
+    <title><![CDATA[IDDD 3 Context Map]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
       <categories>
         <category>Art</category>
       </categories>
