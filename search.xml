@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[minikube start issue]]></title>
+    <url>%2F2021%2F11%2F24%2FTech-2021-2021-11-24-minikubeStartIssue%2F</url>
+    <content type="text"><![CDATA[minikube start issue把macos升级到 Monterey之后， 发现minkube start 失败了。报一个bsdthread_register error的错误，具体日志如下： 123456789101112minikube startfatal error: runtime: bsdthread_register errorruntime stack:runtime.throw(0x20b9368, 0x21) /usr/local/go/src/runtime/panic.go:605 +0x95 fp=0x7ff7bfeff560 sp=0x7ff7bfeff540 pc=0x102b565runtime.goenvs() /usr/local/go/src/runtime/os_darwin.go:108 +0x83 fp=0x7ff7bfeff590 sp=0x7ff7bfeff560 pc=0x1028e03runtime.schedinit() /usr/local/go/src/runtime/proc.go:482 +0xa1 fp=0x7ff7bfeff5d0 sp=0x7ff7bfeff590 pc=0x102df11runtime.rt0_go(0x7ff7bfeff608, 0x2, 0x7ff7bfeff608, 0x0, 0x1000000, 0x2, 0x7ff7bfeff810, 0x7ff7bfeff819, 0x0, 0x7ff7bfeff81f, ...) /usr/local/go/src/runtime/asm_amd64.s:175 +0x1eb fp=0x7ff7bfeff5d8 sp=0x7ff7bfeff5d0 pc=0x1058d2b google了一轮解决方案，试了不少方式：升级brew、minikube、go、docker等，还是不行。 查了一下官网文档，发现有一段描述了： If which minikube fails after installation via brew, you may have to remove the old minikube links and link the newly installed binary:brew unlink minikubebrew link minikube 最后overwrite brew link解决了问题。 brew link --overwrite minikube 运行minikube status， 正常启动。 minikube type: Control Plane host: Running kubelet: Running apiserver: Running kubeconfig: Configured Ref＊ https://github.com/kubernetes/minikube/issues/12832 https://minikube.sigs.k8s.io/docs/start/]]></content>
+      <categories>
+        <category>Tech</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Web Secure Test Tech]]></title>
     <url>%2F2020%2F06%2F28%2FArt-2020-2020-06-28-WebSecureTestTech%2F</url>
     <content type="text"><![CDATA[Web 应用安全测试技术速览概览Web 应用安全测试技术主要有 3 种: DAST SAST IAST 区别 End不同时期选择不同的工具,例如: 日常迭代开发的时候嵌入 SAST项目上线验收前嵌入 DAST 和 IAST]]></content>
@@ -510,9 +518,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 3 Context Map]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
+    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
       <categories>
         <category>Art</category>
       </categories>
@@ -521,9 +529,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[IDDD 2 Domian,Subdomain and Bounded Context]]></title>
-    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-2%2F</url>
-    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 二 : 领域、子域和限界上下文 MindMapping Source:123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354* 领域、子域和限界上下文** 领域（一个组织所做的事情以及其中所包含的一切）*** （即）核心域**** 关注点** 子域*** 模块** 限界上下文*** 上下文映射图*** 理解**** 显式边界***** “大而全”注定失败***** 上下文才是王道**** 充满语义**** 不仅仅只包括模型***** DB Schema***** UI****** 拒绝使用智能UI反模式（Smart UI Anti-Pattern）**** 大小标准***** 如音乐完整性、纯洁性、力量、优雅、美***** 陷阱****** 根据开发任务拆分限界上下文****** 为了架构或资源创建****** 急于小型化**** 与技术组件保持一致***** IDE****** Eclipse/IntelliJ IDEA******* Project****** VS.NET******* Solution***** Java****** Top Package Name****** JAR/WAR/EAR******* OSGi******* Jigsaw***** .Net****** DLL** 战略设计*** 为什么重要？**** 更广阔的视野**** 避免大泥球架构（Big Ball of Mud）** 现实中的领域和子域*** 问题空间（Problem Space）**** 核心域和其他子域的组合*** 解决方案空间（Solution Space）**** 一组特定的软件模型**** 包括一个或多限界上下文通常希望和子域一对一]]></content>
+    <title><![CDATA[IDDD 3 Context Map]]></title>
+    <url>%2F2014%2F07%2F20%2FArt-2014-2014-07-20-IDDD-3%2F</url>
+    <content type="text"><![CDATA[&lt;&lt; 实现领域驱动设计 &gt;&gt; 三 : 上下文映射图见过太多大泥球了，最后不得不另谋他路。 MindMapping Source:12345678910111213141516171819202122232425262728293031323334353637383940414243* 上下文映射图** 为什么重要?*** 反映出与"大泥团"之间的集成关系*** 从解决方案空间的角度看待问题** 绘制*** [Brandolini]风格*** U/D**** 上游(Upstream)**** 下游(Downstream)*** 不是企业架构** 产品和组织关系*** 合作关系Partnership*** 共享内核 Shared Kernel*** 客户方-供应方开发Customer-Supplier Development*** 尊奉者Conformist*** 另谋他路Separate Way*** 大泥球Big Ball Of Mud*** 防腐层(ACL)Anticorruption Layer**** 领域服务Domain Service*** 开放主机服务(OHS)Open Host Service**** REST*** 发布语言(PL)Published Language**** REST***** XML***** JSON**** EDA事件驱动架构(Event-Driven Architecture) ***** 领域事件Domain Event***** 最终一致性Eventual Consistency]]></content>
       <categories>
         <category>Art</category>
       </categories>
